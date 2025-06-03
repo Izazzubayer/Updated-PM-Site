@@ -5,23 +5,23 @@ const IntegrationsSection = () => {
   const integrations = [
     {
       name: "Shopify",
-      logo: "S",
-      color: "bg-green-100 text-green-600"
+      logo: "https://cdn.worldvectorlogo.com/logos/shopify.svg",
+      color: "hover:scale-110"
     },
     {
       name: "Google",
-      logo: "G",
-      color: "bg-blue-100 text-blue-600"
+      logo: "https://cdn.worldvectorlogo.com/logos/google-1-1.svg",
+      color: "hover:scale-110"
     },
     {
-      name: "Revision Lab",
-      logo: "R",
-      color: "bg-purple-100 text-purple-600"
+      name: "Adobe",
+      logo: "https://cdn.worldvectorlogo.com/logos/adobe-1.svg",
+      color: "hover:scale-110"
     },
     {
-      name: "NUREG",
-      logo: "N",
-      color: "bg-gray-100 text-gray-600"
+      name: "AWS",
+      logo: "https://cdn.worldvectorlogo.com/logos/aws-2.svg",
+      color: "hover:scale-110"
     }
   ];
 
@@ -30,8 +30,8 @@ const IntegrationsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Apps & Integration</h2>
-          <p className="text-xl text-gray-600">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4 font-jakarta">Apps & Integration</h2>
+          <p className="text-xl text-gray-600 font-product">
             Industry-leading Optimized APIs Customizable for exceptional results
           </p>
         </div>
@@ -41,12 +41,16 @@ const IntegrationsSection = () => {
           {integrations.map((integration, index) => (
             <div 
               key={index}
-              className="group flex flex-col items-center space-y-4 hover:scale-110 transition-transform duration-300"
+              className={`group flex flex-col items-center space-y-4 ${integration.color} transition-transform duration-300`}
             >
-              <div className={`w-20 h-20 rounded-2xl ${integration.color} flex items-center justify-center text-2xl font-bold shadow-lg group-hover:shadow-xl transition-shadow`}>
-                {integration.logo}
+              <div className="w-24 h-24 flex items-center justify-center">
+                <img 
+                  src={integration.logo} 
+                  alt={integration.name} 
+                  className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                />
               </div>
-              <span className="text-gray-700 font-medium">{integration.name}</span>
+              <span className="text-gray-700 font-medium font-product">{integration.name}</span>
             </div>
           ))}
         </div>

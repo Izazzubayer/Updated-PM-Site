@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Play, Star, Users, CheckCircle, Download, Box, Upload, Zap, Globe, ArrowRight, Monitor, Layers } from 'lucide-react';
 import Header from '../../components/Header';
@@ -96,7 +95,12 @@ const HoloSnap = () => {
   ];
 
   const integrations = [
-    "Blender", "Unity", "Unreal Engine", "Maya", "3ds Max", "Cinema 4D"
+    { name: "Blender", logo: "https://cdn.worldvectorlogo.com/logos/blender-2.svg" },
+    { name: "Unity", logo: "https://cdn.worldvectorlogo.com/logos/unity-69.svg" },
+    { name: "Unreal Engine", logo: "https://cdn.worldvectorlogo.com/logos/unreal-engine-1.svg" },
+    { name: "Maya", logo: "https://cdn.worldvectorlogo.com/logos/autodesk-maya.svg" },
+    { name: "3ds Max", logo: "https://cdn.worldvectorlogo.com/logos/autodesk-3ds-max.svg" },
+    { name: "Cinema 4D", logo: "https://cdn.worldvectorlogo.com/logos/cinema-4d-1.svg" }
   ];
 
   return (
@@ -234,14 +238,21 @@ const HoloSnap = () => {
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16 animate-fade-in-up">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Seamless Integrations</h2>
-              <p className="text-xl text-gray-600">Works with your favorite 3D software</p>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4 font-jakarta">Seamless Integrations</h2>
+              <p className="text-xl text-gray-600 font-product">Works with your favorite 3D software</p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
               {integrations.map((integration, index) => (
-                <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center hover:shadow-lg transition-all duration-300 hover-lift animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="text-lg font-semibold text-gray-700">{integration}</div>
+                <div key={index} className="group bg-white p-8 rounded-xl shadow-sm border border-gray-200 text-center hover:shadow-lg transition-all duration-300 hover-lift animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <img 
+                      src={integration.logo} 
+                      alt={integration.name} 
+                      className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    />
+                  </div>
+                  <div className="text-lg font-semibold text-gray-700 font-product">{integration.name}</div>
                 </div>
               ))}
             </div>

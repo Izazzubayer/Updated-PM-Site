@@ -70,7 +70,12 @@ const RetouchedAI = () => {
   ];
 
   const integrations = [
-    "Shopify", "WordPress", "Adobe Photoshop", "Figma", "Canva", "WooCommerce"
+    { name: "Shopify", logo: "https://cdn.worldvectorlogo.com/logos/shopify.svg" },
+    { name: "WordPress", logo: "https://cdn.worldvectorlogo.com/logos/wordpress-blue.svg" },
+    { name: "Adobe Photoshop", logo: "https://cdn.worldvectorlogo.com/logos/adobe-photoshop-2.svg" },
+    { name: "Figma", logo: "https://cdn.worldvectorlogo.com/logos/figma-1.svg" },
+    { name: "Canva", logo: "https://cdn.worldvectorlogo.com/logos/canva-1.svg" },
+    { name: "WooCommerce", logo: "https://cdn.worldvectorlogo.com/logos/woocommerce.svg" }
   ];
 
   const pricingPlans = [
@@ -235,20 +240,27 @@ const RetouchedAI = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16 animate-fade-in-up">
               <h2 className="text-4xl font-bold text-gray-900 mb-4 font-jakarta">Integrations</h2>
-              <p className="text-xl text-gray-600">Works seamlessly with your favorite tools</p>
+              <p className="text-xl text-gray-600 font-product">Works seamlessly with your favorite tools</p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
               {integrations.map((integration, index) => (
-                <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center hover:shadow-lg transition-all duration-300 hover-lift animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="text-lg font-semibold text-gray-700 font-jakarta">{integration}</div>
+                <div key={index} className="group bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center hover:shadow-lg transition-all duration-300 hover-lift animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <img 
+                      src={integration.logo} 
+                      alt={integration.name} 
+                      className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    />
+                  </div>
+                  <div className="text-lg font-semibold text-gray-700 font-jakarta">{integration.name}</div>
                 </div>
               ))}
             </div>
 
             <div className="text-center mt-12 animate-fade-in-up animate-delay-300">
-              <p className="text-gray-600 mb-4">Need a custom integration?</p>
-              <button className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <p className="text-gray-600 mb-4 font-product">Need a custom integration?</p>
+              <button className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 hover:scale-105 hover:shadow-lg font-product">
                 Contact Our Team
               </button>
             </div>
