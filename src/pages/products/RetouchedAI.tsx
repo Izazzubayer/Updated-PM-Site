@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Play, Star, Users, CheckCircle, Download, Zap, Upload, ArrowRight, Monitor, Layers, Clock, Shield, Globe, Sparkles } from 'lucide-react';
 import Header from '../../components/Header';
@@ -100,7 +99,7 @@ const RetouchedAI = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white font-product">
       <Header />
       <ScrollToTop />
       
@@ -115,7 +114,7 @@ const RetouchedAI = () => {
                   <span>AI-Powered Background Removal</span>
                 </div>
                 
-                <h1 className="text-6xl font-bold text-gray-900 leading-tight gradient-text">
+                <h1 className="text-6xl font-bold text-gray-900 leading-tight gradient-text font-jakarta">
                   Instant, Pixel-Perfect Background Removal
                 </h1>
                 
@@ -169,7 +168,7 @@ const RetouchedAI = () => {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16 animate-fade-in-up">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Key Features</h2>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4 font-jakarta">Key Features</h2>
               <p className="text-xl text-gray-600">Professional-grade tools for perfect background removal</p>
             </div>
 
@@ -179,7 +178,7 @@ const RetouchedAI = () => {
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-green-100 rounded-xl flex items-center justify-center mx-auto mb-6">
                     <feature.icon className="w-8 h-8 text-green-500" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3 font-jakarta">{feature.title}</h3>
                   <p className="text-gray-600">{feature.description}</p>
                 </div>
               ))}
@@ -191,7 +190,7 @@ const RetouchedAI = () => {
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16 animate-fade-in-up">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4 font-jakarta">How It Works</h2>
               <p className="text-xl text-gray-600">Three simple steps to perfect background removal</p>
             </div>
 
@@ -201,7 +200,7 @@ const RetouchedAI = () => {
                   <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6 hover:scale-110 transition-transform duration-300">
                     <step.icon className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-3">{step.title}</h3>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-3 font-jakarta">{step.title}</h3>
                   <p className="text-gray-600 text-lg">{step.description}</p>
                 </div>
               ))}
@@ -213,7 +212,7 @@ const RetouchedAI = () => {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16 animate-fade-in-up">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Retouched.Ai?</h2>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4 font-jakarta">Why Retouched.Ai?</h2>
               <p className="text-xl text-gray-600">Trusted by professionals worldwide</p>
             </div>
 
@@ -223,7 +222,7 @@ const RetouchedAI = () => {
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-green-100 rounded-xl flex items-center justify-center mx-auto mb-6">
                     <reason.icon className="w-8 h-8 text-green-500" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{reason.title}</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3 font-jakarta">{reason.title}</h3>
                   <p className="text-gray-600">{reason.description}</p>
                 </div>
               ))}
@@ -235,14 +234,14 @@ const RetouchedAI = () => {
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16 animate-fade-in-up">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Integrations</h2>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4 font-jakarta">Integrations</h2>
               <p className="text-xl text-gray-600">Works seamlessly with your favorite tools</p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
               {integrations.map((integration, index) => (
                 <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center hover:shadow-lg transition-all duration-300 hover-lift animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="text-lg font-semibold text-gray-700">{integration}</div>
+                  <div className="text-lg font-semibold text-gray-700 font-jakarta">{integration}</div>
                 </div>
               ))}
             </div>
@@ -260,7 +259,7 @@ const RetouchedAI = () => {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16 animate-fade-in-up">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Plans & Pricing</h2>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4 font-jakarta">Plans & Pricing</h2>
               <p className="text-xl text-gray-600">Choose the perfect plan for your needs</p>
             </div>
 
@@ -272,8 +271,8 @@ const RetouchedAI = () => {
                       Most Popular
                     </div>
                   )}
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                  <div className="text-4xl font-bold text-gray-900 mb-2">{plan.price}</div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2 font-jakarta">{plan.name}</h3>
+                  <div className="text-4xl font-bold text-gray-900 mb-2 font-jakarta">{plan.price}</div>
                   <p className="text-gray-600 mb-6">{plan.description}</p>
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((feature, featureIndex) => (
@@ -296,7 +295,7 @@ const RetouchedAI = () => {
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16 animate-fade-in-up">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">See the Results</h2>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4 font-jakarta">See the Results</h2>
               <p className="text-xl text-gray-600">Before and after examples from real users</p>
             </div>
 
@@ -308,7 +307,7 @@ const RetouchedAI = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-50"></div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Example {item}</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2 font-jakarta">Example {item}</h3>
                     <p className="text-gray-600">Professional background removal with preserved details</p>
                   </div>
                 </div>
@@ -320,7 +319,7 @@ const RetouchedAI = () => {
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-green-900 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in-up">
-            <h2 className="text-4xl font-bold mb-6">Ready to Remove Backgrounds Like a Pro?</h2>
+            <h2 className="text-4xl font-bold mb-6 font-jakarta">Ready to Remove Backgrounds Like a Pro?</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Join thousands of professionals using Retouched.Ai for perfect background removal.
             </p>

@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { Twitter, Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 text-white font-product">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
@@ -14,7 +13,7 @@ const Footer = () => {
               <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                 <div className="w-4 h-4 bg-white rounded-full"></div>
               </div>
-              <span className="text-lg font-semibold">The Kow Company Ltd</span>
+              <span className="text-lg font-semibold font-jakarta">The Kow Company Ltd</span>
             </Link>
             <p className="text-gray-400 leading-relaxed">
               Transforming businesses through innovative digital solutions, advanced 3D experiences, and AI-powered automation.
@@ -37,7 +36,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Services</h3>
+            <h3 className="text-lg font-semibold mb-6 font-jakarta">Services</h3>
             <ul className="space-y-3">
               <li><Link to="/services" className="text-gray-400 hover:text-green-500 transition-colors">Image Editing</Link></li>
               <li><Link to="/services" className="text-gray-400 hover:text-green-500 transition-colors">Video Production</Link></li>
@@ -50,7 +49,7 @@ const Footer = () => {
 
           {/* Products & Pages */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Products</h3>
+            <h3 className="text-lg font-semibold mb-6 font-jakarta">Products</h3>
             <ul className="space-y-3">
               <li><Link to="/products/retouched-ai" className="text-gray-400 hover:text-green-500 transition-colors">Retouched AI</Link></li>
               <li><Link to="/products/hotsnap" className="text-gray-400 hover:text-green-500 transition-colors">HotSnap</Link></li>
@@ -63,7 +62,7 @@ const Footer = () => {
 
           {/* Support */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Support</h3>
+            <h3 className="text-lg font-semibold mb-6 font-jakarta">Support</h3>
             <ul className="space-y-3">
               <li><Link to="/support/about-us" className="text-gray-400 hover:text-green-500 transition-colors">About Us</Link></li>
               <li><Link to="/support/contact-us" className="text-gray-400 hover:text-green-500 transition-colors">Contact Us</Link></li>

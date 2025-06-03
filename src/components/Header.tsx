@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Globe, Menu, X, Camera, Video, Box, Monitor, Code, Bot } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
@@ -91,11 +90,11 @@ const Header = () => {
             <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
               <div className="w-4 h-4 bg-white rounded-full"></div>
             </div>
-            <span className="text-lg font-semibold text-gray-900">The Kow Company Ltd</span>
+            <span className="text-lg font-semibold text-gray-900 font-jakarta">The Kow Company Ltd</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8 font-product">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -193,7 +192,7 @@ const Header = () => {
           </nav>
 
           {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-4 font-product">
             <Link 
               to="/signin"
               className="text-gray-700 hover:text-green-500 transition-colors"
@@ -225,9 +224,9 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t shadow-lg">
-            <nav className="px-4 py-6 space-y-4">
+            <nav className="px-4 py-6 space-y-4 font-product">
               <div className="space-y-2">
-                <div className="font-medium text-gray-900">Services</div>
+                <div className="font-medium text-gray-900 font-jakarta">Services</div>
                 <div className="pl-4 space-y-2">
                   {services.map((service) => (
                     <Link 
@@ -241,7 +240,7 @@ const Header = () => {
                 </div>
               </div>
               <div className="space-y-2">
-                <div className="font-medium text-gray-900">Products</div>
+                <div className="font-medium text-gray-900 font-jakarta">Products</div>
                 <div className="pl-4 space-y-2">
                   {products.map((product) => (
                     <Link 
