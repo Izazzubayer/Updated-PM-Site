@@ -10,6 +10,12 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -65,6 +71,21 @@ const Header = () => {
     }
   ];
 
+  const products = [
+    {
+      icon: Box,
+      title: "HoloSnap",
+      description: "Transform 2D images into 3D models",
+      href: "/products/holosnap"
+    },
+    {
+      icon: Camera,
+      title: "Retouched.Ai",
+      description: "AI-powered background removal",
+      href: "/products/retouched-ai"
+    }
+  ];
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white'
@@ -115,12 +136,31 @@ const Header = () => {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <Link 
-              to="/products" 
-              className={`transition-colors ${isActive('/products') ? 'text-green-500' : 'text-gray-700 hover:text-green-500'}`}
-            >
-              Products
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center space-x-1 text-gray-700 hover:text-green-500 transition-colors outline-none">
+                <span>Products</span>
+                <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-64 bg-white border shadow-lg">
+                {products.map((product) => (
+                  <DropdownMenuItem key={product.title} asChild className="cursor-pointer">
+                    <Link
+                      to={product.href}
+                      className="flex items-center space-x-3 p-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
+                        <product.icon className="w-4 h-4 text-gray-600" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-medium text-gray-900">{product.title}</div>
+                        <p className="text-xs text-gray-500">{product.description}</p>
+                      </div>
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Link 
               to="/integrations" 
               className={`transition-colors ${isActive('/integrations') ? 'text-green-500' : 'text-gray-700 hover:text-green-500'}`}
@@ -201,7 +241,20 @@ const Header = () => {
                   ))}
                 </div>
               </div>
-              <Link to="/products" className="block text-gray-700 hover:text-green-500">Products</Link>
+              <div className="space-y-2">
+                <div className="font-medium text-gray-900">Products</div>
+                <div className="pl-4 space-y-2">
+                  {products.map((product) => (
+                    <Link 
+                      key={product.title}
+                      to={product.href} 
+                      className="block text-gray-700 hover:text-green-500"
+                    >
+                      {product.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
               <Link to="/integrations" className="block text-gray-700 hover:text-green-500">Integrations</Link>
               <Link to="/pricing" className="block text-gray-700 hover:text-green-500">Pricing</Link>
               <Link to="/career" className="block text-gray-700 hover:text-green-500">Career</Link>

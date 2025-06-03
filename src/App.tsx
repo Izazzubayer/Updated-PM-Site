@@ -9,6 +9,7 @@ import Services from "./pages/Services";
 import Products from "./pages/Products";
 import RetouchedAI from "./pages/products/RetouchedAI";
 import HotSnap from "./pages/products/HotSnap";
+import HoloSnap from "./pages/products/HoloSnap";
 import Integrations from "./pages/Integrations";
 import Pricing from "./pages/Pricing";
 import Career from "./pages/Career";
@@ -50,6 +51,7 @@ const App = () => (
           <Route path="/products" element={<Products />} />
           <Route path="/products/retouched-ai" element={<RetouchedAI />} />
           <Route path="/products/hotsnap" element={<HotSnap />} />
+          <Route path="/products/holosnap" element={<HoloSnap />} />
           <Route path="/integrations" element={<Integrations />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/career" element={<Career />} />

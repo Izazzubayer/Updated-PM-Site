@@ -1,0 +1,288 @@
+
+import React from 'react';
+import { Play, Star, Users, CheckCircle, Download, Box, Upload, Zap, Globe, ArrowRight, Monitor } from 'lucide-react';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+
+const HoloSnap = () => {
+  const features = [
+    {
+      icon: Zap,
+      title: "AI-Powered Mesh Generation",
+      description: "Advanced algorithms create accurate 3D topology from single images"
+    },
+    {
+      icon: Monitor,
+      title: "Supports Multiple Angles",
+      description: "Upload multiple views for enhanced 3D reconstruction accuracy"
+    },
+    {
+      icon: CheckCircle,
+      title: "Clean Topology Output",
+      description: "Optimized mesh structure ready for professional workflows"
+    },
+    {
+      icon: Download,
+      title: "Multiple Export Formats",
+      description: "Export as GLB, FBX, OBJ, and other industry-standard formats"
+    }
+  ];
+
+  const useCases = [
+    {
+      title: "E-commerce 3D Previews",
+      description: "Transform product photos into interactive 3D models for online stores",
+      icon: Globe
+    },
+    {
+      title: "Product Design & Prototyping",
+      description: "Convert concept sketches into workable 3D prototypes",
+      icon: Box
+    },
+    {
+      title: "Game Asset Creation",
+      description: "Generate 3D assets from 2D concept art for games and simulations",
+      icon: Play
+    },
+    {
+      title: "AR/VR Applications",
+      description: "Create immersive 3D content for augmented and virtual reality",
+      icon: Monitor
+    }
+  ];
+
+  const steps = [
+    {
+      icon: Upload,
+      title: "Upload",
+      description: "Upload your 2D image or multiple angles"
+    },
+    {
+      icon: Zap,
+      title: "AI Reconstruction",
+      description: "Our AI analyzes and generates a 3D mesh"
+    },
+    {
+      icon: Download,
+      title: "3D Mesh Download",
+      description: "Download your model in preferred format"
+    }
+  ];
+
+  const pricingPlans = [
+    {
+      name: "Free Trial",
+      price: "Free",
+      description: "Perfect for testing",
+      features: ["5 conversions", "Basic quality", "GLB export", "Email support"],
+      cta: "Start Free Trial"
+    },
+    {
+      name: "Pro",
+      price: "$29/month",
+      description: "For professionals",
+      features: ["100 conversions/month", "High quality", "All export formats", "Priority support", "Batch processing"],
+      cta: "Get Pro Access",
+      featured: true
+    },
+    {
+      name: "Enterprise",
+      price: "Custom",
+      description: "For teams and businesses",
+      features: ["Unlimited conversions", "Premium quality", "API access", "Dedicated support", "Custom integrations"],
+      cta: "Contact Sales"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-white">
+      <Header />
+      
+      <main className="pt-16">
+        {/* Hero Section */}
+        <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-8">
+                <div className="inline-flex items-center space-x-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium">
+                  <Box className="w-4 h-4" />
+                  <span>2D to 3D Conversion</span>
+                </div>
+                
+                <h1 className="text-5xl font-bold text-gray-900 leading-tight">
+                  Turn Images into 3D Models with One Click
+                </h1>
+                
+                <p className="text-xl text-gray-600 leading-relaxed">
+                  HoloSnap uses AI to generate high-fidelity 3D meshes from any 2D input. Transform flat images into interactive 3D models in seconds.
+                </p>
+
+                <div className="flex items-center space-x-6">
+                  <div className="flex items-center space-x-1">
+                    <Star className="w-5 h-5 text-yellow-400 fill-current" />
+                    <span className="font-semibold">4.8/5</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <Users className="w-5 h-5 text-blue-500" />
+                    <span className="font-semibold">5,000+ creators</span>
+                  </div>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button className="bg-green-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-600 transition-colors flex items-center justify-center space-x-2">
+                    <span>Try HoloSnap</span>
+                    <Play className="w-5 h-5" />
+                  </button>
+                  
+                  <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-green-500 hover:text-green-500 transition-colors flex items-center justify-center space-x-2">
+                    <span>Book Demo</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="bg-white rounded-3xl shadow-2xl p-8">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl overflow-hidden flex items-center justify-center">
+                    <Box className="w-24 h-24 text-green-500" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works */}
+        <section className="py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
+              <p className="text-xl text-gray-600">Three simple steps to transform your 2D images into 3D models</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {steps.map((step, index) => (
+                <div key={index} className="text-center">
+                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <step.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
+                  <p className="text-gray-600">{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Use Cases */}
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Use Cases</h2>
+              <p className="text-xl text-gray-600">Discover how HoloSnap powers creativity across industries</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {useCases.map((useCase, index) => (
+                <div key={index} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <useCase.icon className="w-12 h-12 text-green-500 mb-4" />
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{useCase.title}</h3>
+                  <p className="text-gray-600">{useCase.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Features */}
+        <section className="py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Powerful Features</h2>
+              <p className="text-xl text-gray-600">Everything you need for professional 3D conversion</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {features.map((feature, index) => (
+                <div key={index} className="flex items-start space-x-4 p-6 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow">
+                  <feature.icon className="w-8 h-8 text-green-500 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Demo Section */}
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-4xl font-bold text-gray-900 mb-8">See HoloSnap in Action</h2>
+            <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-4xl mx-auto">
+              <div className="aspect-video bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl flex items-center justify-center">
+                <button className="w-20 h-20 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
+                  <Play className="w-8 h-8 text-green-500 ml-1" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing */}
+        <section className="py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Choose Your Plan</h2>
+              <p className="text-xl text-gray-600">Start free and scale as you grow</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {pricingPlans.map((plan, index) => (
+                <div key={index} className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow ${plan.featured ? 'border-2 border-green-500 scale-105' : 'border border-gray-200'}`}>
+                  {plan.featured && (
+                    <div className="bg-green-500 text-white px-4 py-1 rounded-full text-sm font-medium mb-4 inline-block">
+                      Most Popular
+                    </div>
+                  )}
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                  <div className="text-3xl font-bold text-gray-900 mb-2">{plan.price}</div>
+                  <p className="text-gray-600 mb-6">{plan.description}</p>
+                  <ul className="space-y-3 mb-8">
+                    {plan.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center space-x-2">
+                        <CheckCircle className="w-5 h-5 text-green-500" />
+                        <span className="text-gray-600">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button className={`w-full py-3 rounded-lg font-semibold transition-colors ${plan.featured ? 'bg-green-500 text-white hover:bg-green-600' : 'border-2 border-gray-300 text-gray-700 hover:border-green-500 hover:text-green-500'}`}>
+                    {plan.cta}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20 bg-gray-900 text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Images?</h2>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              Join thousands of creators using HoloSnap to bring their 2D images to life in 3D.
+            </p>
+            <button className="bg-green-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-600 transition-colors">
+              Get Started with HoloSnap
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default HoloSnap;
