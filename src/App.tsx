@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -23,6 +24,9 @@ import FAQ from "./pages/support/FAQ";
 import Resources from "./pages/support/Resources";
 import NotFound from "./pages/NotFound";
 import ImageEditing from "./pages/services/ImageEditing";
+import VideoEditing from "./pages/services/VideoEditing";
+import ThreeDVisualization from "./pages/services/ThreeDVisualization";
+import SoftwareDevelopment from "./pages/services/SoftwareDevelopment";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +40,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/image-editing" element={<ImageEditing />} />
+          <Route path="/services/video-production" element={<VideoEditing />} />
+          <Route path="/services/3d-modeling" element={<ThreeDVisualization />} />
+          <Route path="/services/software-development" element={<SoftwareDevelopment />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/retouched-ai" element={<RetouchedAI />} />
           <Route path="/products/hotsnap" element={<HotSnap />} />
