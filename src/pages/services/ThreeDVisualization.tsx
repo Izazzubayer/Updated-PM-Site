@@ -1,13 +1,12 @@
-
 import React from 'react';
-import { Star, ArrowRight, Check, Users, Box, Monitor, Layers, Cube, Palette, Zap, Upload, Edit, Eye, Download } from 'lucide-react';
+import { Star, ArrowRight, Check, Users, Box, Monitor, Layers, Palette, Zap, Upload, Edit, Eye, Download } from 'lucide-react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 const ThreeDVisualization = () => {
   const subServices = [
     {
-      icon: Cube,
+      icon: Box,
       title: "3D Product Modeling",
       description: "Create detailed 3D models of your products for e-commerce, marketing, and visualization purposes."
     },
