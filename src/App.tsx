@@ -23,6 +23,9 @@ import AboutUs from "./pages/support/AboutUs";
 import ContactUs from "./pages/support/ContactUs";
 import FAQ from "./pages/support/FAQ";
 import Resources from "./pages/support/Resources";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import CookiePolicy from "./pages/CookiePolicy";
 import NotFound from "./pages/NotFound";
 import ImageEditing from "./pages/services/ImageEditing";
 import VideoEditing from "./pages/services/VideoEditing";
@@ -65,6 +68,9 @@ const App = () => (
           <Route path="/support/contact-us" element={<ContactUs />} />
           <Route path="/support/faq" element={<FAQ />} />
           <Route path="/support/resources" element={<Resources />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

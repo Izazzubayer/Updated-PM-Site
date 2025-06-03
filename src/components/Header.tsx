@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Globe, Menu, X, Camera, Video, Box, Monitor, Code, Bot } from 'lucide-react';
+import { ChevronDown, Globe, Menu, X, Camera, Video, Box, Monitor, Code, Bot, Info, Mail, Phone, Book } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import {
   NavigationMenu,
@@ -9,10 +9,17 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState('EN');
   const location = useLocation();
 
   useEffect(() => {
@@ -79,8 +86,55 @@ const Header = () => {
     }
   ];
 
+  const supportOptions = [
+    {
+      icon: Info,
+      title: "About Us",
+      description: "Learn more about our company",
+      href: "/support/about-us"
+    },
+    {
+      icon: Mail,
+      title: "Contact Us",
+      description: "Get in touch with our team",
+      href: "/support/contact-us"
+    },
+    {
+      icon: Phone,
+      title: "FAQ",
+      description: "Frequently asked questions",
+      href: "/support/faq"
+    },
+    {
+      icon: Book,
+      title: "Resources",
+      description: "Guides and documentation",
+      href: "/support/resources"
+    }
+  ];
+
+  const languages = [
+    { code: 'EN', name: 'English', flag: '🇺🇸' },
+    { code: 'BN', name: 'বাংলা', flag: '🇧🇩' },
+    { code: 'FR', name: 'Français', flag: '🇫🇷' },
+    { code: 'ES', name: 'Español', flag: '🇪🇸' },
+    { code: 'DE', name: 'Deutsch', flag: '🇩🇪' },
+    { code: 'NL', name: 'Nederlands', flag: '🇳🇱' },
+    { code: 'IT', name: 'Italiano', flag: '🇮🇹' },
+    { code: 'PT', name: 'Português', flag: '🇵🇹' },
+    { code: 'RU', name: 'Русский', flag: '🇷🇺' },
+    { code: 'ZH', name: '中文', flag: '🇨🇳' },
+    { code: 'JA', name: '日本語', flag: '🇯🇵' },
+    { code: 'KO', name: '한국어', flag: '🇰🇷' }
+  ];
+
+  const handleLanguageChange = (language: any) => {
+    setSelectedLanguage(language.code);
+    console.log(`Language changed to: ${language.name}`);
+  };
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-product ${
       isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,7 +148,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8 font-product">
+          <nav className="hidden md:flex items-center space-x-8">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -156,6 +210,36 @@ const Header = () => {
                     </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-transparent hover:bg-gray-100 data-[active]:bg-gray-100 data-[state=open]:bg-gray-100">
+                    Support
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[400px] gap-3 p-6">
+                      {supportOptions.map((option) => (
+                        <NavigationMenuLink key={option.title} asChild>
+                          <Link
+                            to={option.href}
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
+                          >
+                            <div className="flex items-center space-x-3">
+                              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-green-100 transition-colors">
+                                <option.icon className="w-5 h-5 text-gray-600 group-hover:text-green-500 transition-colors" />
+                              </div>
+                              <div>
+                                <div className="text-sm font-medium leading-none">{option.title}</div>
+                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
+                                  {option.description}
+                                </p>
+                              </div>
+                            </div>
+                          </Link>
+                        </NavigationMenuLink>
+                      ))}
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
 
@@ -171,45 +255,45 @@ const Header = () => {
             >
               Pricing
             </Link>
-            <Link 
-              to="/career" 
-              className={`transition-colors ${isActive('/career') ? 'text-green-500' : 'text-gray-700 hover:text-green-500'}`}
-            >
-              Career
-            </Link>
-            <Link 
-              to="/support" 
-              className={`transition-colors ${isActive('/support') ? 'text-green-500' : 'text-gray-700 hover:text-green-500'}`}
-            >
-              Support
-            </Link>
-            <Link 
-              to="/blog" 
-              className={`transition-colors ${isActive('/blog') ? 'text-green-500' : 'text-gray-700 hover:text-green-500'}`}
-            >
-              Blog
-            </Link>
           </nav>
 
           {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4 font-product">
-            <Link 
-              to="/signin"
-              className="text-gray-700 hover:text-green-500 transition-colors"
-            >
-              Sign In
-            </Link>
-            <Link 
-              to="/signup"
-              className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
-            >
-              Sign Up
-            </Link>
-            <button className="flex items-center space-x-2 text-gray-700 hover:text-green-500 transition-colors">
-              <Globe className="w-4 h-4" />
-              <span>EN</span>
-              <ChevronDown className="w-4 h-4" />
-            </button>
+          <div className="hidden md:flex items-center space-x-4">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center space-x-2 text-gray-700 hover:text-green-500 transition-colors bg-transparent border-none cursor-pointer">
+                <Globe className="w-4 h-4" />
+                <span>{selectedLanguage}</span>
+                <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-80 p-4">
+                <div className="flex">
+                  <div className="w-1/2 pr-2">
+                    <div className="text-sm font-medium mb-2">Select Language</div>
+                    <div className="space-y-1 max-h-48 overflow-y-auto">
+                      {languages.map((language) => (
+                        <DropdownMenuItem 
+                          key={language.code}
+                          onClick={() => handleLanguageChange(language)}
+                          className="flex items-center space-x-2 cursor-pointer hover:bg-gray-100 p-2 rounded"
+                        >
+                          <span className="text-lg">{language.flag}</span>
+                          <span className="text-sm">{language.name}</span>
+                        </DropdownMenuItem>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="w-1/2 pl-2 border-l">
+                    <div className="text-sm font-medium mb-2">Global Reach</div>
+                    <div className="bg-gray-100 rounded-lg p-4 h-48 flex items-center justify-center text-gray-500">
+                      <div className="text-center">
+                        <Globe className="w-12 h-12 mx-auto mb-2 text-green-500" />
+                        <p className="text-xs">Available worldwide</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Mobile Menu Button */}
@@ -253,16 +337,58 @@ const Header = () => {
                   ))}
                 </div>
               </div>
+              <div className="space-y-2">
+                <div className="font-medium text-gray-900 font-jakarta">Support</div>
+                <div className="pl-4 space-y-2">
+                  {supportOptions.map((option) => (
+                    <Link 
+                      key={option.title}
+                      to={option.href} 
+                      className="block text-gray-700 hover:text-green-500"
+                    >
+                      {option.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
               <Link to="/integrations" className="block text-gray-700 hover:text-green-500">Integrations</Link>
               <Link to="/pricing" className="block text-gray-700 hover:text-green-500">Pricing</Link>
-              <Link to="/career" className="block text-gray-700 hover:text-green-500">Career</Link>
-              <Link to="/support" className="block text-gray-700 hover:text-green-500">Support</Link>
-              <Link to="/blog" className="block text-gray-700 hover:text-green-500">Blog</Link>
               <div className="pt-4 border-t space-y-4">
-                <Link to="/signin" className="block text-gray-700 hover:text-green-500">Sign In</Link>
-                <Link to="/signup" className="block w-full bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors text-center">
-                  Sign Up
-                </Link>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="flex items-center space-x-2 text-gray-700 hover:text-green-500 transition-colors">
+                    <Globe className="w-4 h-4" />
+                    <span>{selectedLanguage}</span>
+                    <ChevronDown className="w-4 h-4" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-80 p-4">
+                    <div className="flex">
+                      <div className="w-1/2 pr-2">
+                        <div className="text-sm font-medium mb-2">Select Language</div>
+                        <div className="space-y-1 max-h-48 overflow-y-auto">
+                          {languages.map((language) => (
+                            <DropdownMenuItem 
+                              key={language.code}
+                              onClick={() => handleLanguageChange(language)}
+                              className="flex items-center space-x-2 cursor-pointer hover:bg-gray-100 p-2 rounded"
+                            >
+                              <span className="text-lg">{language.flag}</span>
+                              <span className="text-sm">{language.name}</span>
+                            </DropdownMenuItem>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="w-1/2 pl-2 border-l">
+                        <div className="text-sm font-medium mb-2">Global Reach</div>
+                        <div className="bg-gray-100 rounded-lg p-4 h-48 flex items-center justify-center text-gray-500">
+                          <div className="text-center">
+                            <Globe className="w-12 h-12 mx-auto mb-2 text-green-500" />
+                            <p className="text-xs">Available worldwide</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
             </nav>
           </div>

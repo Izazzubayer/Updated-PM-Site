@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Twitter, Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Twitter, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -52,11 +53,9 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6 font-jakarta">Products</h3>
             <ul className="space-y-3">
               <li><Link to="/products/retouched-ai" className="text-gray-400 hover:text-green-500 transition-colors">Retouched AI</Link></li>
-              <li><Link to="/products/hotsnap" className="text-gray-400 hover:text-green-500 transition-colors">HotSnap</Link></li>
+              <li><Link to="/products/holosnap" className="text-gray-400 hover:text-green-500 transition-colors">HoloSnap</Link></li>
               <li><Link to="/integrations" className="text-gray-400 hover:text-green-500 transition-colors">Integrations</Link></li>
               <li><Link to="/pricing" className="text-gray-400 hover:text-green-500 transition-colors">Pricing</Link></li>
-              <li><Link to="/career" className="text-gray-400 hover:text-green-500 transition-colors">Career</Link></li>
-              <li><Link to="/blog" className="text-gray-400 hover:text-green-500 transition-colors">Blog</Link></li>
             </ul>
           </div>
 
@@ -68,8 +67,6 @@ const Footer = () => {
               <li><Link to="/support/contact-us" className="text-gray-400 hover:text-green-500 transition-colors">Contact Us</Link></li>
               <li><Link to="/support/faq" className="text-gray-400 hover:text-green-500 transition-colors">FAQ</Link></li>
               <li><Link to="/support/resources" className="text-gray-400 hover:text-green-500 transition-colors">Resources</Link></li>
-              <li><Link to="/signin" className="text-gray-400 hover:text-green-500 transition-colors">Sign In</Link></li>
-              <li><Link to="/signup" className="text-gray-400 hover:text-green-500 transition-colors">Sign Up</Link></li>
             </ul>
           </div>
         </div>
@@ -80,9 +77,9 @@ const Footer = () => {
             © 2024 The Kow Company Ltd. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-green-500 text-sm transition-colors">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:text-green-500 text-sm transition-colors">Terms of Service</a>
-            <a href="#" className="text-gray-400 hover:text-green-500 text-sm transition-colors">Cookie Policy</a>
+            <Link to="/privacy-policy" className="text-gray-400 hover:text-green-500 text-sm transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="text-gray-400 hover:text-green-500 text-sm transition-colors">Terms of Service</Link>
+            <Link to="/cookie-policy" className="text-gray-400 hover:text-green-500 text-sm transition-colors">Cookie Policy</Link>
           </div>
         </div>
       </div>
