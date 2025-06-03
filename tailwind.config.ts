@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -20,8 +19,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
+				'sans': ['Plus Jakarta Sans', 'sans-serif'],
 				'jakarta': ['Plus Jakarta Sans', 'sans-serif'],
-				'product': ['Product Sans', 'sans-serif'],
+				'product': ['Plus Jakarta Sans', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
