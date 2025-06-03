@@ -1,8 +1,9 @@
 
 import React from 'react';
-import { Play, Star, Users, CheckCircle, Download, Zap, Upload, ArrowRight, Monitor, Layers, Clock, Shield } from 'lucide-react';
+import { Play, Star, Users, CheckCircle, Download, Zap, Upload, ArrowRight, Monitor, Layers, Clock, Shield, Globe, Sparkles } from 'lucide-react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import ScrollToTop from '../../components/ScrollToTop';
 
 const RetouchedAI = () => {
   const features = [
@@ -101,27 +102,28 @@ const RetouchedAI = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
+      <ScrollToTop />
       
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+        <section className="py-20 bg-gradient-to-br from-purple-50 via-blue-50 to-green-50 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-8">
-                <div className="inline-flex items-center space-x-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <div className="space-y-8 animate-slide-in-left">
+                <div className="inline-flex items-center space-x-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium hover-lift">
+                  <Sparkles className="w-4 h-4" />
                   <span>AI-Powered Background Removal</span>
                 </div>
                 
-                <h1 className="text-5xl font-bold text-gray-900 leading-tight">
+                <h1 className="text-6xl font-bold text-gray-900 leading-tight gradient-text">
                   Instant, Pixel-Perfect Background Removal
                 </h1>
                 
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-xl text-gray-600 leading-relaxed animate-fade-in-up animate-delay-200">
                   Retouched.Ai combines precision AI and human QA for flawless cutouts. Remove backgrounds instantly with professional quality results.
                 </p>
 
-                <div className="flex items-center space-x-6">
+                <div className="flex items-center space-x-6 animate-fade-in-up animate-delay-300">
                   <div className="flex items-center space-x-1">
                     <Star className="w-5 h-5 text-yellow-400 fill-current" />
                     <span className="font-semibold">4.9/5</span>
@@ -132,46 +134,52 @@ const RetouchedAI = () => {
                   </div>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="bg-green-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-600 transition-colors flex items-center justify-center space-x-2">
+                <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animate-delay-400">
+                  <button className="bg-green-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-600 transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center space-x-2">
                     <span>Try Retouched.Ai</span>
                     <Play className="w-5 h-5" />
                   </button>
                   
-                  <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-green-500 hover:text-green-500 transition-colors flex items-center justify-center space-x-2">
+                  <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-green-500 hover:text-green-500 transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2">
                     <span>Explore API</span>
                     <ArrowRight className="w-5 h-5" />
                   </button>
                 </div>
               </div>
 
-              <div className="relative">
-                <div className="bg-white rounded-3xl shadow-2xl p-8">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden flex items-center justify-center">
+              <div className="relative animate-slide-in-right">
+                <div className="bg-white rounded-3xl shadow-2xl p-8 hover-lift glass-effect">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden flex items-center justify-center relative">
                     <div className="text-center">
-                      <Layers className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                      <p className="text-gray-500">Before/After Slider Demo</p>
+                      <Layers className="w-20 h-20 text-green-500 mx-auto mb-4 animate-scale-in" />
+                      <p className="text-gray-500 font-medium">Before/After Slider Demo</p>
                     </div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-slide-in-right opacity-50"></div>
                   </div>
                 </div>
+                {/* Floating elements */}
+                <div className="absolute -top-4 -right-4 w-20 h-20 bg-purple-500/10 rounded-full animate-pulse"></div>
+                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-green-500/10 rounded-full animate-pulse animate-delay-200"></div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Key Features */}
-        <section className="py-20">
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 animate-fade-in-up">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Key Features</h2>
               <p className="text-xl text-gray-600">Professional-grade tools for perfect background removal</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {features.map((feature, index) => (
-                <div key={index} className="text-center p-6 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow">
-                  <feature.icon className="w-12 h-12 text-green-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                <div key={index} className="text-center p-8 bg-white border border-gray-200 rounded-2xl hover:shadow-xl transition-all duration-300 hover-lift animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-green-100 rounded-xl flex items-center justify-center mx-auto mb-6">
+                    <feature.icon className="w-8 h-8 text-green-500" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
                   <p className="text-gray-600">{feature.description}</p>
                 </div>
               ))}
@@ -182,19 +190,19 @@ const RetouchedAI = () => {
         {/* How It Works */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 animate-fade-in-up">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
               <p className="text-xl text-gray-600">Three simple steps to perfect background removal</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {steps.map((step, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <step.icon className="w-8 h-8 text-white" />
+                <div key={index} className="text-center animate-fade-in-up hover-lift" style={{ animationDelay: `${index * 0.2}s` }}>
+                  <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6 hover:scale-110 transition-transform duration-300">
+                    <step.icon className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
-                  <p className="text-gray-600">{step.description}</p>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-3">{step.title}</h3>
+                  <p className="text-gray-600 text-lg">{step.description}</p>
                 </div>
               ))}
             </div>
@@ -202,18 +210,20 @@ const RetouchedAI = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-20">
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 animate-fade-in-up">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Retouched.Ai?</h2>
               <p className="text-xl text-gray-600">Trusted by professionals worldwide</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {whyChooseUs.map((reason, index) => (
-                <div key={index} className="text-center p-6 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow">
-                  <reason.icon className="w-12 h-12 text-green-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{reason.title}</h3>
+                <div key={index} className="text-center p-8 bg-white border border-gray-200 rounded-2xl hover:shadow-xl transition-all duration-300 hover-lift animate-fade-in-up" style={{ animationDelay: `${index * 0.15}s` }}>
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-green-100 rounded-xl flex items-center justify-center mx-auto mb-6">
+                    <reason.icon className="w-8 h-8 text-green-500" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{reason.title}</h3>
                   <p className="text-gray-600">{reason.description}</p>
                 </div>
               ))}
@@ -224,22 +234,22 @@ const RetouchedAI = () => {
         {/* Integrations */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 animate-fade-in-up">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Integrations</h2>
               <p className="text-xl text-gray-600">Works seamlessly with your favorite tools</p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
               {integrations.map((integration, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 text-center hover:shadow-md transition-shadow">
+                <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center hover:shadow-lg transition-all duration-300 hover-lift animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="text-lg font-semibold text-gray-700">{integration}</div>
                 </div>
               ))}
             </div>
 
-            <div className="text-center mt-12">
+            <div className="text-center mt-12 animate-fade-in-up animate-delay-300">
               <p className="text-gray-600 mb-4">Need a custom integration?</p>
-              <button className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+              <button className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 Contact Our Team
               </button>
             </div>
@@ -247,23 +257,23 @@ const RetouchedAI = () => {
         </section>
 
         {/* Pricing */}
-        <section className="py-20">
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 animate-fade-in-up">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Plans & Pricing</h2>
               <p className="text-xl text-gray-600">Choose the perfect plan for your needs</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {pricingPlans.map((plan, index) => (
-                <div key={index} className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow ${plan.featured ? 'border-2 border-green-500 scale-105' : 'border border-gray-200'}`}>
+                <div key={index} className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover-lift animate-fade-in-up ${plan.featured ? 'border-2 border-green-500 scale-105' : 'border border-gray-200'}`} style={{ animationDelay: `${index * 0.1}s` }}>
                   {plan.featured && (
-                    <div className="bg-green-500 text-white px-4 py-1 rounded-full text-sm font-medium mb-4 inline-block">
+                    <div className="bg-gradient-to-r from-purple-500 to-green-500 text-white px-4 py-1 rounded-full text-sm font-medium mb-4 inline-block">
                       Most Popular
                     </div>
                   )}
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                  <div className="text-3xl font-bold text-gray-900 mb-2">{plan.price}</div>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">{plan.price}</div>
                   <p className="text-gray-600 mb-6">{plan.description}</p>
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((feature, featureIndex) => (
@@ -273,7 +283,7 @@ const RetouchedAI = () => {
                       </li>
                     ))}
                   </ul>
-                  <button className={`w-full py-3 rounded-lg font-semibold transition-colors ${plan.featured ? 'bg-green-500 text-white hover:bg-green-600' : 'border-2 border-gray-300 text-gray-700 hover:border-green-500 hover:text-green-500'}`}>
+                  <button className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 ${plan.featured ? 'bg-gradient-to-r from-purple-500 to-green-500 text-white hover:shadow-lg' : 'border-2 border-gray-300 text-gray-700 hover:border-green-500 hover:text-green-500'}`}>
                     {plan.cta}
                   </button>
                 </div>
@@ -285,16 +295,17 @@ const RetouchedAI = () => {
         {/* Case Studies Demo */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 animate-fade-in-up">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">See the Results</h2>
               <p className="text-xl text-gray-600">Before and after examples from real users</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[1, 2, 3].map((item) => (
-                <div key={item} className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                  <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                <div key={item} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover-lift animate-fade-in-up" style={{ animationDelay: `${item * 0.1}s` }}>
+                  <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative">
                     <Layers className="w-16 h-16 text-gray-400" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-50"></div>
                   </div>
                   <div className="p-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Example {item}</h3>
@@ -307,17 +318,17 @@ const RetouchedAI = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gray-900 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Remove Backgrounds Like a Pro?</h2>
+        <section className="py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-green-900 text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in-up">
+            <h2 className="text-4xl font-bold mb-6">Ready to Remove Backgrounds Like a Pro?</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Join thousands of professionals using Retouched.Ai for perfect background removal.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-green-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-600 transition-colors">
+              <button className="bg-gradient-to-r from-purple-500 to-green-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:scale-105 transition-all duration-300 hover:shadow-lg">
                 Remove Backgrounds Now
               </button>
-              <button className="border-2 border-gray-300 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:border-green-500 transition-colors">
+              <button className="border-2 border-gray-300 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:border-green-500 transition-all duration-300 hover:scale-105">
                 View API Docs
               </button>
             </div>

@@ -1,8 +1,9 @@
 
 import React from 'react';
-import { Play, Star, Users, CheckCircle, Download, Box, Upload, Zap, Globe, ArrowRight, Monitor } from 'lucide-react';
+import { Play, Star, Users, CheckCircle, Download, Box, Upload, Zap, Globe, ArrowRight, Monitor, Layers } from 'lucide-react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import ScrollToTop from '../../components/ScrollToTop';
 
 const HoloSnap = () => {
   const features = [
@@ -94,30 +95,35 @@ const HoloSnap = () => {
     }
   ];
 
+  const integrations = [
+    "Blender", "Unity", "Unreal Engine", "Maya", "3ds Max", "Cinema 4D"
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
+      <ScrollToTop />
       
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+        <section className="py-20 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-8">
-                <div className="inline-flex items-center space-x-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium">
+              <div className="space-y-8 animate-slide-in-left">
+                <div className="inline-flex items-center space-x-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium hover-lift">
                   <Box className="w-4 h-4" />
                   <span>2D to 3D Conversion</span>
                 </div>
                 
-                <h1 className="text-5xl font-bold text-gray-900 leading-tight">
+                <h1 className="text-6xl font-bold text-gray-900 leading-tight gradient-text">
                   Turn Images into 3D Models with One Click
                 </h1>
                 
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-xl text-gray-600 leading-relaxed animate-fade-in-up animate-delay-200">
                   HoloSnap uses AI to generate high-fidelity 3D meshes from any 2D input. Transform flat images into interactive 3D models in seconds.
                 </p>
 
-                <div className="flex items-center space-x-6">
+                <div className="flex items-center space-x-6 animate-fade-in-up animate-delay-300">
                   <div className="flex items-center space-x-1">
                     <Star className="w-5 h-5 text-yellow-400 fill-current" />
                     <span className="font-semibold">4.8/5</span>
@@ -128,46 +134,50 @@ const HoloSnap = () => {
                   </div>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="bg-green-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-600 transition-colors flex items-center justify-center space-x-2">
+                <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animate-delay-400">
+                  <button className="bg-green-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-600 transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center space-x-2">
                     <span>Try HoloSnap</span>
                     <Play className="w-5 h-5" />
                   </button>
                   
-                  <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-green-500 hover:text-green-500 transition-colors flex items-center justify-center space-x-2">
+                  <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-green-500 hover:text-green-500 transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2">
                     <span>Book Demo</span>
                     <ArrowRight className="w-5 h-5" />
                   </button>
                 </div>
               </div>
 
-              <div className="relative">
-                <div className="bg-white rounded-3xl shadow-2xl p-8">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl overflow-hidden flex items-center justify-center">
-                    <Box className="w-24 h-24 text-green-500" />
+              <div className="relative animate-slide-in-right">
+                <div className="bg-white rounded-3xl shadow-2xl p-8 hover-lift glass-effect">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl overflow-hidden flex items-center justify-center relative">
+                    <Box className="w-24 h-24 text-green-500 animate-scale-in" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-slide-in-right opacity-50"></div>
                   </div>
                 </div>
+                {/* Floating elements */}
+                <div className="absolute -top-4 -right-4 w-20 h-20 bg-green-500/10 rounded-full animate-pulse"></div>
+                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-blue-500/10 rounded-full animate-pulse animate-delay-200"></div>
               </div>
             </div>
           </div>
         </section>
 
         {/* How It Works */}
-        <section className="py-20">
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 animate-fade-in-up">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
               <p className="text-xl text-gray-600">Three simple steps to transform your 2D images into 3D models</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {steps.map((step, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <step.icon className="w-8 h-8 text-white" />
+                <div key={index} className="text-center animate-fade-in-up hover-lift" style={{ animationDelay: `${index * 0.2}s` }}>
+                  <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 hover:scale-110 transition-transform duration-300">
+                    <step.icon className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
-                  <p className="text-gray-600">{step.description}</p>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-3">{step.title}</h3>
+                  <p className="text-gray-600 text-lg">{step.description}</p>
                 </div>
               ))}
             </div>
@@ -177,16 +187,18 @@ const HoloSnap = () => {
         {/* Use Cases */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 animate-fade-in-up">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Use Cases</h2>
               <p className="text-xl text-gray-600">Discover how HoloSnap powers creativity across industries</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {useCases.map((useCase, index) => (
-                <div key={index} className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                  <useCase.icon className="w-12 h-12 text-green-500 mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{useCase.title}</h3>
+                <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover-lift animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center mb-6">
+                    <useCase.icon className="w-8 h-8 text-green-500" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{useCase.title}</h3>
                   <p className="text-gray-600">{useCase.description}</p>
                 </div>
               ))}
@@ -195,20 +207,22 @@ const HoloSnap = () => {
         </section>
 
         {/* Features */}
-        <section className="py-20">
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 animate-fade-in-up">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Powerful Features</h2>
               <p className="text-xl text-gray-600">Everything you need for professional 3D conversion</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
               {features.map((feature, index) => (
-                <div key={index} className="flex items-start space-x-4 p-6 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow">
-                  <feature.icon className="w-8 h-8 text-green-500 flex-shrink-0 mt-1" />
+                <div key={index} className="flex items-start space-x-6 p-8 bg-white border border-gray-200 rounded-2xl hover:shadow-xl transition-all duration-300 hover-lift animate-fade-in-up" style={{ animationDelay: `${index * 0.15}s` }}>
+                  <div className="w-14 h-14 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <feature.icon className="w-7 h-7 text-green-500" />
+                  </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                    <p className="text-gray-600">{feature.description}</p>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
+                    <p className="text-gray-600 text-lg">{feature.description}</p>
                   </div>
                 </div>
               ))}
@@ -216,38 +230,59 @@ const HoloSnap = () => {
           </div>
         </section>
 
-        {/* Demo Section */}
+        {/* Integrations */}
         <section className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16 animate-fade-in-up">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Seamless Integrations</h2>
+              <p className="text-xl text-gray-600">Works with your favorite 3D software</p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+              {integrations.map((integration, index) => (
+                <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center hover:shadow-lg transition-all duration-300 hover-lift animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div className="text-lg font-semibold text-gray-700">{integration}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Demo Section */}
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8">See HoloSnap in Action</h2>
-            <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-4xl mx-auto">
-              <div className="aspect-video bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl flex items-center justify-center">
-                <button className="w-20 h-20 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
-                  <Play className="w-8 h-8 text-green-500 ml-1" />
-                </button>
+            <div className="animate-fade-in-up">
+              <h2 className="text-4xl font-bold text-gray-900 mb-8">See HoloSnap in Action</h2>
+              <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-4xl mx-auto hover-lift">
+                <div className="aspect-video bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl flex items-center justify-center relative overflow-hidden">
+                  <button className="w-20 h-20 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform duration-300 z-10">
+                    <Play className="w-8 h-8 text-green-500 ml-1" />
+                  </button>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-slide-in-right"></div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Pricing */}
-        <section className="py-20">
+        <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 animate-fade-in-up">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Choose Your Plan</h2>
               <p className="text-xl text-gray-600">Start free and scale as you grow</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {pricingPlans.map((plan, index) => (
-                <div key={index} className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow ${plan.featured ? 'border-2 border-green-500 scale-105' : 'border border-gray-200'}`}>
+                <div key={index} className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover-lift animate-fade-in-up ${plan.featured ? 'border-2 border-green-500 scale-105' : 'border border-gray-200'}`} style={{ animationDelay: `${index * 0.1}s` }}>
                   {plan.featured && (
-                    <div className="bg-green-500 text-white px-4 py-1 rounded-full text-sm font-medium mb-4 inline-block">
+                    <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium mb-4 inline-block">
                       Most Popular
                     </div>
                   )}
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                  <div className="text-3xl font-bold text-gray-900 mb-2">{plan.price}</div>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">{plan.price}</div>
                   <p className="text-gray-600 mb-6">{plan.description}</p>
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((feature, featureIndex) => (
@@ -257,7 +292,7 @@ const HoloSnap = () => {
                       </li>
                     ))}
                   </ul>
-                  <button className={`w-full py-3 rounded-lg font-semibold transition-colors ${plan.featured ? 'bg-green-500 text-white hover:bg-green-600' : 'border-2 border-gray-300 text-gray-700 hover:border-green-500 hover:text-green-500'}`}>
+                  <button className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 ${plan.featured ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white hover:shadow-lg' : 'border-2 border-gray-300 text-gray-700 hover:border-green-500 hover:text-green-500'}`}>
                     {plan.cta}
                   </button>
                 </div>
@@ -267,13 +302,13 @@ const HoloSnap = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gray-900 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Images?</h2>
+        <section className="py-20 bg-gradient-to-br from-gray-900 via-green-900 to-blue-900 text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in-up">
+            <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Images?</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Join thousands of creators using HoloSnap to bring their 2D images to life in 3D.
             </p>
-            <button className="bg-green-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-600 transition-colors">
+            <button className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:scale-105 transition-all duration-300 hover:shadow-lg">
               Get Started with HoloSnap
             </button>
           </div>

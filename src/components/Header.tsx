@@ -10,12 +10,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -133,33 +127,38 @@ const Header = () => {
                     </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-transparent hover:bg-gray-100 data-[active]:bg-gray-100 data-[state=open]:bg-gray-100">
+                    Products
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[400px] gap-3 p-6">
+                      {products.map((product) => (
+                        <NavigationMenuLink key={product.title} asChild>
+                          <Link
+                            to={product.href}
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
+                          >
+                            <div className="flex items-center space-x-3">
+                              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-green-100 transition-colors">
+                                <product.icon className="w-5 h-5 text-gray-600 group-hover:text-green-500 transition-colors" />
+                              </div>
+                              <div>
+                                <div className="text-sm font-medium leading-none">{product.title}</div>
+                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
+                                  {product.description}
+                                </p>
+                              </div>
+                            </div>
+                          </Link>
+                        </NavigationMenuLink>
+                      ))}
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center space-x-1 text-gray-700 hover:text-green-500 transition-colors outline-none">
-                <span>Products</span>
-                <ChevronDown className="w-4 h-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-64 bg-white border shadow-lg">
-                {products.map((product) => (
-                  <DropdownMenuItem key={product.title} asChild className="cursor-pointer">
-                    <Link
-                      to={product.href}
-                      className="flex items-center space-x-3 p-3 hover:bg-gray-50 transition-colors"
-                    >
-                      <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-                        <product.icon className="w-4 h-4 text-gray-600" />
-                      </div>
-                      <div>
-                        <div className="text-sm font-medium text-gray-900">{product.title}</div>
-                        <p className="text-xs text-gray-500">{product.description}</p>
-                      </div>
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
 
             <Link 
               to="/integrations" 
