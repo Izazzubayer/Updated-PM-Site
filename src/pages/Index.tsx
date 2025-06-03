@@ -6,27 +6,48 @@ import ServicesSection from '../components/ServicesSection';
 import ProductsSection from '../components/ProductsSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import IntegrationsSection from '../components/IntegrationsSection';
+import StatsSection from '../components/StatsSection';
+import CTASection from '../components/CTASection';
+import TechnologySection from '../components/TechnologySection';
 import Footer from '../components/Footer';
-import ScrollAnimateWrapper from '../components/ScrollAnimateWrapper';
+import ParallaxWrapper from '../components/ParallaxWrapper';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       <Header />
-      <main>
-        <HeroSection />
-        <ScrollAnimateWrapper animation="fade-up" delay={200}>
+      <main className="relative">
+        <ParallaxWrapper depth={1}>
+          <HeroSection />
+        </ParallaxWrapper>
+        
+        <ParallaxWrapper depth={0.8}>
           <ServicesSection />
-        </ScrollAnimateWrapper>
-        <ScrollAnimateWrapper animation="slide-left" delay={300}>
+        </ParallaxWrapper>
+        
+        <ParallaxWrapper depth={0.6}>
           <ProductsSection />
-        </ScrollAnimateWrapper>
-        <ScrollAnimateWrapper animation="scale-in" delay={400}>
+        </ParallaxWrapper>
+        
+        <ParallaxWrapper depth={0.9}>
+          <StatsSection />
+        </ParallaxWrapper>
+        
+        <ParallaxWrapper depth={0.7}>
+          <TechnologySection />
+        </ParallaxWrapper>
+        
+        <ParallaxWrapper depth={0.5}>
           <TestimonialsSection />
-        </ScrollAnimateWrapper>
-        <ScrollAnimateWrapper animation="fade-up" delay={500}>
+        </ParallaxWrapper>
+        
+        <ParallaxWrapper depth={0.8}>
           <IntegrationsSection />
-        </ScrollAnimateWrapper>
+        </ParallaxWrapper>
+        
+        <ParallaxWrapper depth={0.4}>
+          <CTASection />
+        </ParallaxWrapper>
       </main>
       <Footer />
     </div>
