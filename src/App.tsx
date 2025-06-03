@@ -27,6 +27,8 @@ import ImageEditing from "./pages/services/ImageEditing";
 import VideoEditing from "./pages/services/VideoEditing";
 import ThreeDVisualization from "./pages/services/ThreeDVisualization";
 import SoftwareDevelopment from "./pages/services/SoftwareDevelopment";
+import CGIRendering from "./pages/services/CGIRendering";
+import AIAutomation from "./pages/services/AIAutomation";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +45,8 @@ const App = () => (
           <Route path="/services/video-production" element={<VideoEditing />} />
           <Route path="/services/3d-modeling" element={<ThreeDVisualization />} />
           <Route path="/services/software-development" element={<SoftwareDevelopment />} />
+          <Route path="/services/cgi-rendering" element={<CGIRendering />} />
+          <Route path="/services/ai-automation" element={<AIAutomation />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/retouched-ai" element={<RetouchedAI />} />
           <Route path="/products/hotsnap" element={<HotSnap />} />
