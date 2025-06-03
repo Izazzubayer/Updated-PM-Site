@@ -1,7 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Globe, Menu, X } from 'lucide-react';
+import { ChevronDown, Globe, Menu, X, Camera, Video, Box, Monitor, Code, Bot } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,6 +25,45 @@ const Header = () => {
   }, []);
 
   const isActive = (path: string) => location.pathname === path;
+
+  const services = [
+    {
+      icon: Camera,
+      title: "Image Editing Services",
+      description: "Professional photo editing and retouching",
+      href: "/services/image-editing"
+    },
+    {
+      icon: Video,
+      title: "Video Production",
+      description: "Complete video production services",
+      href: "/services/video-production"
+    },
+    {
+      icon: Box,
+      title: "3D Modeling",
+      description: "Stunning 3D models and visualizations",
+      href: "/services/3d-modeling"
+    },
+    {
+      icon: Monitor,
+      title: "CGI Rendering",
+      description: "High-quality CGI rendering services",
+      href: "/services/cgi-rendering"
+    },
+    {
+      icon: Code,
+      title: "Software Development",
+      description: "Custom software solutions",
+      href: "/services/software-development"
+    },
+    {
+      icon: Bot,
+      title: "AI Automation",
+      description: "Intelligent automation solutions",
+      href: "/services/ai-automation"
+    }
+  ];
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -34,12 +81,40 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link 
-              to="/services" 
-              className={`transition-colors ${isActive('/services') ? 'text-green-500' : 'text-gray-700 hover:text-green-500'}`}
-            >
-              Services
-            </Link>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-transparent hover:bg-gray-100 data-[active]:bg-gray-100 data-[state=open]:bg-gray-100">
+                    Services
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[600px] gap-3 p-6 md:grid-cols-2">
+                      {services.map((service) => (
+                        <NavigationMenuLink key={service.title} asChild>
+                          <Link
+                            to={service.href}
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
+                          >
+                            <div className="flex items-center space-x-3">
+                              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-green-100 transition-colors">
+                                <service.icon className="w-5 h-5 text-gray-600 group-hover:text-green-500 transition-colors" />
+                              </div>
+                              <div>
+                                <div className="text-sm font-medium leading-none">{service.title}</div>
+                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
+                                  {service.description}
+                                </p>
+                              </div>
+                            </div>
+                          </Link>
+                        </NavigationMenuLink>
+                      ))}
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+
             <Link 
               to="/products" 
               className={`transition-colors ${isActive('/products') ? 'text-green-500' : 'text-gray-700 hover:text-green-500'}`}
@@ -112,7 +187,20 @@ const Header = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t shadow-lg">
             <nav className="px-4 py-6 space-y-4">
-              <Link to="/services" className="block text-gray-700 hover:text-green-500">Services</Link>
+              <div className="space-y-2">
+                <div className="font-medium text-gray-900">Services</div>
+                <div className="pl-4 space-y-2">
+                  {services.map((service) => (
+                    <Link 
+                      key={service.title}
+                      to={service.href} 
+                      className="block text-gray-700 hover:text-green-500"
+                    >
+                      {service.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
               <Link to="/products" className="block text-gray-700 hover:text-green-500">Products</Link>
               <Link to="/integrations" className="block text-gray-700 hover:text-green-500">Integrations</Link>
               <Link to="/pricing" className="block text-gray-700 hover:text-green-500">Pricing</Link>
