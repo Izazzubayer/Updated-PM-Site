@@ -1,8 +1,8 @@
+
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Globe, Menu, X, Camera, Video, Box, Monitor, Code, Bot, Info, Mail, Phone, Book } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import ThemeToggle from './ThemeToggle';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -118,16 +118,7 @@ const Header = () => {
   const languages = [
     { code: 'en', name: 'English', flag: '🇺🇸' },
     { code: 'bn', name: 'বাংলা', flag: '🇧🇩' },
-    { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'es', name: 'Español', flag: '🇪🇸' },
-    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-    { code: 'nl', name: 'Nederlands', flag: '🇳🇱' },
-    { code: 'it', name: 'Italiano', flag: '🇮🇹' },
-    { code: 'pt', name: 'Português', flag: '🇵🇹' },
-    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-    { code: 'zh', name: '中文', flag: '🇨🇳' },
-    { code: 'ja', name: '日本語', flag: '🇯🇵' },
-    { code: 'ko', name: '한국어', flag: '🇰🇷' }
+    { code: 'fr', name: 'Français', flag: '🇫🇷' }
   ];
 
   const handleLanguageChange = (language: any) => {
@@ -142,7 +133,7 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-background/95 backdrop-blur-md shadow-lg border-b' : 'bg-background'
+      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b' : 'bg-white'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -151,7 +142,7 @@ const Header = () => {
             <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
               <div className="w-4 h-4 bg-white rounded-full"></div>
             </div>
-            <span className="text-lg font-semibold text-foreground">{t('companyName')}</span>
+            <span className="text-lg font-semibold text-gray-900">{t('companyName')}</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -164,26 +155,29 @@ const Header = () => {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid w-[600px] gap-3 p-6 md:grid-cols-2">
-                      {services.map((service) => (
-                        <NavigationMenuLink key={service.title} asChild>
-                          <Link
-                            to={service.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
-                          >
-                            <div className="flex items-center space-x-3">
-                              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-green-100 transition-colors">
-                                <service.icon className="w-5 h-5 text-gray-600 group-hover:text-green-500 transition-colors" />
+                      {services.map((service) => {
+                        const IconComponent = service.icon;
+                        return (
+                          <NavigationMenuLink key={service.title} asChild>
+                            <Link
+                              to={service.href}
+                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
+                            >
+                              <div className="flex items-center space-x-3">
+                                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-green-100 transition-colors">
+                                  <IconComponent className="w-5 h-5 text-gray-600 group-hover:text-green-500 transition-colors" />
+                                </div>
+                                <div>
+                                  <div className="text-sm font-medium leading-none">{service.title}</div>
+                                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
+                                    {service.description}
+                                  </p>
+                                </div>
                               </div>
-                              <div>
-                                <div className="text-sm font-medium leading-none">{service.title}</div>
-                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
-                                  {service.description}
-                                </p>
-                              </div>
-                            </div>
-                          </Link>
-                        </NavigationMenuLink>
-                      ))}
+                            </Link>
+                          </NavigationMenuLink>
+                        );
+                      })}
                     </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -194,26 +188,29 @@ const Header = () => {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid w-[400px] gap-3 p-6">
-                      {products.map((product) => (
-                        <NavigationMenuLink key={product.title} asChild>
-                          <Link
-                            to={product.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
-                          >
-                            <div className="flex items-center space-x-3">
-                              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-green-100 transition-colors">
-                                <product.icon className="w-5 h-5 text-gray-600 group-hover:text-green-500 transition-colors" />
+                      {products.map((product) => {
+                        const IconComponent = product.icon;
+                        return (
+                          <NavigationMenuLink key={product.title} asChild>
+                            <Link
+                              to={product.href}
+                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
+                            >
+                              <div className="flex items-center space-x-3">
+                                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-green-100 transition-colors">
+                                  <IconComponent className="w-5 h-5 text-gray-600 group-hover:text-green-500 transition-colors" />
+                                </div>
+                                <div>
+                                  <div className="text-sm font-medium leading-none">{product.title}</div>
+                                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
+                                    {product.description}
+                                  </p>
+                                </div>
                               </div>
-                              <div>
-                                <div className="text-sm font-medium leading-none">{product.title}</div>
-                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
-                                  {product.description}
-                                </p>
-                              </div>
-                            </div>
-                          </Link>
-                        </NavigationMenuLink>
-                      ))}
+                            </Link>
+                          </NavigationMenuLink>
+                        );
+                      })}
                     </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -224,26 +221,29 @@ const Header = () => {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid w-[400px] gap-3 p-6">
-                      {supportOptions.map((option) => (
-                        <NavigationMenuLink key={option.title} asChild>
-                          <Link
-                            to={option.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
-                          >
-                            <div className="flex items-center space-x-3">
-                              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-green-100 transition-colors">
-                                <option.icon className="w-5 h-5 text-gray-600 group-hover:text-green-500 transition-colors" />
+                      {supportOptions.map((option) => {
+                        const IconComponent = option.icon;
+                        return (
+                          <NavigationMenuLink key={option.title} asChild>
+                            <Link
+                              to={option.href}
+                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
+                            >
+                              <div className="flex items-center space-x-3">
+                                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-green-100 transition-colors">
+                                  <IconComponent className="w-5 h-5 text-gray-600 group-hover:text-green-500 transition-colors" />
+                                </div>
+                                <div>
+                                  <div className="text-sm font-medium leading-none">{option.title}</div>
+                                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
+                                    {option.description}
+                                  </p>
+                                </div>
                               </div>
-                              <div>
-                                <div className="text-sm font-medium leading-none">{option.title}</div>
-                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
-                                  {option.description}
-                                </p>
-                              </div>
-                            </div>
-                          </Link>
-                        </NavigationMenuLink>
-                      ))}
+                            </Link>
+                          </NavigationMenuLink>
+                        );
+                      })}
                     </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -252,24 +252,22 @@ const Header = () => {
             
             <Link 
               to="/integrations" 
-              className={`transition-colors ${isActive('/integrations') ? 'text-green-500' : 'text-foreground hover:text-green-500'}`}
+              className={`transition-colors ${isActive('/integrations') ? 'text-green-500' : 'text-gray-700 hover:text-green-500'}`}
             >
               {t('integrations')}
             </Link>
             <Link 
               to="/pricing" 
-              className={`transition-colors ${isActive('/pricing') ? 'text-green-500' : 'text-foreground hover:text-green-500'}`}
+              className={`transition-colors ${isActive('/pricing') ? 'text-green-500' : 'text-gray-700 hover:text-green-500'}`}
             >
               {t('pricing')}
             </Link>
           </nav>
 
           {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <ThemeToggle />
-            
+          <div className="hidden md:flex items-center space-x-4">            
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center space-x-2 text-foreground hover:text-green-500 transition-colors bg-transparent border-none cursor-pointer">
+              <DropdownMenuTrigger className="flex items-center space-x-2 text-gray-700 hover:text-green-500 transition-colors bg-transparent border-none cursor-pointer">
                 <Globe className="w-4 h-4" />
                 <span>{getCurrentLanguage()}</span>
                 <ChevronDown className="w-4 h-4" />
@@ -293,7 +291,7 @@ const Header = () => {
                   </div>
                   <div className="w-1/2 pl-2 border-l">
                     <div className="text-sm font-medium mb-2">Global Reach</div>
-                    <div className="bg-muted rounded-lg p-4 h-48 flex items-center justify-center text-muted-foreground">
+                    <div className="bg-gray-100 rounded-lg p-4 h-48 flex items-center justify-center text-gray-600">
                       <div className="text-center">
                         <Globe className="w-12 h-12 mx-auto mb-2 text-green-500" />
                         <p className="text-xs">Available worldwide</p>
@@ -307,7 +305,6 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
-            <ThemeToggle />
             <button 
               className="p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -319,16 +316,16 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-background border-t shadow-lg">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t shadow-lg">
             <nav className="px-4 py-6 space-y-4">
               <div className="space-y-2">
-                <div className="font-medium text-foreground">{t('services')}</div>
+                <div className="font-medium text-gray-900">{t('services')}</div>
                 <div className="pl-4 space-y-2">
                   {services.map((service) => (
                     <Link 
                       key={service.title}
                       to={service.href} 
-                      className="block text-foreground hover:text-green-500"
+                      className="block text-gray-700 hover:text-green-500"
                     >
                       {service.title}
                     </Link>
@@ -336,13 +333,13 @@ const Header = () => {
                 </div>
               </div>
               <div className="space-y-2">
-                <div className="font-medium text-foreground">{t('products')}</div>
+                <div className="font-medium text-gray-900">{t('products')}</div>
                 <div className="pl-4 space-y-2">
                   {products.map((product) => (
                     <Link 
                       key={product.title}
                       to={product.href} 
-                      className="block text-foreground hover:text-green-500"
+                      className="block text-gray-700 hover:text-green-500"
                     >
                       {product.title}
                     </Link>
@@ -350,24 +347,24 @@ const Header = () => {
                 </div>
               </div>
               <div className="space-y-2">
-                <div className="font-medium text-foreground">{t('support')}</div>
+                <div className="font-medium text-gray-900">{t('support')}</div>
                 <div className="pl-4 space-y-2">
                   {supportOptions.map((option) => (
                     <Link 
                       key={option.title}
                       to={option.href} 
-                      className="block text-foreground hover:text-green-500"
+                      className="block text-gray-700 hover:text-green-500"
                     >
                       {option.title}
                     </Link>
                   ))}
                 </div>
               </div>
-              <Link to="/integrations" className="block text-foreground hover:text-green-500">{t('integrations')}</Link>
-              <Link to="/pricing" className="block text-foreground hover:text-green-500">{t('pricing')}</Link>
+              <Link to="/integrations" className="block text-gray-700 hover:text-green-500">{t('integrations')}</Link>
+              <Link to="/pricing" className="block text-gray-700 hover:text-green-500">{t('pricing')}</Link>
               <div className="pt-4 border-t space-y-4">
                 <DropdownMenu>
-                  <DropdownMenuTrigger className="flex items-center space-x-2 text-foreground hover:text-green-500 transition-colors">
+                  <DropdownMenuTrigger className="flex items-center space-x-2 text-gray-700 hover:text-green-500 transition-colors">
                     <Globe className="w-4 h-4" />
                     <span>{getCurrentLanguage()}</span>
                     <ChevronDown className="w-4 h-4" />
@@ -391,7 +388,7 @@ const Header = () => {
                       </div>
                       <div className="w-1/2 pl-2 border-l">
                         <div className="text-sm font-medium mb-2">Global Reach</div>
-                        <div className="bg-muted rounded-lg p-4 h-48 flex items-center justify-center text-muted-foreground">
+                        <div className="bg-gray-100 rounded-lg p-4 h-48 flex items-center justify-center text-gray-600">
                           <div className="text-center">
                             <Globe className="w-12 h-12 mx-auto mb-2 text-green-500" />
                             <p className="text-xs">Available worldwide</p>

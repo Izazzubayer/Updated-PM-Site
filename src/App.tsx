@@ -40,7 +40,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="system" storageKey="kow-ui-theme">
+    <ThemeProvider>
       <TooltipProvider>
         <Toaster />
         <Sonner />

@@ -15,12 +15,14 @@ const resources = {
       // Hero Section
       heroTitle: 'Transform Your Business with',
       heroSubtitle: 'Cutting-Edge Digital Solutions',
-      heroDescription: 'We specialize in delivering innovative digital experiences through advanced 3D visualization, AI-powered automation, and comprehensive creative services that drive business growth.',
-      getStarted: 'Get Started',
+      heroDescription: 'From complex photo editing to advanced 3D experiences and AI-powered software solutions, we cover the digital landscape of modern business.',
+      getStarted: 'Book a Call',
       learnMore: 'Learn More',
+      exploreServices: 'Explore Services',
       projects: 'Projects Completed',
       satisfaction: 'Client Satisfaction',
       countries: 'Countries Served',
+      supportAvailable: 'Support Available',
       
       // Services
       servicesTitle: 'What We Do',
@@ -50,10 +52,24 @@ const resources = {
       cookiePolicy: 'Cookie Policy',
       allRightsReserved: '© 2025 The Kow Company Ltd. All rights reserved.',
       
+      // Stats Section
+      statsTitle: 'Trusted by Industry Leaders',
+      projectsCompleted: 'Projects Completed',
+      clientSatisfaction: 'Client Satisfaction',
+      countriesServed: 'Countries Served',
+      
+      // Technology Section
+      technologyTitle: 'Powered by Cutting-Edge Technology',
+      technologyDescription: 'We leverage the latest tools and frameworks to deliver exceptional results',
+      
+      // CTA Section
+      ctaTitle: 'Ready to Transform Your Business?',
+      ctaDescription: 'Join thousands of satisfied clients who have elevated their digital presence with our innovative solutions.',
+      ctaButton: 'Get Started Today',
+      ctaSecondary: 'Schedule a Consultation',
+      
       // Common
-      darkMode: 'Dark Mode',
-      lightMode: 'Light Mode',
-      systemMode: 'System'
+      playVideo: 'Play Video'
     }
   },
   bn: {
@@ -68,12 +84,14 @@ const resources = {
       // Hero Section
       heroTitle: 'আপনার ব্যবসাকে রূপান্তরিত করুন',
       heroSubtitle: 'অত্যাধুনিক ডিজিটাল সমাধানের সাথে',
-      heroDescription: 'আমরা উন্নত ৩ডি ভিজুয়ালাইজেশন, AI-চালিত অটোমেশন এবং ব্যাপক সৃজনশীল সেবার মাধ্যমে উদ্ভাবনী ডিজিটাল অভিজ্ঞতা প্রদানে বিশেষজ্ঞ।',
-      getStarted: 'শুরু করুন',
+      heroDescription: 'জটিল ফটো এডিটিং থেকে উন্নত ৩ডি অভিজ্ঞতা এবং AI-চালিত সফটওয়্যার সমাধান পর্যন্ত, আমরা আধুনিক ব্যবসার ডিজিটাল ল্যান্ডস্কেপ কভার করি।',
+      getStarted: 'কল বুক করুন',
       learnMore: 'আরও জানুন',
+      exploreServices: 'সেবা অন্বেষণ করুন',
       projects: 'সম্পন্ন প্রকল্প',
       satisfaction: 'ক্লায়েন্ট সন্তুষ্টি',
       countries: 'সেবা প্রদত্ত দেশ',
+      supportAvailable: 'সাপোর্ট উপলব্ধ',
       
       // Services
       servicesTitle: 'আমরা যা করি',
@@ -103,10 +121,24 @@ const resources = {
       cookiePolicy: 'কুকি নীতি',
       allRightsReserved: '© ২০২৫ দ্য কাউ কোম্পানি লিমিটেড। সকল অধিকার সংরক্ষিত।',
       
+      // Stats Section
+      statsTitle: 'ইন্ডাস্ট্রি লিডারদের দ্বারা বিশ্বস্ত',
+      projectsCompleted: 'সম্পন্ন প্রকল্প',
+      clientSatisfaction: 'ক্লায়েন্ট সন্তুষ্টি',
+      countriesServed: 'সেবা প্রদত্ত দেশ',
+      
+      // Technology Section
+      technologyTitle: 'অত্যাধুনিক প্রযুক্তি দ্বারা চালিত',
+      technologyDescription: 'ব্যতিক্রমী ফলাফল প্রদানের জন্য আমরা সর্বশেষ টুলস এবং ফ্রেমওয়ার্ক ব্যবহার করি',
+      
+      // CTA Section
+      ctaTitle: 'আপনার ব্যবসা রূপান্তরিত করতে প্রস্তুত?',
+      ctaDescription: 'হাজার হাজার সন্তুষ্ট ক্লায়েন্টদের সাথে যোগ দিন যারা আমাদের উদ্ভাবনী সমাধানের সাথে তাদের ডিজিটাল উপস্থিতি উন্নত করেছেন।',
+      ctaButton: 'আজই শুরু করুন',
+      ctaSecondary: 'একটি পরামর্শের সময়সূচী',
+      
       // Common
-      darkMode: 'ডার্ক মোড',
-      lightMode: 'লাইট মোড',
-      systemMode: 'সিস্টেম'
+      playVideo: 'ভিডিও চালান'
     }
   },
   fr: {
@@ -121,12 +153,14 @@ const resources = {
       // Hero Section
       heroTitle: 'Transformez Votre Entreprise avec',
       heroSubtitle: 'Des Solutions Numériques de Pointe',
-      heroDescription: 'Nous nous spécialisons dans la livraison d\'expériences numériques innovantes grâce à la visualisation 3D avancée, l\'automatisation alimentée par l\'IA et des services créatifs complets.',
-      getStarted: 'Commencer',
+      heroDescription: 'De la retouche photo complexe aux expériences 3D avancées et aux solutions logicielles alimentées par l\'IA, nous couvrons le paysage numérique des entreprises modernes.',
+      getStarted: 'Réserver un Appel',
       learnMore: 'En Savoir Plus',
+      exploreServices: 'Explorer les Services',
       projects: 'Projets Terminés',
       satisfaction: 'Satisfaction Client',
       countries: 'Pays Servis',
+      supportAvailable: 'Support Disponible',
       
       // Services
       servicesTitle: 'Ce Que Nous Faisons',
@@ -156,10 +190,24 @@ const resources = {
       cookiePolicy: 'Politique de Cookies',
       allRightsReserved: '© 2025 The Kow Company Ltd. Tous droits réservés.',
       
+      // Stats Section
+      statsTitle: 'Approuvé par les Leaders de l\'Industrie',
+      projectsCompleted: 'Projets Terminés',
+      clientSatisfaction: 'Satisfaction Client',
+      countriesServed: 'Pays Servis',
+      
+      // Technology Section
+      technologyTitle: 'Alimenté par une Technologie de Pointe',
+      technologyDescription: 'Nous exploitons les derniers outils et frameworks pour fournir des résultats exceptionnels',
+      
+      // CTA Section
+      ctaTitle: 'Prêt à Transformer Votre Entreprise?',
+      ctaDescription: 'Rejoignez des milliers de clients satisfaits qui ont élevé leur présence numérique avec nos solutions innovantes.',
+      ctaButton: 'Commencer Aujourd\'hui',
+      ctaSecondary: 'Planifier une Consultation',
+      
       // Common
-      darkMode: 'Mode Sombre',
-      lightMode: 'Mode Clair',
-      systemMode: 'Système'
+      playVideo: 'Lire la Vidéo'
     }
   }
 };
@@ -172,6 +220,9 @@ i18n
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false
+    },
+    react: {
+      useSuspense: false
     }
   });
 
