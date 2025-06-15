@@ -21,7 +21,7 @@ const PrivacyPolicy = () => {
             <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-jakarta">1. Information We Collect</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                At The Kow Company Ltd, we collect information you provide directly to us, such as when you create an account, 
+                At Pixel Mango, we collect information you provide directly to us, such as when you create an account, 
                 use our services, or contact us for support. This may include:
               </p>
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
@@ -97,7 +97,7 @@ const PrivacyPolicy = () => {
             <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-jakarta">7. Contact Us</h2>
               <p className="text-gray-700 leading-relaxed">
-                If you have any questions about this Privacy Policy, please contact us at privacy@thekow.company or 
+                If you have any questions about this Privacy Policy, please contact us at privacy@pixelmango.com or 
                 through our contact page.
               </p>
             </div>
