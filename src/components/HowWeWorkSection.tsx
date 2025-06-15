@@ -83,10 +83,10 @@ const HowWeWorkSection = () => {
               >
                 {/* Step Content */}
                 <div className="flex-1 lg:w-5/12">
-                  <div className="pixel-card p-8 bg-white transition-all duration-500 ease-in-out hover:transform hover:-translate-y-2 hover:shadow-lg group">
+                  <div className="pixel-card p-8 bg-white">
                     <div className="flex items-center mb-4">
-                      <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center mr-4 transition-all duration-300 group-hover:bg-black group-hover:border-mango-500">
-                        <step.icon className="w-8 h-8 text-black transition-colors duration-300 group-hover:text-mango-500" />
+                      <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center mr-4">
+                        <step.icon className="w-8 h-8 text-black" />
                       </div>
                       <div>
                         <div className="text-sm font-pixel text-mango-500">STEP {step.step}</div>
@@ -102,7 +102,7 @@ const HowWeWorkSection = () => {
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                         {step.deliverables.map((deliverable, deliverableIndex) => (
                           <div key={deliverableIndex} className="flex items-center space-x-2">
-                            <div className="w-2 h-2 bg-mango-500 transition-all duration-300 group-hover:bg-black"></div>
+                            <div className="w-2 h-2 bg-mango-500"></div>
                             <span className="text-xs text-gray-600 font-mono">{deliverable}</span>
                           </div>
                         ))}
@@ -113,8 +113,8 @@ const HowWeWorkSection = () => {
 
                 {/* Step Number Circle */}
                 <div className="flex-shrink-0 relative z-10">
-                  <div className="w-24 h-24 bg-black border-4 border-mango-500 flex items-center justify-center rounded-none transition-all duration-300 hover:bg-mango-500 hover:border-black">
-                    <span className="text-2xl font-pixel text-mango-500 transition-colors duration-300 hover:text-black">{step.step}</span>
+                  <div className="w-24 h-24 bg-black border-4 border-mango-500 flex items-center justify-center rounded-none">
+                    <span className="text-2xl font-pixel text-mango-500">{step.step}</span>
                   </div>
                 </div>
 
@@ -127,7 +127,7 @@ const HowWeWorkSection = () => {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <div className="pixel-card p-8 bg-white transition-all duration-300 hover:transform hover:-translate-y-1">
+          <div className="pixel-card p-8 bg-white">
             <h3 className="text-2xl font-pixel text-black mb-4">Ready to Start Your Project?</h3>
             <p className="text-gray-600 mb-6 font-mono">
               Let's discuss your vision and create something amazing together.
