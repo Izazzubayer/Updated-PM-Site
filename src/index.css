@@ -38,6 +38,12 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Space Mono', monospace;
+    /* Global pixel grid background */
+    background-image: 
+      linear-gradient(rgba(0,0,0,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-attachment: fixed;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -182,9 +188,35 @@
 
 .pixel-grid {
   background-image: 
-    linear-gradient(rgba(0,0,0,.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,.1) 1px, transparent 1px);
+    linear-gradient(rgba(0,0,0,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px);
   background-size: 20px 20px;
+}
+
+.pixel-grid-light {
+  background-image: 
+    linear-gradient(rgba(255,165,0,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,165,0,.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pixel-grid-overlay {
+  position: relative;
+}
+
+.pixel-grid-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(0,0,0,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .animate-pixel-glow {

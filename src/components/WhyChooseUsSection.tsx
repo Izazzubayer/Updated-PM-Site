@@ -1,124 +1,155 @@
 
 import React from 'react';
-import { Shield, Clock, Award, Users, Star, Zap, Target } from 'lucide-react';
+import { Star, Clock, DollarSign, Users, Shield, Zap } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const WhyChooseUsSection = () => {
   const { t } = useTranslation();
 
-  const reasons = [
+  const benefits = [
     {
-      icon: Zap,
-      title: "Lightning Fast Delivery",
-      description: "Get your projects completed in record time without compromising on quality."
+      icon: DollarSign,
+      title: "Transparent Pricing",
+      description: "No hidden fees, no surprise costs. Clear, upfront pricing that fits your budget."
     },
     {
-      icon: Target,
-      title: "Pixel-Perfect Precision",
-      description: "Every element is crafted with meticulous attention to detail and precision."
+      icon: Clock,
+      title: "Fast Turnaround",
+      description: "Most projects completed within 5-7 business days. Rush options available."
+    },
+    {
+      icon: Users,
+      title: "Personal Attention",
+      description: "Direct communication with designers. No account managers or middlemen."
     },
     {
       icon: Shield,
-      title: "100% Satisfaction Guarantee",
-      description: "We're not happy until you're thrilled with the final result."
+      title: "100% Satisfaction",
+      description: "Unlimited revisions until you're completely happy with the results."
     },
     {
-      icon: Award,
-      title: "Award-Winning Designs",
-      description: "Our work has been recognized by industry leaders and design communities."
+      icon: Zap,
+      title: "Premium Quality",
+      description: "Agency-level design quality at freelancer-friendly prices."
+    },
+    {
+      icon: Star,
+      title: "Ongoing Support",
+      description: "We don't disappear after delivery. Continued support for your brand's growth."
     }
   ];
 
   const testimonials = [
     {
       name: "Sarah Johnson",
-      role: "Café Owner",
-      business: "Pixel Brew Coffee",
+      business: "Bloom Coffee Roasters",
       rating: 5,
-      text: "Pixel Mango transformed our brand identity completely. The logo design is absolutely perfect and our customers love the new look!",
+      text: "Pixel Mango transformed our coffee shop's entire identity. The branding is perfect - it captures exactly what we wanted to convey to our customers.",
       avatar: "SJ"
     },
     {
       name: "Mike Chen",
-      role: "Fashion Designer",
-      business: "Urban Threads",
+      business: "Urban Threads Clothing",
       rating: 5,
-      text: "Their social media branding package was exactly what we needed. Our Instagram engagement has tripled since the rebrand.",
+      text: "Working with this team was incredible. They understood our vision immediately and delivered designs that exceeded our expectations. Highly recommend!",
       avatar: "MC"
     },
     {
-      name: "Emily Rodriguez",
-      role: "Restaurant Manager",
-      business: "Fusion Bites",
+      name: "Elena Rodriguez",
+      business: "Fit & Flow Studio",
       rating: 5,
-      text: "The website they built for us is stunning and our online orders have increased by 200%. Highly recommend their services!",
+      text: "Professional, fast, and affordable. The website they built for our fitness studio has increased our online bookings by 300%. Amazing work!",
       avatar: "ER"
+    },
+    {
+      name: "David Kim",
+      business: "TechStart Solutions",
+      rating: 5,
+      text: "The UI/UX design they created for our app was spot-on. Clean, modern, and user-friendly. Our customers love the new interface.",
+      avatar: "DK"
     }
   ];
 
   return (
-    <section className="py-20 bg-gray-50 pixel-grid">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-white pixel-grid-overlay">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-pixel text-black mb-4 pixel-text">Why Choose Pixel Mango</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-mono">
-            We combine creative excellence with technical expertise to deliver results that exceed expectations
+          <h2 className="text-4xl font-pixel text-black mb-4 pixel-text">Why Choose Pixel Mango?</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-mono">
+            We're not just another design agency. We're your creative partners committed to your success.
           </p>
           <div className="w-24 h-1 bg-mango-500 mx-auto mt-6"></div>
         </div>
 
-        {/* Reasons Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {reasons.map((reason, index) => (
+        {/* Benefits Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          {benefits.map((benefit, index) => (
             <div 
               key={index}
-              className="pixel-card p-6 text-center bg-white hover:animate-pixel-glow transition-all duration-300"
+              className="pixel-card p-6 bg-white hover:animate-pixel-glow transition-all duration-300"
             >
-              <div className="w-16 h-16 bg-mango-500 border-2 border-black rounded-none flex items-center justify-center mx-auto mb-4">
-                <reason.icon className="w-8 h-8 text-black" />
+              <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center mb-4">
+                <benefit.icon className="w-8 h-8 text-black" />
               </div>
-              <h3 className="text-lg font-pixel text-black mb-3">{reason.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed font-mono">{reason.description}</p>
+              <h3 className="text-lg font-pixel text-black mb-3">{benefit.title}</h3>
+              <p className="text-sm text-gray-600 font-mono leading-relaxed">{benefit.description}</p>
             </div>
           ))}
         </div>
 
         {/* Testimonials Section */}
-        <div className="text-center mb-12">
-          <h3 className="text-3xl font-pixel text-black mb-4">What Our Clients Say</h3>
-          <p className="text-lg text-gray-600 font-mono">
-            Real feedback from real businesses we've helped grow
-          </p>
+        <div className="mb-16">
+          <h3 className="text-3xl font-pixel text-center text-black mb-12 pixel-text">
+            What Our Clients Say
+          </h3>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div 
+                key={index}
+                className="pixel-speech bg-white p-6 hover:animate-pixel-glow transition-all duration-300"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-mango-500 border-2 border-black flex items-center justify-center mr-4">
+                    <span className="font-pixel text-black text-sm">{testimonial.avatar}</span>
+                  </div>
+                  <div>
+                    <h4 className="font-pixel text-black text-sm">{testimonial.name}</h4>
+                    <p className="text-xs text-gray-600 font-mono">{testimonial.business}</p>
+                  </div>
+                  <div className="ml-auto flex space-x-1">
+                    {[...Array(testimonial.rating)].map((_, starIndex) => (
+                      <Star key={starIndex} className="w-4 h-4 fill-mango-500 text-mango-500" />
+                    ))}
+                  </div>
+                </div>
+                <p className="text-gray-700 font-mono text-sm leading-relaxed">"{testimonial.text}"</p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="relative">
-              {/* Pixel Speech Bubble */}
-              <div className="pixel-speech bg-white border-3 border-black p-6 mb-6 hover:animate-pixel-glow">
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-mango-500 text-mango-500" />
-                  ))}
-                </div>
-                <p className="text-gray-700 font-mono text-sm leading-relaxed mb-4">
-                  "{testimonial.text}"
-                </p>
-              </div>
-              
-              {/* Client Info */}
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-mango-500 border-2 border-black flex items-center justify-center">
-                  <span className="text-black font-pixel text-sm">{testimonial.avatar}</span>
-                </div>
-                <div className="text-left">
-                  <div className="font-pixel text-black text-sm">{testimonial.name}</div>
-                  <div className="text-gray-600 text-xs font-mono">{testimonial.role}</div>
-                  <div className="text-mango-500 text-xs font-pixel">{testimonial.business}</div>
-                </div>
-              </div>
+        {/* Stats Row */}
+        <div className="pixel-card p-8 bg-mango-50">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-3xl font-pixel text-black mb-2">500+</div>
+              <div className="text-sm text-gray-600 font-mono">Happy Clients</div>
             </div>
-          ))}
+            <div>
+              <div className="text-3xl font-pixel text-black mb-2">99%</div>
+              <div className="text-sm text-gray-600 font-mono">Satisfaction Rate</div>
+            </div>
+            <div>
+              <div className="text-3xl font-pixel text-black mb-2">5★</div>
+              <div className="text-sm text-gray-600 font-mono">Average Rating</div>
+            </div>
+            <div>
+              <div className="text-3xl font-pixel text-black mb-2">24hr</div>
+              <div className="text-sm text-gray-600 font-mono">Response Time</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

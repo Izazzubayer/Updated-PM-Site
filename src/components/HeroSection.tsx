@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { ArrowRight, Play, Zap, Target, Globe, Award, Code, Palette } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -61,7 +60,7 @@ const HeroSection = () => {
   ));
 
   return (
-    <section className="relative pt-24 pb-16 bg-white overflow-hidden pixel-grid">
+    <section className="relative pt-24 pb-16 bg-white overflow-hidden pixel-grid-overlay">
       {/* Animated Pixel Background */}
       <div className="absolute inset-0 overflow-hidden opacity-20">
         {pixelElements}
@@ -70,14 +69,17 @@ const HeroSection = () => {
         <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-mango-500 animate-pixel-glow"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             
             <h1 className="mb-8">
-              <div className="text-lg font-pixel text-mango-500 mb-2 animate-pixel-shift">
+              <div className="text-sm font-pixel text-mango-500 mb-2 animate-pixel-shift">
                 CRAFTING PIXEL-PERFECT DESIGNS
+              </div>
+              <div className="text-2xl font-mono text-gray-700 mb-4 leading-relaxed">
+                Affordable creative services tailored for local businesses
               </div>
               <div className="text-4xl lg:text-5xl font-pixel text-black leading-tight mb-4">
                 Turning Pixels into Powerful Brands

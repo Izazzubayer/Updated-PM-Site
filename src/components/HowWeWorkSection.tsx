@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { MessageCircle, Lightbulb, Palette, Rocket, CheckCircle } from 'lucide-react';
+import { MessageSquare, Lightbulb, Palette, CheckCircle, RefreshCw, Rocket } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const HowWeWorkSection = () => {
@@ -8,90 +8,130 @@ const HowWeWorkSection = () => {
 
   const steps = [
     {
-      number: "01",
-      icon: MessageCircle,
+      step: "01",
+      icon: MessageSquare,
       title: "Discovery & Consultation",
-      description: "We start with a detailed consultation to understand your business, goals, and vision.",
-      details: ["Initial consultation call", "Brand questionnaire", "Competitor analysis", "Project timeline"]
+      description: "We start with a detailed conversation about your vision, goals, and brand personality.",
+      duration: "Day 1",
+      deliverables: ["Project brief", "Style preferences", "Timeline confirmation"]
     },
     {
-      number: "02",
+      step: "02", 
       icon: Lightbulb,
       title: "Strategy & Planning",
-      description: "We develop a creative strategy tailored to your business and target audience.",
-      details: ["Creative brief development", "Mood board creation", "Style guide planning", "Content strategy"]
+      description: "We research your industry and create a strategic approach tailored to your business needs.",
+      duration: "Day 1-2",
+      deliverables: ["Creative strategy", "Mood boards", "Concept direction"]
     },
     {
-      number: "03",
+      step: "03",
       icon: Palette,
-      title: "Design & Development",
-      description: "Our team brings your vision to life with pixel-perfect designs and functionality.",
-      details: ["Initial concepts", "Revisions & refinements", "Final design delivery", "Development & testing"]
+      title: "Design & Creation", 
+      description: "Our team brings your vision to life with pixel-perfect designs and attention to detail.",
+      duration: "Day 2-5",
+      deliverables: ["Initial concepts", "Design iterations", "Regular updates"]
     },
     {
-      number: "04",
+      step: "04",
+      icon: RefreshCw,
+      title: "Review & Refinement",
+      description: "We work closely with you to refine designs until they perfectly match your vision.",
+      duration: "Day 4-6",
+      deliverables: ["Revision rounds", "Client feedback", "Design adjustments"]
+    },
+    {
+      step: "05",
+      icon: CheckCircle,
+      title: "Finalization & Approval",
+      description: "Final review, approval, and preparation of all deliverable assets in required formats.",
+      duration: "Day 6-7",
+      deliverables: ["Final files", "Brand guidelines", "Asset organization"]
+    },
+    {
+      step: "06",
       icon: Rocket,
       title: "Launch & Support",
-      description: "We ensure a smooth launch and provide ongoing support for your new brand.",
-      details: ["Final review & approval", "Launch assistance", "Training & documentation", "Ongoing support"]
+      description: "We help you implement your new branding and provide ongoing support for your success.",
+      duration: "Day 7+",
+      deliverables: ["Implementation guide", "Launch support", "Future consultations"]
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-gray-50 pixel-grid-overlay">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 font-jakarta">How We Work</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-product">
-            Our proven 4-step process ensures we deliver exceptional results that exceed your expectations every time.
+          <h2 className="text-4xl font-pixel text-black mb-4 pixel-text">How We Work</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-mono">
+            Our proven 6-step process ensures exceptional results while keeping you involved 
+            and informed throughout the entire creative journey.
           </p>
+          <div className="w-24 h-1 bg-mango-500 mx-auto mt-6"></div>
         </div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="hidden lg:block absolute top-24 left-1/2 transform -translate-x-0.5 w-0.5 h-96 bg-gradient-to-b from-orange-300 to-yellow-400"></div>
-
-          <div className="space-y-16">
-            {steps.map((step, index) => (
-              <div 
-                key={index}
-                className={`flex flex-col lg:flex-row items-center gap-8 ${
-                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-                }`}
-              >
-                {/* Content */}
-                <div className="lg:w-1/2 text-center lg:text-left">
-                  <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-orange-100">
-                    <div className="flex items-center justify-center lg:justify-start space-x-4 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-orange-100 to-yellow-200 rounded-xl flex items-center justify-center">
-                        <step.icon className="w-6 h-6 text-orange-600" />
-                      </div>
-                      <span className="text-3xl font-bold text-orange-500 font-jakarta">{step.number}</span>
+        {/* Process Timeline */}
+        <div className="space-y-12">
+          {steps.map((step, index) => (
+            <div 
+              key={index}
+              className={`flex items-center gap-8 ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}
+            >
+              {/* Step Content */}
+              <div className="flex-1">
+                <div className="pixel-card p-8 bg-white hover:animate-pixel-glow transition-all duration-300">
+                  <div className="flex items-center mb-4">
+                    <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center mr-4">
+                      <step.icon className="w-8 h-8 text-black" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4 font-jakarta">{step.title}</h3>
-                    <p className="text-gray-600 mb-6 font-product">{step.description}</p>
-                    <div className="grid grid-cols-2 gap-2">
-                      {step.details.map((detail, detailIndex) => (
-                        <div key={detailIndex} className="flex items-center space-x-2">
-                          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                          <span className="text-sm text-gray-600 font-product">{detail}</span>
+                    <div>
+                      <div className="text-sm font-pixel text-mango-500">STEP {step.step}</div>
+                      <h3 className="text-xl font-pixel text-black">{step.title}</h3>
+                      <div className="text-sm text-gray-500 font-mono">{step.duration}</div>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 mb-6 font-mono leading-relaxed">{step.description}</p>
+                  
+                  <div>
+                    <h4 className="text-sm font-pixel text-black mb-3">DELIVERABLES:</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                      {step.deliverables.map((deliverable, deliverableIndex) => (
+                        <div key={deliverableIndex} className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-mango-500"></div>
+                          <span className="text-xs text-gray-600 font-mono">{deliverable}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
-
-                {/* Step Number Circle */}
-                <div className="lg:w-auto flex-shrink-0">
-                  <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-yellow-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg font-jakarta">
-                    {step.number}
-                  </div>
-                </div>
-
-                {/* Spacer for alignment */}
-                <div className="lg:w-1/2"></div>
               </div>
-            ))}
+
+              {/* Step Number */}
+              <div className="flex-shrink-0">
+                <div className="w-24 h-24 bg-black border-3 border-mango-500 flex items-center justify-center">
+                  <span className="text-2xl font-pixel text-mango-500">{step.step}</span>
+                </div>
+              </div>
+
+              {/* Connector Line */}
+              {index < steps.length - 1 && (
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-12 bg-mango-500 mt-24"></div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="text-center mt-16">
+          <div className="pixel-card p-8 bg-white">
+            <h3 className="text-2xl font-pixel text-black mb-4">Ready to Start Your Project?</h3>
+            <p className="text-gray-600 mb-6 font-mono">
+              Let's discuss your vision and create something amazing together.
+            </p>
+            <button className="pixel-button px-8 py-4 font-pixel">
+              Schedule Free Consultation
+            </button>
           </div>
         </div>
       </div>
