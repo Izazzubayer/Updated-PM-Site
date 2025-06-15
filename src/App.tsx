@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,7 +8,6 @@ import { ThemeProvider } from "./providers/ThemeProvider";
 import ScrollToTop from "./components/ScrollToTop";
 import "./i18n";
 import Index from "./pages/Index";
-import Services from "./pages/Services";
 import Products from "./pages/Products";
 import RetouchedAI from "./pages/products/RetouchedAI";
 import HotSnap from "./pages/products/HotSnap";
@@ -29,12 +29,6 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 import NotFound from "./pages/NotFound";
-import ImageEditing from "./pages/services/ImageEditing";
-import VideoEditing from "./pages/services/VideoEditing";
-import ThreeDVisualization from "./pages/services/ThreeDVisualization";
-import SoftwareDevelopment from "./pages/services/SoftwareDevelopment";
-import CGIRendering from "./pages/services/CGIRendering";
-import AIAutomation from "./pages/services/AIAutomation";
 
 const queryClient = new QueryClient();
 
@@ -48,13 +42,6 @@ const App = () => (
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/services/image-editing" element={<ImageEditing />} />
-            <Route path="/services/video-production" element={<VideoEditing />} />
-            <Route path="/services/3d-modeling" element={<ThreeDVisualization />} />
-            <Route path="/services/software-development" element={<SoftwareDevelopment />} />
-            <Route path="/services/cgi-rendering" element={<CGIRendering />} />
-            <Route path="/services/ai-automation" element={<AIAutomation />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/retouched-ai" element={<RetouchedAI />} />
             <Route path="/products/hotsnap" element={<HotSnap />} />

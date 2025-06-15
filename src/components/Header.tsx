@@ -28,16 +28,6 @@ const Header = () => {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { 
-      name: 'Services', 
-      href: '/services',
-      dropdown: [
-        { name: 'Brand Identity', href: '/services/brand-identity', icon: '🎨' },
-        { name: 'Print & Collateral', href: '/services/print-collateral', icon: '📄' },
-        { name: 'Digital UI/UX', href: '/services/ui-ux-design', icon: '💻' },
-        { name: 'Content & Strategy', href: '/services/content-strategy', icon: '📝' }
-      ]
-    },
     { name: 'Portfolio', href: '/portfolio' },
     { 
       name: 'Support', 
