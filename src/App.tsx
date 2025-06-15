@@ -30,6 +30,7 @@ import CookiePolicy from "./pages/CookiePolicy";
 import NotFound from "./pages/NotFound";
 import BrandIdentityDesign from "./pages/services/BrandIdentityDesign";
 import SocialMediaBranding from "./pages/services/SocialMediaBranding";
+import UIUXDesign from "./pages/services/UIUXDesign";
 
 const queryClient = new QueryClient();
 
@@ -62,6 +63,7 @@ const App = () => (
             <Route path="/support/resources" element={<Resources />} />
             <Route path="/services/brand-identity" element={<BrandIdentityDesign />} />
             <Route path="/services/social-media" element={<SocialMediaBranding />} />
+            <Route path="/services/ui-ux-design" element={<UIUXDesign />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
