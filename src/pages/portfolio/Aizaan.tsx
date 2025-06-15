@@ -75,14 +75,14 @@ const SubBlock = ({
 );
 
 const Aizaan = () => (
-  <div className="min-h-screen bg-black flex flex-col">
+  <div className="min-h-screen bg-mango-50 flex flex-col">
     <Header />
     <main className="flex-1 pt-16 pb-12 px-2 sm:px-4 flex flex-col items-center pixel-grid relative">
       <div className="max-w-3xl w-full">
         {/* Title section block */}
         <div className="mb-10 animate-pixel-fade">
           <h1 className="text-4xl md:text-5xl font-pixel text-mango-500 mb-2 animate-pixel-glow drop-shadow">Aizaan Ecommerce &amp; Rebranding</h1>
-          <span className="text-base text-gray-400">A Pixel Mango Creative Agency Case Study</span>
+          <span className="text-base text-gray-500">A Pixel Mango Creative Agency Case Study</span>
         </div>
 
         <SectionBlock title="Project Overview">
