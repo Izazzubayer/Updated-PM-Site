@@ -35,7 +35,7 @@ const Header = () => {
         { name: 'Brand Identity', href: '/services/brand-identity', icon: '🎨' },
         { name: 'Print & Collateral', href: '/services/print-collateral', icon: '📄' },
         { name: 'Digital UI/UX', href: '/services/ui-ux-design', icon: '💻' },
-        { name: 'Web Development', href: '/services/website-development', icon: '🌐' }
+        { name: 'Content & Strategy', href: '/services/content-strategy', icon: '📝' }
       ]
     },
     { name: 'Portfolio', href: '/portfolio' },
@@ -44,11 +44,19 @@ const Header = () => {
       href: '/support',
       dropdown: [
         { name: 'FAQ', href: '/support/faq', icon: '❓' },
-        { name: 'About Us', href: '/support/about-us', icon: 'ℹ️' },
-        { name: 'Contact Us', href: '/support/contact-us', icon: '📧' }
+        { name: 'Knowledge Base', href: '/support/knowledge-base', icon: '📚' },
+        { name: 'Contact Support', href: '/support/contact-us', icon: '📧' }
       ]
     }
   ];
+
+  const handleDropdownEnter = (itemName: string) => {
+    setActiveDropdown(itemName);
+  };
+
+  const handleDropdownLeave = () => {
+    setActiveDropdown(null);
+  };
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -72,8 +80,8 @@ const Header = () => {
               <div
                 key={item.name}
                 className="relative"
-                onMouseEnter={() => item.dropdown && setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
+                onMouseEnter={() => item.dropdown && handleDropdownEnter(item.name)}
+                onMouseLeave={handleDropdownLeave}
               >
                 <Link
                   to={item.href}
@@ -87,15 +95,15 @@ const Header = () => {
 
                 {/* Dropdown Menu */}
                 {item.dropdown && activeDropdown === item.name && (
-                  <div className="absolute top-full left-0 mt-2 w-64 pixel-card bg-white border-black z-50 animate-pixel-fade">
+                  <div className="absolute top-full left-0 mt-2 w-64 pixel-card bg-white border-black z-[60] animate-pixel-fade">
                     <div className="py-2">
                       {item.dropdown.map((dropdownItem) => (
                         <Link
                           key={dropdownItem.name}
                           to={dropdownItem.href}
-                          className="flex items-center space-x-3 px-4 py-3 text-sm text-black hover:bg-mango-50 hover:text-mango-500 transition-colors font-mono group"
+                          className="flex items-center space-x-3 px-4 py-3 text-sm text-black hover:bg-mango-50 hover:text-mango-500 transition-all duration-100 font-mono group"
                         >
-                          <span className="text-lg group-hover:animate-pixel-glow">{dropdownItem.icon}</span>
+                          <span className="text-lg group-hover:animate-pixel-glow transition-all duration-100">{dropdownItem.icon}</span>
                           <span>{dropdownItem.name}</span>
                         </Link>
                       ))}
@@ -120,7 +128,7 @@ const Header = () => {
               </button>
               
               {activeDropdown === 'language' && (
-                <div className="absolute top-full right-0 mt-2 pixel-card bg-white border-black z-50">
+                <div className="absolute top-full right-0 mt-2 pixel-card bg-white border-black z-[60]">
                   <div className="py-2">
                     <button
                       onClick={() => {
@@ -153,7 +161,7 @@ const Header = () => {
               )}
             </div>
 
-            <Link to="/contact" className="pixel-button px-6 py-2 font-pixel text-sm">
+            <Link to="/contact" className="pixel-button px-6 py-2 font-pixel text-sm hover:animate-pixel-shift">
               GET STARTED
             </Link>
           </div>
