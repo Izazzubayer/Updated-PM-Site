@@ -14,97 +14,66 @@ const PrivacyPolicy = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-gray-900 mb-4 font-jakarta">Privacy Policy</h1>
-            <p className="text-lg text-gray-600">Last updated: December 2024</p>
+            <p className="text-lg text-gray-600">Last updated: June 2025</p>
           </div>
 
           <div className="prose prose-lg max-w-none">
             <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-jakarta">1. Information We Collect</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-jakarta">Welcome to Pixel Mango's Privacy Policy</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                At Pixel Mango, we collect information you provide directly to us, such as when you create an account, 
-                use our services, or contact us for support. This may include:
+                At Pixel Mango, we value your trust and creativity. We only collect data when necessary, never for the sake of it,
+                and always with your permission. Your privacy and ideas stay yours.
               </p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li>Personal identification information (name, email address, phone number)</li>
-                <li>Account credentials and preferences</li>
-                <li>Files and content you upload to our services</li>
-                <li>Payment and billing information</li>
-                <li>Communications with our support team</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-jakarta">2. How We Use Your Information</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                We use the information we collect to:
-              </p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li>Provide, maintain, and improve our services</li>
-                <li>Process transactions and send related information</li>
-                <li>Send technical notices, updates, and support messages</li>
-                <li>Respond to your comments, questions, and customer service requests</li>
-                <li>Monitor and analyze trends, usage, and activities</li>
-                <li>Detect, investigate, and prevent fraudulent transactions</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-jakarta">3. Information Sharing and Disclosure</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, 
-                except in the following circumstances:
-              </p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li>With service providers who assist us in operating our services</li>
-                <li>When required by law or to respond to legal process</li>
-                <li>To protect our rights, property, or safety, or that of others</li>
-                <li>In connection with a merger, acquisition, or sale of assets</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-jakarta">4. Data Security</h2>
               <p className="text-gray-700 leading-relaxed">
-                We implement appropriate technical and organizational measures to protect your personal information against 
-                unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the 
-                internet or electronic storage is 100% secure.
+                We use your information only to provide, improve, and support our creative services. We do not sell your data. 
+                No hidden terms, no secrets, just straightforward privacy.
               </p>
             </div>
-
             <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-jakarta">5. Your Rights (GDPR Compliance)</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                If you are a resident of the European Union, you have the following rights:
-              </p>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-jakarta">What We Collect</h2>
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li>Right to access your personal data</li>
-                <li>Right to rectify inaccurate personal data</li>
-                <li>Right to erase your personal data</li>
-                <li>Right to restrict processing of your personal data</li>
-                <li>Right to data portability</li>
-                <li>Right to object to processing</li>
+                <li>Your name and contact details (when you reach out or sign up)</li>
+                <li>Project files or media you upload</li>
+                <li>Basic analytics—anonymous, never intrusive</li>
+                <li>Nothing more, and never without your say-so</li>
               </ul>
             </div>
-
             <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-jakarta">6. Third-Party Analytics</h2>
-              <p className="text-gray-700 leading-relaxed">
-                We may use third-party analytics services, such as Google Analytics, to help understand how our services 
-                are used. These services may collect information sent by your browser as part of a web page request.
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-jakarta">How We Use It</h2>
+              <ul className="list-disc pl-6 space-y-2 text-gray-700">
+                <li>To create and deliver the services you request</li>
+                <li>To keep you updated on your projects (if you opt in)</li>
+                <li>To understand how our site is used (only aggregated/anonymous)</li>
+                <li>To contact you if you ask us to</li>
+              </ul>
+            </div>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-8">
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-jakarta">Your Choices & Rights</h2>
+              <ul className="list-disc pl-6 space-y-2 text-gray-700">
+                <li>Access or correct your info anytime—just contact us</li>
+                <li>Request deletion, and we’ll make it happen promptly</li>
+                <li>Opt out from any communications whenever you like</li>
+              </ul>
+            </div>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-8">
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-jakarta">Data Security</h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                We use modern security tools and keep our systems updated, but no online system is foolproof. If we ever
+                spot a risk to your information, we will notify you immediately and be transparent every step of the way.
               </p>
             </div>
-
             <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-jakarta">7. Contact Us</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4 font-jakarta">Contact Us</h2>
               <p className="text-gray-700 leading-relaxed">
-                If you have any questions about this Privacy Policy, please contact us at privacy@pixelmango.com or 
-                through our contact page.
+                Have questions? Need support? Email us at <a href="mailto:privacy@pixelmango.com" className="text-green-600 underline">privacy@pixelmango.com</a>.
+              </p>
+              <p className="text-gray-700 leading-relaxed mt-2">
+                By using Pixel Mango, you agree to this privacy approach. We’ll always let you know before we change anything important.
               </p>
             </div>
           </div>
         </div>
       </main>
-
       <Footer />
     </div>
   );
