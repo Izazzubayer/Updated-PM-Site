@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -31,6 +32,7 @@ import NotFound from "./pages/NotFound";
 import BrandIdentityDesign from "./pages/services/BrandIdentityDesign";
 import SocialMediaBranding from "./pages/services/SocialMediaBranding";
 import UIUXDesign from "./pages/services/UIUXDesign";
+import WebsiteDevelopment from "./pages/services/WebsiteDevelopment";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +66,7 @@ const App = () => (
             <Route path="/services/brand-identity" element={<BrandIdentityDesign />} />
             <Route path="/services/social-media" element={<SocialMediaBranding />} />
             <Route path="/services/ui-ux-design" element={<UIUXDesign />} />
+            <Route path="/services/website-development" element={<WebsiteDevelopment />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
@@ -76,3 +79,4 @@ const App = () => (
 );
 
 export default App;
+
