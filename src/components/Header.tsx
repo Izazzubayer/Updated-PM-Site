@@ -28,6 +28,18 @@ const Header = () => {
 
   const navigation = [
     { name: 'Home', href: '/' },
+    { 
+      name: 'Services', 
+      href: '/services',
+      dropdown: [
+        { name: 'Brand Identity Design', href: '/services/brand-identity', icon: '🎨' },
+        { name: 'Social Media Branding', href: '/services/social-media', icon: '📱' },
+        { name: 'UI/UX Design', href: '/services/ui-ux-design', icon: '💻' },
+        { name: 'Website Development', href: '/services/website-development', icon: '🌐' },
+        { name: 'Content Creation', href: '/services/content-creation', icon: '✍️' },
+        { name: 'Consultation & Strategy', href: '/services/consultation-strategy', icon: '💡' }
+      ]
+    },
     { name: 'Portfolio', href: '/portfolio' },
     { 
       name: 'Support', 
