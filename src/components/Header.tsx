@@ -97,7 +97,7 @@ const Header = () => {
 
                 {/* Dropdown Menu */}
                 {item.dropdown && activeDropdown === item.name && (
-                  <div className="absolute top-full left-0 mt-2 w-64 pixel-card bg-white border-black z-[60] animate-pixel-fade">
+                  <div className="absolute top-full left-0 mt-2 w-64 bg-white border-2 border-black shadow-lg z-[70] animate-fade-in">
                     <div className="py-2">
                       {item.dropdown.map((dropdownItem) => (
                         <Link
@@ -105,7 +105,7 @@ const Header = () => {
                           to={dropdownItem.href}
                           className="flex items-center space-x-3 px-4 py-3 text-sm text-black hover:bg-mango-50 hover:text-mango-500 transition-all duration-100 font-mono group"
                         >
-                          <span className="text-lg group-hover:animate-pixel-glow transition-all duration-100">{dropdownItem.icon}</span>
+                          <span className="text-lg group-hover:animate-pulse transition-all duration-100">{dropdownItem.icon}</span>
                           <span>{dropdownItem.name}</span>
                         </Link>
                       ))}
@@ -130,7 +130,7 @@ const Header = () => {
               </button>
               
               {activeDropdown === 'language' && (
-                <div className="absolute top-full right-0 mt-2 pixel-card bg-white border-black z-[60]">
+                <div className="absolute top-full right-0 mt-2 bg-white border-2 border-black shadow-lg z-[70]">
                   <div className="py-2">
                     <button
                       onClick={() => {
@@ -179,7 +179,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden border-t-2 border-black mt-2 pt-4 pb-4 pixel-card bg-white">
+          <div className="lg:hidden border-t-2 border-black mt-2 pt-4 pb-4 bg-white border-2 border-black shadow-lg">
             <nav className="space-y-2">
               {navigation.map((item) => (
                 <div key={item.name}>
