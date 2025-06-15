@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Camera, Video, Box, Monitor, Code, Bot, ArrowRight } from 'lucide-react';
+import { Palette, Share2, Monitor, Code, PenTool, Users, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -9,40 +9,40 @@ const ServicesSection = () => {
 
   const services = [
     {
-      icon: Camera,
-      title: t('imageEditing'),
-      description: t('imageEditingDesc'),
-      link: "/services/image-editing"
+      icon: Palette,
+      title: t('brandIdentity'),
+      description: t('brandIdentityDesc'),
+      link: "/services/brand-identity"
     },
     {
-      icon: Video,
-      title: t('videoProduction'),
-      description: t('videoProductionDesc'),
-      link: "/services/video-production"
-    },
-    {
-      icon: Box,
-      title: t('threeDModeling'),
-      description: t('threeDModelingDesc'),
-      link: "/services/3d-modeling"
+      icon: Share2,
+      title: t('socialMediaBranding'),
+      description: t('socialMediaBrandingDesc'),
+      link: "/services/social-media-branding"
     },
     {
       icon: Monitor,
-      title: t('cgiRendering'),
-      description: t('cgiRenderingDesc'),
-      link: "/services/cgi-rendering"
+      title: t('uiuxDesign'),
+      description: t('uiuxDesignDesc'),
+      link: "/services/ui-ux-design"
     },
     {
       icon: Code,
-      title: t('softwareDevelopment'),
-      description: t('softwareDevelopmentDesc'),
-      link: "/services/software-development"
+      title: t('websiteDevelopment'),
+      description: t('websiteDevelopmentDesc'),
+      link: "/services/website-development"
     },
     {
-      icon: Bot,
-      title: t('aiAutomation'),
-      description: t('aiAutomationDesc'),
-      link: "/services/ai-automation"
+      icon: PenTool,
+      title: t('contentCreation'),
+      description: t('contentCreationDesc'),
+      link: "/services/content-creation"
+    },
+    {
+      icon: Users,
+      title: t('consultationStrategy'),
+      description: t('consultationStrategyDesc'),
+      link: "/services/consultation-strategy"
     }
   ];
 
@@ -62,10 +62,10 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="group bg-card border border-border rounded-2xl p-8 hover:shadow-xl hover:border-green-200 dark:hover:border-green-800 transition-all duration-300 hover:-translate-y-2"
+              className="group bg-card border border-border rounded-2xl p-8 hover:shadow-xl hover:border-orange-200 transition-all duration-300 hover:-translate-y-2"
             >
-              <div className="w-16 h-16 bg-muted rounded-2xl flex items-center justify-center mb-6 group-hover:bg-green-100 dark:group-hover:bg-green-900 transition-colors">
-                <service.icon className="w-8 h-8 text-muted-foreground group-hover:text-green-500 transition-colors" />
+              <div className="w-16 h-16 bg-muted rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-100 transition-colors">
+                <service.icon className="w-8 h-8 text-muted-foreground group-hover:text-orange-500 transition-colors" />
               </div>
               
               <h3 className="text-xl font-semibold text-card-foreground mb-4">{service.title}</h3>
@@ -73,7 +73,7 @@ const ServicesSection = () => {
               
               <Link 
                 to={service.link}
-                className="group/btn flex items-center space-x-2 text-green-500 font-medium hover:text-green-600 transition-all duration-300"
+                className="group/btn flex items-center space-x-2 text-orange-500 font-medium hover:text-orange-600 transition-all duration-300"
               >
                 <span>{t('learnMore')}</span>
                 <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />

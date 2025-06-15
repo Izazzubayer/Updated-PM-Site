@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Globe, Menu, X, Camera, Video, Box, Monitor, Code, Bot, Info, Mail, Phone, Book } from 'lucide-react';
+import { ChevronDown, Globe, Menu, X, Palette, Share2, Monitor, Code, PenTool, Users, Info, Mail, Phone, Book } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
@@ -36,52 +36,52 @@ const Header = () => {
 
   const services = [
     {
-      icon: Camera,
-      title: t('imageEditing'),
-      description: t('imageEditingDesc'),
-      href: "/services/image-editing"
+      icon: Palette,
+      title: t('brandIdentity'),
+      description: t('brandIdentityDesc'),
+      href: "/services/brand-identity"
     },
     {
-      icon: Video,
-      title: t('videoProduction'),
-      description: t('videoProductionDesc'),
-      href: "/services/video-production"
-    },
-    {
-      icon: Box,
-      title: t('threeDModeling'),
-      description: t('threeDModelingDesc'),
-      href: "/services/3d-modeling"
+      icon: Share2,
+      title: t('socialMediaBranding'),
+      description: t('socialMediaBrandingDesc'),
+      href: "/services/social-media-branding"
     },
     {
       icon: Monitor,
-      title: t('cgiRendering'),
-      description: t('cgiRenderingDesc'),
-      href: "/services/cgi-rendering"
+      title: t('uiuxDesign'),
+      description: t('uiuxDesignDesc'),
+      href: "/services/ui-ux-design"
     },
     {
       icon: Code,
-      title: t('softwareDevelopment'),
-      description: t('softwareDevelopmentDesc'),
-      href: "/services/software-development"
+      title: t('websiteDevelopment'),
+      description: t('websiteDevelopmentDesc'),
+      href: "/services/website-development"
     },
     {
-      icon: Bot,
-      title: t('aiAutomation'),
-      description: t('aiAutomationDesc'),
-      href: "/services/ai-automation"
+      icon: PenTool,
+      title: t('contentCreation'),
+      description: t('contentCreationDesc'),
+      href: "/services/content-creation"
+    },
+    {
+      icon: Users,
+      title: t('consultationStrategy'),
+      description: t('consultationStrategyDesc'),
+      href: "/services/consultation-strategy"
     }
   ];
 
   const products = [
     {
-      icon: Box,
+      icon: Monitor,
       title: "HoloSnap",
       description: "Transform 2D images into 3D models",
       href: "/products/holosnap"
     },
     {
-      icon: Camera,
+      icon: Palette,
       title: "Retouched.Ai",
       description: "AI-powered background removal",
       href: "/products/retouched-ai"
@@ -138,11 +138,13 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-              <div className="w-4 h-4 bg-white rounded-full"></div>
-            </div>
-            <span className="text-lg font-semibold text-gray-900">{t('companyName')}</span>
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src="/lovable-uploads/59e78e85-cc0a-4c41-8037-5153fb6fd80c.png" 
+              alt="Pixel Mango Logo" 
+              className="w-8 h-8"
+            />
+            <span className="text-lg font-semibold text-gray-900 font-jakarta">Pixel Mango</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -164,8 +166,8 @@ const Header = () => {
                               className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
                             >
                               <div className="flex items-center space-x-3">
-                                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-green-100 transition-colors">
-                                  <IconComponent className="w-5 h-5 text-gray-600 group-hover:text-green-500 transition-colors" />
+                                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center group-hover:bg-orange-200 transition-colors">
+                                  <IconComponent className="w-5 h-5 text-orange-600 group-hover:text-orange-700 transition-colors" />
                                 </div>
                                 <div>
                                   <div className="text-sm font-medium leading-none">{service.title}</div>
@@ -197,8 +199,8 @@ const Header = () => {
                               className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
                             >
                               <div className="flex items-center space-x-3">
-                                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-green-100 transition-colors">
-                                  <IconComponent className="w-5 h-5 text-gray-600 group-hover:text-green-500 transition-colors" />
+                                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center group-hover:bg-orange-200 transition-colors">
+                                  <IconComponent className="w-5 h-5 text-orange-600 group-hover:text-orange-700 transition-colors" />
                                 </div>
                                 <div>
                                   <div className="text-sm font-medium leading-none">{product.title}</div>
@@ -230,8 +232,8 @@ const Header = () => {
                               className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
                             >
                               <div className="flex items-center space-x-3">
-                                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-green-100 transition-colors">
-                                  <IconComponent className="w-5 h-5 text-gray-600 group-hover:text-green-500 transition-colors" />
+                                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center group-hover:bg-orange-200 transition-colors">
+                                  <IconComponent className="w-5 h-5 text-orange-600 group-hover:text-orange-700 transition-colors" />
                                 </div>
                                 <div>
                                   <div className="text-sm font-medium leading-none">{option.title}</div>
@@ -252,13 +254,13 @@ const Header = () => {
             
             <Link 
               to="/integrations" 
-              className={`transition-colors ${isActive('/integrations') ? 'text-green-500' : 'text-gray-700 hover:text-green-500'}`}
+              className={`transition-colors ${isActive('/integrations') ? 'text-orange-500' : 'text-gray-700 hover:text-orange-500'}`}
             >
               {t('integrations')}
             </Link>
             <Link 
               to="/pricing" 
-              className={`transition-colors ${isActive('/pricing') ? 'text-green-500' : 'text-gray-700 hover:text-green-500'}`}
+              className={`transition-colors ${isActive('/pricing') ? 'text-orange-500' : 'text-gray-700 hover:text-orange-500'}`}
             >
               {t('pricing')}
             </Link>
@@ -267,7 +269,7 @@ const Header = () => {
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">            
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center space-x-2 text-gray-700 hover:text-green-500 transition-colors bg-transparent border-none cursor-pointer">
+              <DropdownMenuTrigger className="flex items-center space-x-2 text-gray-700 hover:text-orange-500 transition-colors bg-transparent border-none cursor-pointer">
                 <Globe className="w-4 h-4" />
                 <span>{getCurrentLanguage()}</span>
                 <ChevronDown className="w-4 h-4" />
@@ -293,7 +295,7 @@ const Header = () => {
                     <div className="text-sm font-medium mb-2">Global Reach</div>
                     <div className="bg-gray-100 rounded-lg p-4 h-48 flex items-center justify-center text-gray-600">
                       <div className="text-center">
-                        <Globe className="w-12 h-12 mx-auto mb-2 text-green-500" />
+                        <Globe className="w-12 h-12 mx-auto mb-2 text-orange-500" />
                         <p className="text-xs">Available worldwide</p>
                       </div>
                     </div>
@@ -325,7 +327,7 @@ const Header = () => {
                     <Link 
                       key={service.title}
                       to={service.href} 
-                      className="block text-gray-700 hover:text-green-500"
+                      className="block text-gray-700 hover:text-orange-500"
                     >
                       {service.title}
                     </Link>
@@ -339,7 +341,7 @@ const Header = () => {
                     <Link 
                       key={product.title}
                       to={product.href} 
-                      className="block text-gray-700 hover:text-green-500"
+                      className="block text-gray-700 hover:text-orange-500"
                     >
                       {product.title}
                     </Link>
@@ -353,18 +355,18 @@ const Header = () => {
                     <Link 
                       key={option.title}
                       to={option.href} 
-                      className="block text-gray-700 hover:text-green-500"
+                      className="block text-gray-700 hover:text-orange-500"
                     >
                       {option.title}
                     </Link>
                   ))}
                 </div>
               </div>
-              <Link to="/integrations" className="block text-gray-700 hover:text-green-500">{t('integrations')}</Link>
-              <Link to="/pricing" className="block text-gray-700 hover:text-green-500">{t('pricing')}</Link>
+              <Link to="/integrations" className="block text-gray-700 hover:text-orange-500">{t('integrations')}</Link>
+              <Link to="/pricing" className="block text-gray-700 hover:text-orange-500">{t('pricing')}</Link>
               <div className="pt-4 border-t space-y-4">
                 <DropdownMenu>
-                  <DropdownMenuTrigger className="flex items-center space-x-2 text-gray-700 hover:text-green-500 transition-colors">
+                  <DropdownMenuTrigger className="flex items-center space-x-2 text-gray-700 hover:text-orange-500 transition-colors">
                     <Globe className="w-4 h-4" />
                     <span>{getCurrentLanguage()}</span>
                     <ChevronDown className="w-4 h-4" />
@@ -390,7 +392,7 @@ const Header = () => {
                         <div className="text-sm font-medium mb-2">Global Reach</div>
                         <div className="bg-gray-100 rounded-lg p-4 h-48 flex items-center justify-center text-gray-600">
                           <div className="text-center">
-                            <Globe className="w-12 h-12 mx-auto mb-2 text-green-500" />
+                            <Globe className="w-12 h-12 mx-auto mb-2 text-orange-500" />
                             <p className="text-xs">Available worldwide</p>
                           </div>
                         </div>
