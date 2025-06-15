@@ -43,10 +43,26 @@ const Header = () => {
       name: 'Portfolio', 
       href: '/portfolio',
       dropdown: [
-        { name: 'Aizaan Ecommerce & Rebranding', href: '/portfolio/aizaan-ecommerce-rebranding', icon: '🛒' },
-        { name: 'Santoku Knife Store UX Study', href: '/portfolio/santoku-knife-store-ux', icon: '🔪' },
-        { name: 'Puffy Homepage Redesign', href: '/portfolio/puffy-homepage-redesign', icon: '💤' },
-        { name: 'SFU Snap App Redesign', href: '/portfolio/sfu-snap-app-redesign', icon: '📱' }
+        { 
+          name: 'Aizaan Ecommerce & Rebranding', 
+          href: '/portfolio/aizaan-ecommerce-rebranding', 
+          icon: '🛒',
+        },
+        { 
+          name: 'Santoku Knife Store UX Study', 
+          href: '/portfolio/santoku-knife-store-ux', 
+          icon: '🔪',
+        },
+        { 
+          name: 'Puffy Homepage Redesign', 
+          href: '/portfolio/puffy-homepage-redesign', 
+          icon: '💤',
+        },
+        { 
+          name: 'SFU Snap App Redesign', 
+          href: '/portfolio/sfu-snap-app-redesign', 
+          icon: '📱',
+        }
       ]
     },
     { 
@@ -55,7 +71,7 @@ const Header = () => {
       dropdown: [
         { name: 'FAQ', href: '/support/faq', icon: '❓' },
         { name: 'About Us', href: '/support/about-us', icon: '👥' },
-        { name: 'Contact Us', href: '/support/contact-us', icon: '📧' },
+        { name: 'Contact Us', href: '/support/contact-us', icon: '📧' }
       ]
     }
   ];

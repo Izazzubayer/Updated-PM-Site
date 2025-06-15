@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -34,6 +33,7 @@ import SocialMediaBranding from "./pages/services/SocialMediaBranding";
 import UIUXDesign from "./pages/services/UIUXDesign";
 import WebsiteDevelopment from "./pages/services/WebsiteDevelopment";
 import ConsultationStrategy from "./pages/services/ConsultationStrategy";
+import Aizaan from "./pages/portfolio/Aizaan";
 
 const queryClient = new QueryClient();
 
@@ -72,6 +72,7 @@ const App = () => (
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
+            <Route path="/portfolio/aizaan-ecommerce-rebranding" element={<Aizaan />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
