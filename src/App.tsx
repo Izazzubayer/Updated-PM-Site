@@ -33,6 +33,7 @@ import BrandIdentityDesign from "./pages/services/BrandIdentityDesign";
 import SocialMediaBranding from "./pages/services/SocialMediaBranding";
 import UIUXDesign from "./pages/services/UIUXDesign";
 import WebsiteDevelopment from "./pages/services/WebsiteDevelopment";
+import ConsultationStrategy from "./pages/services/ConsultationStrategy";
 
 const queryClient = new QueryClient();
 
@@ -67,6 +68,7 @@ const App = () => (
             <Route path="/services/social-media" element={<SocialMediaBranding />} />
             <Route path="/services/ui-ux-design" element={<UIUXDesign />} />
             <Route path="/services/website-development" element={<WebsiteDevelopment />} />
+            <Route path="/services/consultation-strategy" element={<ConsultationStrategy />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
@@ -79,4 +81,3 @@ const App = () => (
 );
 
 export default App;
-
