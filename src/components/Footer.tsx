@@ -5,18 +5,32 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="relative bg-gray-900 text-white overflow-hidden border-t-4 border-mango-500 mt-20">
+      {/* Pixel Grid Overlay */}
+      <div className="absolute inset-0 z-0 pixel-grid pointer-events-none opacity-30" />
+      {/* Pixel Bottom Edge */}
+      <div className="absolute bottom-0 left-0 w-full flex z-10">
+        {Array.from({ length: 30 }).map((_, i) => (
+          <div
+            key={i}
+            className="h-2 w-4"
+            style={{
+              background: i % 2 === 0 ? '#FFA500' : '#000',
+            }}
+          />
+        ))}
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Logo and Socials */}
-          <div className="lg:col-span-1 space-y-6 flex flex-col">
-            <Link to="/" className="flex items-center space-x-2 mb-2">
+          {/* Logo + Socials */}
+          <div className="lg:col-span-1 flex flex-col items-start space-y-6">
+            <Link to="/" className="flex items-center space-x-2 mb-3">
               <img
                 src="/lovable-uploads/59e78e85-cc0a-4c41-8037-5153fb6fd80c.png"
                 alt="Pixel Mango Logo"
-                className="w-10 h-10 rounded-full shadow-lg"
+                className="w-12 h-12 rounded-full shadow-lg border-2 border-mango-500 animate-pixel-glow"
               />
-              <span className="text-lg font-semibold">Pixel Mango</span>
+              <span className="text-2xl font-pixel text-mango-500 pixel-text drop-shadow">Pixel Mango</span>
             </Link>
             <div className="flex space-x-4 mt-2">
               <a
@@ -24,101 +38,97 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="w-10 h-10 bg-gray-800 dark:bg-gray-900 rounded-lg flex items-center justify-center hover:bg-green-500 transition-colors"
+                className="group w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center transition-all border-2 border-transparent hover:border-mango-500 hover:shadow-xl"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="w-5 h-5 text-white group-hover:text-mango-500 transition-colors" />
               </a>
               <a
                 href="https://www.instagram.com/pixelmango.studio/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-10 h-10 bg-gray-800 dark:bg-gray-900 rounded-lg flex items-center justify-center hover:bg-green-500 transition-colors"
+                className="group w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center transition-all border-2 border-transparent hover:border-mango-500 hover:shadow-xl"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-5 h-5 text-white group-hover:text-mango-500 transition-colors" />
               </a>
               <a
                 href="https://www.linkedin.com/company/pixel-mango/?viewAsMember=true"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="w-10 h-10 bg-gray-800 dark:bg-gray-900 rounded-lg flex items-center justify-center hover:bg-green-500 transition-colors"
+                className="group w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center transition-all border-2 border-transparent hover:border-mango-500 hover:shadow-xl"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-5 h-5 text-white group-hover:text-mango-500 transition-colors" />
               </a>
             </div>
           </div>
-
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Services</h3>
+            <h3 className="text-lg font-semibold mb-6 font-pixel text-mango-500 tracking-wide">Services</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/services/brand-identity" className="text-gray-400 hover:text-green-500 transition-colors">Brand Identity Design</Link>
+                <Link to="/services/brand-identity" className="footer-link">Brand Identity Design</Link>
               </li>
               <li>
-                <Link to="/services/social-media" className="text-gray-400 hover:text-green-500 transition-colors">Social Media Branding</Link>
+                <Link to="/services/social-media" className="footer-link">Social Media Branding</Link>
               </li>
               <li>
-                <Link to="/services/ui-ux-design" className="text-gray-400 hover:text-green-500 transition-colors">UI/UX Design</Link>
+                <Link to="/services/ui-ux-design" className="footer-link">UI/UX Design</Link>
               </li>
               <li>
-                <Link to="/services/website-development" className="text-gray-400 hover:text-green-500 transition-colors">Website Development</Link>
+                <Link to="/services/website-development" className="footer-link">Website Development</Link>
               </li>
               <li>
-                <Link to="/services/content-creation" className="text-gray-400 hover:text-green-500 transition-colors">Content Creation</Link>
+                <Link to="/services/content-creation" className="footer-link">Content Creation</Link>
               </li>
               <li>
-                <Link to="/services/consultation-strategy" className="text-gray-400 hover:text-green-500 transition-colors">Consultation & Strategy</Link>
+                <Link to="/services/consultation-strategy" className="footer-link">Consultation &amp; Strategy</Link>
               </li>
             </ul>
           </div>
-
           {/* Support */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Support</h3>
+            <h3 className="text-lg font-semibold mb-6 font-pixel text-mango-500 tracking-wide">Support</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/support/FAQ" className="text-gray-400 hover:text-green-500 transition-colors">FAQ</Link>
+                <Link to="/support/FAQ" className="footer-link">FAQ</Link>
               </li>
               <li>
-                <Link to="/support/AboutUs" className="text-gray-400 hover:text-green-500 transition-colors">About Us</Link>
+                <Link to="/support/AboutUs" className="footer-link">About Us</Link>
               </li>
               <li>
-                <Link to="/support/ContactUs" className="text-gray-400 hover:text-green-500 transition-colors">Contact Us</Link>
+                <Link to="/support/ContactUs" className="footer-link">Contact Us</Link>
               </li>
             </ul>
           </div>
-
           {/* Portfolio */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Portfolio</h3>
+            <h3 className="text-lg font-semibold mb-6 font-pixel text-mango-500 tracking-wide">Portfolio</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/portfolio/aizaan-ecommerce-rebranding" className="text-gray-400 hover:text-green-500 transition-colors">Aizaan Ecommerce & Rebranding</Link>
+                <Link to="/portfolio/aizaan-ecommerce-rebranding" className="footer-link">Aizaan Ecommerce &amp; Rebranding</Link>
               </li>
               <li>
-                <Link to="/portfolio/santoku-knife-store-ux" className="text-gray-400 hover:text-green-500 transition-colors">Santoku Knife Store UX Study</Link>
+                <Link to="/portfolio/santoku-knife-store-ux" className="footer-link">Santoku Knife Store UX Study</Link>
               </li>
               <li>
-                <Link to="/portfolio/puffy-homepage-redesign" className="text-gray-400 hover:text-green-500 transition-colors">Puffy Homepage Redesign</Link>
+                <Link to="/portfolio/puffy-homepage-redesign" className="footer-link">Puffy Homepage Redesign</Link>
               </li>
               <li>
-                <Link to="/portfolio/sfu-snap-app-redesign" className="text-gray-400 hover:text-green-500 transition-colors">SFU Snap App Redesign</Link>
+                <Link to="/portfolio/sfu-snap-app-redesign" className="footer-link">SFU Snap App Redesign</Link>
               </li>
             </ul>
           </div>
         </div>
-
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 dark:border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
             &copy; {new Date().getFullYear()} Pixel Mango. All rights reserved. Izaz Zubayer
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy-policy" className="text-gray-400 hover:text-green-500 text-sm transition-colors">Privacy Policy</Link>
-            <Link to="/terms-of-service" className="text-gray-400 hover:text-green-500 text-sm transition-colors">Terms of Service</Link>
-            <Link to="/cookie-policy" className="text-gray-400 hover:text-green-500 text-sm transition-colors">Cookie Policy</Link>
+            <Link to="/privacy-policy" className="footer-link text-sm">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="footer-link text-sm">Terms of Service</Link>
+            <Link to="/cookie-policy" className="footer-link text-sm">Cookie Policy</Link>
           </div>
         </div>
       </div>
@@ -127,4 +137,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

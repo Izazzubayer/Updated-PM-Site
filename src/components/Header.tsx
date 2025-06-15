@@ -40,7 +40,16 @@ const Header = () => {
         { name: 'Consultation & Strategy', href: '/services/consultation-strategy', icon: '💡' }
       ]
     },
-    { name: 'Portfolio', href: '/portfolio' },
+    { 
+      name: 'Portfolio', 
+      href: '/portfolio',
+      dropdown: [
+        { name: 'Aizaan Ecommerce & Rebranding', href: '/portfolio/aizaan-ecommerce-rebranding', icon: '🛒' },
+        { name: 'Santoku Knife Store UX Study', href: '/portfolio/santoku-knife-store-ux', icon: '🔪' },
+        { name: 'Puffy Homepage Redesign', href: '/portfolio/puffy-homepage-redesign', icon: '💤' },
+        { name: 'SFU Snap App Redesign', href: '/portfolio/sfu-snap-app-redesign', icon: '📱' }
+      ]
+    },
     { 
       name: 'Support', 
       href: '/support',
