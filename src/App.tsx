@@ -29,6 +29,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 import NotFound from "./pages/NotFound";
+import BrandIdentityDesign from "./pages/services/BrandIdentityDesign";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,7 @@ const App = () => (
             <Route path="/support/contact-us" element={<ContactUs />} />
             <Route path="/support/faq" element={<FAQ />} />
             <Route path="/support/resources" element={<Resources />} />
+            <Route path="/services/brand-identity" element={<BrandIdentityDesign />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
