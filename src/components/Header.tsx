@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Globe } from 'lucide-react';
@@ -55,8 +54,8 @@ const Header = () => {
       href: '/support',
       dropdown: [
         { name: 'FAQ', href: '/support/faq', icon: '❓' },
-        { name: 'Knowledge Base', href: '/support/knowledge-base', icon: '📚' },
-        { name: 'Contact Support', href: '/support/contact-us', icon: '📧' }
+        { name: 'About Us', href: '/support/about-us', icon: '👥' },
+        { name: 'Contact Us', href: '/support/contact-us', icon: '📧' },
       ]
     }
   ];

@@ -304,9 +304,43 @@ a, .footer-link, .hover\:text-mango-500 {
   transition: color 0.2s;
 }
 
-/* Hide green hover globally where possible, prefer mango-500 (orange) for hover */
+/* Fix: pixel-mango hover color and improved text readability */
+a:hover, .footer-link:hover, .hover\:text-mango-500:hover {
+  color: #FFA500 !important;
+  background-color: transparent !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.20);
+  filter: none !important;
+  /* Remove strong blend-multiply/overlapping highlights from hover */
+}
+
+/* Remove green global hover - enforce mango-500 for hover */
 a:hover, .hover\:text-mango-500:hover {
   color: #FFA500 !important;
+}
+
+.footer-link:hover {
+  color: #FFA500 !important;
+  background: none !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  filter: none !important;
+}
+
+/* Ensure button hovers don't blend colors with text */
+button:hover, .pixel-button:hover, .btn-premium:hover {
+  color: #FFA500 !important;
+  background: #000 !important;
+  border-color: #FFA500 !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.btn-premium:hover {
+  color: #FFA500 !important;
+}
+
+/* Ensure inputs/select don't get affected by above */
+input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 2px #FFA50033;
+  border-color: #FFA500;
 }
 
 /* Prevent text overlap with background when hover (for readability) */
