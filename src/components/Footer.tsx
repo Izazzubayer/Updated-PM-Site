@@ -2,18 +2,15 @@
 import React from 'react';
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
-  const { t } = useTranslation();
-
   return (
     <footer className="bg-gray-900 dark:bg-gray-950 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="lg:col-span-2 space-y-6">
-            <Link to="/" className="flex items-center space-x-2">
+          {/* Logo and Socials */}
+          <div className="lg:col-span-1 space-y-6 flex flex-col">
+            <Link to="/" className="flex items-center space-x-2 mb-2">
               <img
                 src="/lovable-uploads/59e78e85-cc0a-4c41-8037-5153fb6fd80c.png"
                 alt="Pixel Mango Logo"
@@ -21,11 +18,7 @@ const Footer = () => {
               />
               <span className="text-lg font-semibold">Pixel Mango</span>
             </Link>
-            <p className="text-gray-400 leading-relaxed">
-              Pixel Mango is your creative ally, specializing in branding, design, content, and tech solutions.
-              Fresh ideas, bold visuals, and seamless digital experiences, handcrafted for you.
-            </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mt-2">
               <a
                 href="https://www.facebook.com/61576668292521"
                 target="_blank"
@@ -56,13 +49,10 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Navigation (matches header) */}
+          {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Explore</h3>
+            <h3 className="text-lg font-semibold mb-6">Services</h3>
             <ul className="space-y-3">
-              <li>
-                <Link to="/" className="text-gray-400 hover:text-green-500 transition-colors">Home</Link>
-              </li>
               <li>
                 <Link to="/services/brand-identity" className="text-gray-400 hover:text-green-500 transition-colors">Brand Identity Design</Link>
               </li>
@@ -81,14 +71,21 @@ const Footer = () => {
               <li>
                 <Link to="/services/consultation-strategy" className="text-gray-400 hover:text-green-500 transition-colors">Consultation & Strategy</Link>
               </li>
+            </ul>
+          </div>
+
+          {/* Support */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6">Support</h3>
+            <ul className="space-y-3">
               <li>
-                <Link to="/support" className="text-gray-400 hover:text-green-500 transition-colors">Support</Link>
+                <Link to="/support/FAQ" className="text-gray-400 hover:text-green-500 transition-colors">FAQ</Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-400 hover:text-green-500 transition-colors">About</Link>
+                <Link to="/support/AboutUs" className="text-gray-400 hover:text-green-500 transition-colors">About Us</Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-400 hover:text-green-500 transition-colors">Contact</Link>
+                <Link to="/support/ContactUs" className="text-gray-400 hover:text-green-500 transition-colors">Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -98,13 +95,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Portfolio</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/portfolio" className="text-gray-400 hover:text-green-500 transition-colors">Our Work</Link>
+                <Link to="/portfolio/aizaan-ecommerce-rebranding" className="text-gray-400 hover:text-green-500 transition-colors">Aizaan Ecommerce & Rebranding</Link>
               </li>
               <li>
-                <Link to="/blog" className="text-gray-400 hover:text-green-500 transition-colors">Blog</Link>
+                <Link to="/portfolio/santoku-knife-store-ux" className="text-gray-400 hover:text-green-500 transition-colors">Santoku Knife Store UX Study</Link>
               </li>
               <li>
-                <Link to="/pricing" className="text-gray-400 hover:text-green-500 transition-colors">Pricing</Link>
+                <Link to="/portfolio/puffy-homepage-redesign" className="text-gray-400 hover:text-green-500 transition-colors">Puffy Homepage Redesign</Link>
+              </li>
+              <li>
+                <Link to="/portfolio/sfu-snap-app-redesign" className="text-gray-400 hover:text-green-500 transition-colors">SFU Snap App Redesign</Link>
               </li>
             </ul>
           </div>
@@ -127,3 +127,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
