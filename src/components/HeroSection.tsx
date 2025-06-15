@@ -99,17 +99,14 @@ const HeroSection = () => {
               <span>Transform Your Brand</span>
             </div>
             
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6 font-jakarta">
-              CRAFTING{' '}
-              <span className="text-orange-500 relative inline-block">
-                PIXEL-PERFECT
-                <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-yellow-500 rounded-full animate-pulse"></div>
-                <div className="absolute -bottom-4 left-2 w-3/4 h-1 bg-gradient-to-r from-orange-300 to-yellow-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-              </span>{' '}
-              DESIGNS
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6 font-jakarta">
+              <span className="text-2xl lg:text-3xl text-orange-500 relative inline-block animate-pulse">
+                CRAFTING PIXEL-PERFECT DESIGNS
+                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-orange-400 to-yellow-500 rounded-full"></div>
+              </span>
             </h1>
             
-            <p className="text-2xl text-orange-600 leading-relaxed mb-4 max-w-lg font-jakarta font-semibold">
+            <p className="text-3xl lg:text-4xl text-gray-900 leading-relaxed mb-4 max-w-lg font-jakarta font-bold">
               Affordable creative services tailored for local businesses
             </p>
             

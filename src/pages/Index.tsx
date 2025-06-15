@@ -2,13 +2,13 @@
 import React from 'react';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
+import MissionSection from '../components/MissionSection';
 import ServicesSection from '../components/ServicesSection';
-import ProductsSection from '../components/ProductsSection';
-import TestimonialsSection from '../components/TestimonialsSection';
-import IntegrationsSection from '../components/IntegrationsSection';
-import StatsSection from '../components/StatsSection';
-import CTASection from '../components/CTASection';
-import TechnologySection from '../components/TechnologySection';
+import WhoWeCaterToSection from '../components/WhoWeCaterToSection';
+import WhyChooseUsSection from '../components/WhyChooseUsSection';
+import HowWeWorkSection from '../components/HowWeWorkSection';
+import ToolsIntegrationSection from '../components/ToolsIntegrationSection';
+import GettingStartedSection from '../components/GettingStartedSection';
 import Footer from '../components/Footer';
 import ParallaxWrapper from '../components/ParallaxWrapper';
 
@@ -21,32 +21,32 @@ const Index = () => {
           <HeroSection />
         </ParallaxWrapper>
         
+        <ParallaxWrapper depth={0.9}>
+          <MissionSection />
+        </ParallaxWrapper>
+        
         <ParallaxWrapper depth={0.8}>
           <ServicesSection />
         </ParallaxWrapper>
         
-        <ParallaxWrapper depth={0.6}>
-          <ProductsSection />
+        <ParallaxWrapper depth={0.7}>
+          <WhoWeCaterToSection />
         </ParallaxWrapper>
         
         <ParallaxWrapper depth={0.9}>
-          <StatsSection />
+          <WhyChooseUsSection />
         </ParallaxWrapper>
         
-        <ParallaxWrapper depth={0.7}>
-          <TechnologySection />
-        </ParallaxWrapper>
-        
-        <ParallaxWrapper depth={0.5}>
-          <TestimonialsSection />
+        <ParallaxWrapper depth={0.6}>
+          <HowWeWorkSection />
         </ParallaxWrapper>
         
         <ParallaxWrapper depth={0.8}>
-          <IntegrationsSection />
+          <ToolsIntegrationSection />
         </ParallaxWrapper>
         
-        <ParallaxWrapper depth={0.4}>
-          <CTASection />
+        <ParallaxWrapper depth={0.5}>
+          <GettingStartedSection />
         </ParallaxWrapper>
       </main>
       <Footer />
