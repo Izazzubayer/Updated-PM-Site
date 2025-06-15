@@ -27,22 +27,27 @@ const Header = () => {
   };
 
   const navigation = [
-    { name: t('home'), href: '/' },
+    { name: 'Home', href: '/' },
     { 
-      name: t('services'), 
+      name: 'Services', 
       href: '/services',
       dropdown: [
-        { name: t('brandIdentity'), href: '/services/brand-identity', icon: '🎨' },
-        { name: t('socialMediaBranding'), href: '/services/social-media-branding', icon: '📱' },
-        { name: t('uiuxDesign'), href: '/services/ui-ux-design', icon: '💻' },
-        { name: t('websiteDevelopment'), href: '/services/website-development', icon: '🌐' },
-        { name: t('contentCreation'), href: '/services/content-creation', icon: '✍️' },
-        { name: t('consultationStrategy'), href: '/services/consultation-strategy', icon: '💡' }
+        { name: 'Brand Identity', href: '/services/brand-identity', icon: '🎨' },
+        { name: 'Print & Collateral', href: '/services/print-collateral', icon: '📄' },
+        { name: 'Digital UI/UX', href: '/services/ui-ux-design', icon: '💻' },
+        { name: 'Web Development', href: '/services/website-development', icon: '🌐' }
       ]
     },
-    { name: t('products'), href: '/products' },
-    { name: t('pricing'), href: '/pricing' },
-    { name: t('support'), href: '/support' }
+    { name: 'Portfolio', href: '/portfolio' },
+    { 
+      name: 'Support', 
+      href: '/support',
+      dropdown: [
+        { name: 'FAQ', href: '/support/faq', icon: '❓' },
+        { name: 'About Us', href: '/support/about-us', icon: 'ℹ️' },
+        { name: 'Contact Us', href: '/support/contact-us', icon: '📧' }
+      ]
+    }
   ];
 
   return (
@@ -88,9 +93,9 @@ const Header = () => {
                         <Link
                           key={dropdownItem.name}
                           to={dropdownItem.href}
-                          className="flex items-center space-x-3 px-4 py-3 text-sm text-black hover:bg-mango-50 hover:text-mango-500 transition-colors font-mono"
+                          className="flex items-center space-x-3 px-4 py-3 text-sm text-black hover:bg-mango-50 hover:text-mango-500 transition-colors font-mono group"
                         >
-                          <span className="text-lg">{dropdownItem.icon}</span>
+                          <span className="text-lg group-hover:animate-pixel-glow">{dropdownItem.icon}</span>
                           <span>{dropdownItem.name}</span>
                         </Link>
                       ))}
