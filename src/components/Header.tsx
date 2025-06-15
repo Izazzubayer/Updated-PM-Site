@@ -97,18 +97,24 @@ const Header = () => {
 
                 {/* Dropdown Menu */}
                 {item.dropdown && activeDropdown === item.name && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-white border-2 border-black shadow-lg z-[70] animate-fade-in">
-                    <div className="py-2">
-                      {item.dropdown.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.name}
-                          to={dropdownItem.href}
-                          className="flex items-center space-x-3 px-4 py-3 text-sm text-black hover:bg-mango-50 hover:text-mango-500 transition-all duration-100 font-mono group"
-                        >
-                          <span className="text-lg group-hover:animate-pulse transition-all duration-100">{dropdownItem.icon}</span>
-                          <span>{dropdownItem.name}</span>
-                        </Link>
-                      ))}
+                  <div 
+                    className="absolute top-full left-0 pt-1 w-64 z-[70]"
+                    onMouseEnter={() => handleDropdownEnter(item.name)}
+                    onMouseLeave={handleDropdownLeave}
+                  >
+                    <div className="bg-white border-2 border-black shadow-lg animate-fade-in">
+                      <div className="py-2">
+                        {item.dropdown.map((dropdownItem) => (
+                          <Link
+                            key={dropdownItem.name}
+                            to={dropdownItem.href}
+                            className="flex items-center space-x-3 px-4 py-3 text-sm text-black hover:bg-mango-50 hover:text-mango-500 transition-all duration-100 font-mono group"
+                          >
+                            <span className="text-lg group-hover:animate-pulse transition-all duration-100">{dropdownItem.icon}</span>
+                            <span>{dropdownItem.name}</span>
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
