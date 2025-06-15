@@ -19,9 +19,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'sans': ['Plus Jakarta Sans', 'sans-serif'],
-				'jakarta': ['Plus Jakarta Sans', 'sans-serif'],
-				'product': ['Plus Jakarta Sans', 'sans-serif'],
+				'sans': ['Space Mono', 'monospace'],
+				'pixel': ['Orbitron', 'monospace'],
+				'mono': ['Space Mono', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -30,24 +30,24 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					DEFAULT: '#FFA500',
+					foreground: '#000000'
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					DEFAULT: '#666666',
+					foreground: '#FFFFFF'
 				},
-				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
+				accent: {
+					DEFAULT: '#000000',
+					foreground: '#FFA500'
 				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
 					foreground: 'hsl(var(--muted-foreground))'
 				},
-				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+				destructive: {
+					DEFAULT: 'hsl(var(--destructive))',
+					foreground: 'hsl(var(--destructive-foreground))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -57,15 +57,18 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				// Pixel Mango Brand Colors
+				mango: {
+					50: '#FFF7ED',
+					100: '#FFEDD5',
+					200: '#FED7AA',
+					300: '#FDBA74',
+					400: '#FB923C',
+					500: '#FFA500',
+					600: '#EA580C',
+					700: '#C2410C',
+					800: '#9A3412',
+					900: '#7C2D12',
 				}
 			},
 			borderRadius: {
@@ -74,88 +77,36 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
+				'pixel-glow': {
+					'0%, 100%': { 
+						boxShadow: '0 0 5px #FFA500, 0 0 10px #FFA500, 0 0 15px #FFA500',
+						filter: 'brightness(1)'
 					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
+					'50%': { 
+						boxShadow: '0 0 10px #FFA500, 0 0 20px #FFA500, 0 0 30px #FFA500',
+						filter: 'brightness(1.2)'
 					}
 				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+				'pixel-shift': {
+					'0%, 100%': { transform: 'translate(0)' },
+					'25%': { transform: 'translate(1px, 0)' },
+					'50%': { transform: 'translate(0, 1px)' },
+					'75%': { transform: 'translate(-1px, 0)' }
 				},
-				fadeInUp: {
-					from: {
-						opacity: '0',
-						transform: 'translateY(30px)'
-					},
-					to: {
-						opacity: '1',
-						transform: 'translateY(0)'
-					}
+				'pixel-float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-8px)' }
 				},
-				slideInLeft: {
-					from: {
-						opacity: '0',
-						transform: 'translateX(-30px)'
-					},
-					to: {
-						opacity: '1',
-						transform: 'translateX(0)'
-					}
-				},
-				slideInRight: {
-					from: {
-						opacity: '0',
-						transform: 'translateX(30px)'
-					},
-					to: {
-						opacity: '1',
-						transform: 'translateX(0)'
-					}
-				},
-				scaleIn: {
-					from: {
-						opacity: '0',
-						transform: 'scale(0.9)'
-					},
-					to: {
-						opacity: '1',
-						transform: 'scale(1)'
-					}
-				},
-				float: {
-					'0%, 100%': {
-						transform: 'translateY(0px)'
-					},
-					'50%': {
-						transform: 'translateY(-10px)'
-					}
-				},
-				glow: {
-					'0%, 100%': {
-						boxShadow: '0 0 5px rgba(249, 115, 22, 0.2)'
-					},
-					'50%': {
-						boxShadow: '0 0 20px rgba(249, 115, 22, 0.4)'
-					}
+				'block-slide': {
+					'from': { transform: 'translateX(-100%)', opacity: '0' },
+					'to': { transform: 'translateX(0)', opacity: '1' }
 				}
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in-up': 'fadeInUp 0.6s ease-out',
-				'slide-in-left': 'slideInLeft 0.6s ease-out',
-				'slide-in-right': 'slideInRight 0.6s ease-out',
-				'scale-in': 'scaleIn 0.4s ease-out',
-				'float': 'float 3s ease-in-out infinite',
-				'glow': 'glow 2s ease-in-out infinite'
+				'pixel-glow': 'pixel-glow 2s ease-in-out infinite',
+				'pixel-shift': 'pixel-shift 0.3s ease-in-out',
+				'pixel-float': 'pixel-float 3s ease-in-out infinite',
+				'block-slide': 'block-slide 0.6s ease-out'
 			}
 		}
 	},

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Star, Clock, DollarSign, Users, Award, CheckCircle } from 'lucide-react';
+import { Shield, Clock, Award, Users, Star, Zap, Target } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const WhyChooseUsSection = () => {
@@ -8,113 +8,117 @@ const WhyChooseUsSection = () => {
 
   const reasons = [
     {
-      icon: DollarSign,
-      title: "Affordable Pricing",
-      description: "Premium quality without the premium price tag. Get professional designs that fit your budget."
+      icon: Zap,
+      title: "Lightning Fast Delivery",
+      description: "Get your projects completed in record time without compromising on quality."
     },
     {
-      icon: Clock,
-      title: "Fast Turnaround",
-      description: "Quick delivery without compromising quality. Most projects completed within 1-2 weeks."
+      icon: Target,
+      title: "Pixel-Perfect Precision",
+      description: "Every element is crafted with meticulous attention to detail and precision."
     },
     {
-      icon: Users,
-      title: "Local Focus",
-      description: "We understand local markets and help you connect with your community effectively."
+      icon: Shield,
+      title: "100% Satisfaction Guarantee",
+      description: "We're not happy until you're thrilled with the final result."
     },
     {
       icon: Award,
-      title: "Proven Results",
-      description: "Our designs have helped hundreds of businesses increase their brand recognition and sales."
+      title: "Award-Winning Designs",
+      description: "Our work has been recognized by industry leaders and design communities."
     }
   ];
 
   const testimonials = [
     {
-      name: "Sarah Chen",
-      business: "Bloom Coffee Co.",
+      name: "Sarah Johnson",
+      role: "Café Owner",
+      business: "Pixel Brew Coffee",
       rating: 5,
-      text: "Pixel Mango transformed our café's brand completely. Our customer base has grown by 40% since the rebrand!",
-      avatar: "SC"
+      text: "Pixel Mango transformed our brand identity completely. The logo design is absolutely perfect and our customers love the new look!",
+      avatar: "SJ"
     },
     {
-      name: "Marcus Rodriguez",
-      business: "Street Style Apparel",
+      name: "Mike Chen",
+      role: "Fashion Designer",
+      business: "Urban Threads",
       rating: 5,
-      text: "The team understood our vision perfectly. Our online sales doubled after launching the new website.",
-      avatar: "MR"
+      text: "Their social media branding package was exactly what we needed. Our Instagram engagement has tripled since the rebrand.",
+      avatar: "MC"
     },
     {
-      name: "Emily Watson",
-      business: "Green Leaf Wellness",
+      name: "Emily Rodriguez",
+      role: "Restaurant Manager",
+      business: "Fusion Bites",
       rating: 5,
-      text: "Professional, creative, and affordable. They delivered exactly what we needed to stand out.",
-      avatar: "EW"
+      text: "The website they built for us is stunning and our online orders have increased by 200%. Highly recommend their services!",
+      avatar: "ER"
     }
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gray-50 pixel-grid">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 font-jakarta">Why Choose Pixel Mango?</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-product">
-            We combine creative excellence with business understanding to deliver designs that don't just look good – they work.
+          <h2 className="text-4xl font-pixel text-black mb-4 pixel-text">Why Choose Pixel Mango</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-mono">
+            We combine creative excellence with technical expertise to deliver results that exceed expectations
           </p>
+          <div className="w-24 h-1 bg-mango-500 mx-auto mt-6"></div>
         </div>
 
-        {/* Reasons */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        {/* Reasons Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {reasons.map((reason, index) => (
             <div 
               key={index}
-              className="text-center group hover:scale-105 transition-all duration-300"
+              className="pixel-card p-6 text-center bg-white hover:animate-pixel-glow transition-all duration-300"
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-100 to-yellow-200 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:from-orange-200 group-hover:to-yellow-300 transition-all duration-300">
-                <reason.icon className="w-8 h-8 text-orange-600 group-hover:text-orange-700 transition-colors" />
+              <div className="w-16 h-16 bg-mango-500 border-2 border-black rounded-none flex items-center justify-center mx-auto mb-4">
+                <reason.icon className="w-8 h-8 text-black" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 font-jakarta">{reason.title}</h3>
-              <p className="text-sm text-gray-600 font-product">{reason.description}</p>
+              <h3 className="text-lg font-pixel text-black mb-3">{reason.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed font-mono">{reason.description}</p>
             </div>
           ))}
         </div>
 
-        {/* Testimonials */}
-        <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-3xl p-8">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4 font-jakarta">What Our Clients Say</h3>
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
-              ))}
-              <span className="text-lg font-semibold text-gray-700 ml-2">4.9/5 Average Rating</span>
-            </div>
-          </div>
+        {/* Testimonials Section */}
+        <div className="text-center mb-12">
+          <h3 className="text-3xl font-pixel text-black mb-4">What Our Clients Say</h3>
+          <p className="text-lg text-gray-600 font-mono">
+            Real feedback from real businesses we've helped grow
+          </p>
+        </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index}
-                className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300"
-              >
+        <div className="grid md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="relative">
+              {/* Pixel Speech Bubble */}
+              <div className="pixel-speech bg-white border-3 border-black p-6 mb-6 hover:animate-pixel-glow">
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    <Star key={i} className="w-4 h-4 fill-mango-500 text-mango-500" />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-4 font-product italic">"{testimonial.text}"</p>
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-orange-100 to-yellow-200 rounded-full flex items-center justify-center">
-                    <span className="text-orange-600 font-semibold text-sm">{testimonial.avatar}</span>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900 font-jakarta">{testimonial.name}</div>
-                    <div className="text-sm text-gray-600 font-product">{testimonial.business}</div>
-                  </div>
+                <p className="text-gray-700 font-mono text-sm leading-relaxed mb-4">
+                  "{testimonial.text}"
+                </p>
+              </div>
+              
+              {/* Client Info */}
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-mango-500 border-2 border-black flex items-center justify-center">
+                  <span className="text-black font-pixel text-sm">{testimonial.avatar}</span>
+                </div>
+                <div className="text-left">
+                  <div className="font-pixel text-black text-sm">{testimonial.name}</div>
+                  <div className="text-gray-600 text-xs font-mono">{testimonial.role}</div>
+                  <div className="text-mango-500 text-xs font-pixel">{testimonial.business}</div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

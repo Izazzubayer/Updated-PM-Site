@@ -1,406 +1,238 @@
 
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Globe, Menu, X, Palette, Share2, Monitor, Code, PenTool, Users, Info, Mail, Phone, Book } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, ChevronDown, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { t, i18n } = useTranslation();
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const { t, i18n } = useTranslation();
+
+  const currentLanguage = i18n.language;
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isActive = (path: string) => location.pathname === path;
-
-  const services = [
-    {
-      icon: Palette,
-      title: t('brandIdentity'),
-      description: t('brandIdentityDesc'),
-      href: "/services/brand-identity"
-    },
-    {
-      icon: Share2,
-      title: t('socialMediaBranding'),
-      description: t('socialMediaBrandingDesc'),
-      href: "/services/social-media-branding"
-    },
-    {
-      icon: Monitor,
-      title: t('uiuxDesign'),
-      description: t('uiuxDesignDesc'),
-      href: "/services/ui-ux-design"
-    },
-    {
-      icon: Code,
-      title: t('websiteDevelopment'),
-      description: t('websiteDevelopmentDesc'),
-      href: "/services/website-development"
-    },
-    {
-      icon: PenTool,
-      title: t('contentCreation'),
-      description: t('contentCreationDesc'),
-      href: "/services/content-creation"
-    },
-    {
-      icon: Users,
-      title: t('consultationStrategy'),
-      description: t('consultationStrategyDesc'),
-      href: "/services/consultation-strategy"
-    }
-  ];
-
-  const products = [
-    {
-      icon: Monitor,
-      title: "HoloSnap",
-      description: "Transform 2D images into 3D models",
-      href: "/products/holosnap"
-    },
-    {
-      icon: Palette,
-      title: "Retouched.Ai",
-      description: "AI-powered background removal",
-      href: "/products/retouched-ai"
-    }
-  ];
-
-  const supportOptions = [
-    {
-      icon: Info,
-      title: t('aboutUs'),
-      description: "Learn more about our company",
-      href: "/support/about-us"
-    },
-    {
-      icon: Mail,
-      title: t('contactUs'),
-      description: "Get in touch with our team",
-      href: "/support/contact-us"
-    },
-    {
-      icon: Phone,
-      title: t('faq'),
-      description: "Frequently asked questions",
-      href: "/support/faq"
-    },
-    {
-      icon: Book,
-      title: t('resources'),
-      description: "Guides and documentation",
-      href: "/support/resources"
-    }
-  ];
-
-  const languages = [
-    { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'bn', name: 'বাংলা', flag: '🇧🇩' },
-    { code: 'fr', name: 'Français', flag: '🇫🇷' }
-  ];
-
-  const handleLanguageChange = (language: any) => {
-    i18n.changeLanguage(language.code);
-    console.log(`Language changed to: ${language.name}`);
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
   };
 
-  const getCurrentLanguage = () => {
-    const current = languages.find(lang => lang.code === i18n.language);
-    return current ? current.code.toUpperCase() : 'EN';
-  };
+  const navigation = [
+    { name: t('home'), href: '/' },
+    { 
+      name: t('services'), 
+      href: '/services',
+      dropdown: [
+        { name: t('brandIdentity'), href: '/services/brand-identity', icon: '🎨' },
+        { name: t('socialMediaBranding'), href: '/services/social-media-branding', icon: '📱' },
+        { name: t('uiuxDesign'), href: '/services/ui-ux-design', icon: '💻' },
+        { name: t('websiteDevelopment'), href: '/services/website-development', icon: '🌐' },
+        { name: t('contentCreation'), href: '/services/content-creation', icon: '✍️' },
+        { name: t('consultationStrategy'), href: '/services/consultation-strategy', icon: '💡' }
+      ]
+    },
+    { name: t('products'), href: '/products' },
+    { name: t('pricing'), href: '/pricing' },
+    { name: t('support'), href: '/support' }
+  ];
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b' : 'bg-white'
+      isScrolled ? 'bg-white border-b-3 border-black' : 'bg-white/95 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3 hover:animate-pixel-shift transition-all">
             <img 
               src="/lovable-uploads/59e78e85-cc0a-4c41-8037-5153fb6fd80c.png" 
               alt="Pixel Mango Logo" 
-              className="w-8 h-8"
+              className="h-10 w-10"
             />
-            <span className="text-lg font-semibold text-gray-900 font-jakarta">Pixel Mango</span>
+            <span className="font-pixel text-xl text-black">PIXEL MANGO</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent hover:bg-gray-100 data-[active]:bg-gray-100 data-[state=open]:bg-gray-100">
-                    {t('services')}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid w-[600px] gap-3 p-6 md:grid-cols-2">
-                      {services.map((service) => {
-                        const IconComponent = service.icon;
-                        return (
-                          <NavigationMenuLink key={service.title} asChild>
-                            <Link
-                              to={service.href}
-                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
-                            >
-                              <div className="flex items-center space-x-3">
-                                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center group-hover:bg-orange-200 transition-colors">
-                                  <IconComponent className="w-5 h-5 text-orange-600 group-hover:text-orange-700 transition-colors" />
-                                </div>
-                                <div>
-                                  <div className="text-sm font-medium leading-none">{service.title}</div>
-                                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
-                                    {service.description}
-                                  </p>
-                                </div>
-                              </div>
-                            </Link>
-                          </NavigationMenuLink>
-                        );
-                      })}
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+          <nav className="hidden lg:flex items-center space-x-8">
+            {navigation.map((item) => (
+              <div
+                key={item.name}
+                className="relative"
+                onMouseEnter={() => item.dropdown && setActiveDropdown(item.name)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <Link
+                  to={item.href}
+                  className={`flex items-center space-x-1 font-pixel text-sm transition-colors duration-200 hover:text-mango-500 ${
+                    location.pathname === item.href ? 'text-mango-500' : 'text-black'
+                  }`}
+                >
+                  <span>{item.name}</span>
+                  {item.dropdown && <ChevronDown className="w-4 h-4" />}
+                </Link>
 
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent hover:bg-gray-100 data-[active]:bg-gray-100 data-[state=open]:bg-gray-100">
-                    {t('products')}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid w-[400px] gap-3 p-6">
-                      {products.map((product) => {
-                        const IconComponent = product.icon;
-                        return (
-                          <NavigationMenuLink key={product.title} asChild>
-                            <Link
-                              to={product.href}
-                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
-                            >
-                              <div className="flex items-center space-x-3">
-                                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center group-hover:bg-orange-200 transition-colors">
-                                  <IconComponent className="w-5 h-5 text-orange-600 group-hover:text-orange-700 transition-colors" />
-                                </div>
-                                <div>
-                                  <div className="text-sm font-medium leading-none">{product.title}</div>
-                                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
-                                    {product.description}
-                                  </p>
-                                </div>
-                              </div>
-                            </Link>
-                          </NavigationMenuLink>
-                        );
-                      })}
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent hover:bg-gray-100 data-[active]:bg-gray-100 data-[state=open]:bg-gray-100">
-                    {t('support')}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid w-[400px] gap-3 p-6">
-                      {supportOptions.map((option) => {
-                        const IconComponent = option.icon;
-                        return (
-                          <NavigationMenuLink key={option.title} asChild>
-                            <Link
-                              to={option.href}
-                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
-                            >
-                              <div className="flex items-center space-x-3">
-                                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center group-hover:bg-orange-200 transition-colors">
-                                  <IconComponent className="w-5 h-5 text-orange-600 group-hover:text-orange-700 transition-colors" />
-                                </div>
-                                <div>
-                                  <div className="text-sm font-medium leading-none">{option.title}</div>
-                                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
-                                    {option.description}
-                                  </p>
-                                </div>
-                              </div>
-                            </Link>
-                          </NavigationMenuLink>
-                        );
-                      })}
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            
-            <Link 
-              to="/integrations" 
-              className={`transition-colors ${isActive('/integrations') ? 'text-orange-500' : 'text-gray-700 hover:text-orange-500'}`}
-            >
-              {t('integrations')}
-            </Link>
-            <Link 
-              to="/pricing" 
-              className={`transition-colors ${isActive('/pricing') ? 'text-orange-500' : 'text-gray-700 hover:text-orange-500'}`}
-            >
-              {t('pricing')}
-            </Link>
-          </nav>
-
-          {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">            
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center space-x-2 text-gray-700 hover:text-orange-500 transition-colors bg-transparent border-none cursor-pointer">
-                <Globe className="w-4 h-4" />
-                <span>{getCurrentLanguage()}</span>
-                <ChevronDown className="w-4 h-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-80 p-4">
-                <div className="flex">
-                  <div className="w-1/2 pr-2">
-                    <div className="text-sm font-medium mb-2">Select Language</div>
-                    <div className="space-y-1 max-h-48 overflow-y-auto">
-                      {languages.map((language) => (
-                        <DropdownMenuItem 
-                          key={language.code}
-                          onClick={() => handleLanguageChange(language)}
-                          className="flex items-center space-x-2 cursor-pointer hover:bg-accent p-2 rounded"
+                {/* Dropdown Menu */}
+                {item.dropdown && activeDropdown === item.name && (
+                  <div className="absolute top-full left-0 mt-2 w-64 pixel-card bg-white border-black z-50 animate-pixel-fade">
+                    <div className="py-2">
+                      {item.dropdown.map((dropdownItem) => (
+                        <Link
+                          key={dropdownItem.name}
+                          to={dropdownItem.href}
+                          className="flex items-center space-x-3 px-4 py-3 text-sm text-black hover:bg-mango-50 hover:text-mango-500 transition-colors font-mono"
                         >
-                          <span className="text-lg">{language.flag}</span>
-                          <span className="text-sm">{language.name}</span>
-                        </DropdownMenuItem>
+                          <span className="text-lg">{dropdownItem.icon}</span>
+                          <span>{dropdownItem.name}</span>
+                        </Link>
                       ))}
                     </div>
                   </div>
-                  <div className="w-1/2 pl-2 border-l">
-                    <div className="text-sm font-medium mb-2">Global Reach</div>
-                    <div className="bg-gray-100 rounded-lg p-4 h-48 flex items-center justify-center text-gray-600">
-                      <div className="text-center">
-                        <Globe className="w-12 h-12 mx-auto mb-2 text-orange-500" />
-                        <p className="text-xs">Available worldwide</p>
-                      </div>
-                    </div>
+                )}
+              </div>
+            ))}
+          </nav>
+
+          {/* Right Side - Language & CTA */}
+          <div className="hidden lg:flex items-center space-x-4">
+            {/* Language Switcher */}
+            <div className="relative">
+              <button 
+                className="flex items-center space-x-2 text-black hover:text-mango-500 transition-colors font-mono"
+                onClick={() => setActiveDropdown(activeDropdown === 'language' ? null : 'language')}
+              >
+                <Globe className="w-4 h-4" />
+                <span className="text-sm">{currentLanguage.toUpperCase()}</span>
+                <ChevronDown className="w-4 h-4" />
+              </button>
+              
+              {activeDropdown === 'language' && (
+                <div className="absolute top-full right-0 mt-2 pixel-card bg-white border-black z-50">
+                  <div className="py-2">
+                    <button
+                      onClick={() => {
+                        changeLanguage('en');
+                        setActiveDropdown(null);
+                      }}
+                      className={`block w-full text-left px-4 py-2 text-sm font-mono transition-colors ${
+                        currentLanguage === 'en' 
+                          ? 'bg-mango-500 text-black' 
+                          : 'text-black hover:bg-mango-50 hover:text-mango-500'
+                      }`}
+                    >
+                      English
+                    </button>
+                    <button
+                      onClick={() => {
+                        changeLanguage('es');
+                        setActiveDropdown(null);
+                      }}
+                      className={`block w-full text-left px-4 py-2 text-sm font-mono transition-colors ${
+                        currentLanguage === 'es' 
+                          ? 'bg-mango-500 text-black' 
+                          : 'text-black hover:bg-mango-50 hover:text-mango-500'
+                      }`}
+                    >
+                      Español
+                    </button>
                   </div>
                 </div>
-              </DropdownMenuContent>
-            </DropdownMenu>
+              )}
+            </div>
+
+            <Link to="/contact" className="pixel-button px-6 py-2 font-pixel text-sm">
+              GET STARTED
+            </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-2">
-            <button 
-              className="p-2"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden p-2 border-2 border-black hover:bg-mango-500 transition-colors"
+          >
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t shadow-lg">
-            <nav className="px-4 py-6 space-y-4">
-              <div className="space-y-2">
-                <div className="font-medium text-gray-900">{t('services')}</div>
-                <div className="pl-4 space-y-2">
-                  {services.map((service) => (
-                    <Link 
-                      key={service.title}
-                      to={service.href} 
-                      className="block text-gray-700 hover:text-orange-500"
-                    >
-                      {service.title}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-              <div className="space-y-2">
-                <div className="font-medium text-gray-900">{t('products')}</div>
-                <div className="pl-4 space-y-2">
-                  {products.map((product) => (
-                    <Link 
-                      key={product.title}
-                      to={product.href} 
-                      className="block text-gray-700 hover:text-orange-500"
-                    >
-                      {product.title}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-              <div className="space-y-2">
-                <div className="font-medium text-gray-900">{t('support')}</div>
-                <div className="pl-4 space-y-2">
-                  {supportOptions.map((option) => (
-                    <Link 
-                      key={option.title}
-                      to={option.href} 
-                      className="block text-gray-700 hover:text-orange-500"
-                    >
-                      {option.title}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-              <Link to="/integrations" className="block text-gray-700 hover:text-orange-500">{t('integrations')}</Link>
-              <Link to="/pricing" className="block text-gray-700 hover:text-orange-500">{t('pricing')}</Link>
-              <div className="pt-4 border-t space-y-4">
-                <DropdownMenu>
-                  <DropdownMenuTrigger className="flex items-center space-x-2 text-gray-700 hover:text-orange-500 transition-colors">
-                    <Globe className="w-4 h-4" />
-                    <span>{getCurrentLanguage()}</span>
-                    <ChevronDown className="w-4 h-4" />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-80 p-4">
-                    <div className="flex">
-                      <div className="w-1/2 pr-2">
-                        <div className="text-sm font-medium mb-2">Select Language</div>
-                        <div className="space-y-1 max-h-48 overflow-y-auto">
-                          {languages.map((language) => (
-                            <DropdownMenuItem 
-                              key={language.code}
-                              onClick={() => handleLanguageChange(language)}
-                              className="flex items-center space-x-2 cursor-pointer hover:bg-accent p-2 rounded"
-                            >
-                              <span className="text-lg">{language.flag}</span>
-                              <span className="text-sm">{language.name}</span>
-                            </DropdownMenuItem>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="w-1/2 pl-2 border-l">
-                        <div className="text-sm font-medium mb-2">Global Reach</div>
-                        <div className="bg-gray-100 rounded-lg p-4 h-48 flex items-center justify-center text-gray-600">
-                          <div className="text-center">
-                            <Globe className="w-12 h-12 mx-auto mb-2 text-orange-500" />
-                            <p className="text-xs">Available worldwide</p>
-                          </div>
-                        </div>
-                      </div>
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="lg:hidden border-t-2 border-black mt-2 pt-4 pb-4 pixel-card bg-white">
+            <nav className="space-y-2">
+              {navigation.map((item) => (
+                <div key={item.name}>
+                  <Link
+                    to={item.href}
+                    className={`block py-2 px-4 font-pixel text-sm transition-colors ${
+                      location.pathname === item.href 
+                        ? 'text-mango-500 bg-mango-50' 
+                        : 'text-black hover:text-mango-500 hover:bg-mango-50'
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                  {item.dropdown && (
+                    <div className="ml-4 mt-2 space-y-1">
+                      {item.dropdown.map((dropdownItem) => (
+                        <Link
+                          key={dropdownItem.name}
+                          to={dropdownItem.href}
+                          className="flex items-center space-x-2 py-1 px-4 text-sm text-gray-600 hover:text-mango-500 transition-colors font-mono"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          <span>{dropdownItem.icon}</span>
+                          <span>{dropdownItem.name}</span>
+                        </Link>
+                      ))}
                     </div>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                  )}
+                </div>
+              ))}
+              
+              {/* Mobile Language Switcher */}
+              <div className="py-2 px-4 border-t border-gray-200 mt-4">
+                <div className="font-pixel text-sm text-black mb-2">LANGUAGE</div>
+                <div className="flex space-x-4">
+                  <button
+                    onClick={() => {
+                      changeLanguage('en');
+                      setIsMenuOpen(false);
+                    }}
+                    className={`text-sm font-mono ${
+                      currentLanguage === 'en' ? 'text-mango-500' : 'text-gray-600'
+                    }`}
+                  >
+                    EN
+                  </button>
+                  <button
+                    onClick={() => {
+                      changeLanguage('es');
+                      setIsMenuOpen(false);
+                    }}
+                    className={`text-sm font-mono ${
+                      currentLanguage === 'es' ? 'text-mango-500' : 'text-gray-600'
+                    }`}
+                  >
+                    ES
+                  </button>
+                </div>
               </div>
+              
+              <Link 
+                to="/contact" 
+                className="block mt-4 mx-4 pixel-button text-center py-2 font-pixel text-sm"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                GET STARTED
+              </Link>
             </nav>
           </div>
         )}
