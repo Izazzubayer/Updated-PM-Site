@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Sparkles, Rocket } from 'lucide-react';
 
@@ -33,13 +32,13 @@ const CTASection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button className="group bg-white text-purple-600 px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center space-x-3 hover:scale-105 hover:shadow-2xl font-product">
-              <Rocket className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
+            <button className="group bg-white text-purple-600 px-8 py-4 rounded-2xl text-lg font-semibold flex items-center space-x-3 font-product">
+              <Rocket className="w-6 h-6" />
               <span>Start Your Project</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              <ArrowRight className="w-5 h-5" />
             </button>
             
-            <button className="group border-2 border-white/30 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm font-product">
+            <button className="group border-2 border-white/30 text-white px-8 py-4 rounded-2xl text-lg font-semibold backdrop-blur-sm font-product">
               <span>Schedule a Call</span>
             </button>
           </div>

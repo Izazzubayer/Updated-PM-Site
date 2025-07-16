@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Star, Palette, Target, Users, Zap, Clock, Shield } from 'lucide-react';
@@ -40,26 +39,26 @@ const BrandIdentityDesign = () => {
 
   const portfolioItems = [
     {
-      title: "TechFlow Startup",
-      category: "Technology",
-      description: "Complete rebrand for a B2B SaaS company",
-      image: "/placeholder.svg",
-      results: "300% increase in brand recognition"
-    },
-    {
-      title: "Green Leaf Cafe",
-      category: "Food & Beverage", 
-      description: "Organic coffee shop brand identity",
-      image: "/placeholder.svg",
-      results: "150% increase in foot traffic"
-    },
-    {
-      title: "Urban Fitness",
-      category: "Health & Wellness",
-      description: "Modern fitness studio branding",
-      image: "/placeholder.svg",
-      results: "200% membership growth"
+      title: "Aizaan Store",
+      category: "Hijab & Abaya Online Clothing",
+      description: "Complete rebrand for a B2C retail brand",
+      image: "/src/custom-assets/BID1.png",
+      results: "300% increase in brand recognition (no cap)"
     }
+    // {
+    //   title: "Green Leaf Cafe",
+    //   category: "Food & Beverage", 
+    //   description: "Organic coffee shop brand identity",
+    //   image: "/placeholder.svg",
+    //   results: "150% increase in foot traffic"
+    // },
+    // {
+    //   title: "Urban Fitness",
+    //   category: "Health & Wellness",
+    //   description: "Modern fitness studio branding",
+    //   image: "/placeholder.svg",
+    //   results: "200% membership growth"
+    // }
   ];
 
   const packageFeatures = {
@@ -136,15 +135,12 @@ const BrandIdentityDesign = () => {
                 <Link to="/contact" className="pixel-button px-8 py-4 font-pixel text-lg hover:animate-pixel-shift">
                   START YOUR PROJECT
                 </Link>
-                <Button variant="outline" className="px-8 py-4 font-pixel border-2 border-black">
-                  VIEW PORTFOLIO
-                </Button>
               </div>
             </div>
             <div className="relative">
-              <div className="pixel-card bg-white p-8 animate-pixel-float">
+              <div className="pixel-card animate-pixel-float">
                 <img 
-                  src="/placeholder.svg" 
+                  src="/src/custom-assets/BID1.png" 
                   alt="Brand Identity Design Examples"
                   className="w-full h-80 object-cover"
                 />
@@ -173,7 +169,7 @@ const BrandIdentityDesign = () => {
               { icon: Users, title: "Business Cards", desc: "Professional business card design and layout" },
               { icon: Clock, title: "Brand Strategy", desc: "Strategic foundation for all your brand decisions" }
             ].map((item, index) => (
-              <div key={index} className="pixel-card p-6 bg-white hover:animate-pixel-glow transition-all duration-300">
+              <div key={index} className="pixel-card p-6 bg-white">
                 <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center mb-4">
                   <item.icon className="w-8 h-8 text-black" />
                 </div>
@@ -197,7 +193,7 @@ const BrandIdentityDesign = () => {
 
           <div className="space-y-8">
             {processSteps.map((step, index) => (
-              <div key={index} className="pixel-card bg-white p-8 hover:animate-pixel-glow transition-all duration-300">
+              <div key={index} className="pixel-card bg-white p-8">
                 <div className="grid lg:grid-cols-4 gap-6 items-center">
                   <div className="lg:col-span-1">
                     <div className="flex items-center space-x-4">
@@ -236,7 +232,7 @@ const BrandIdentityDesign = () => {
 
           <div className="grid lg:grid-cols-3 gap-8">
             {portfolioItems.map((item, index) => (
-              <div key={index} className="pixel-card bg-white hover:animate-pixel-glow transition-all duration-300">
+              <div key={index} className="pixel-card bg-white">
                 <img 
                   src={item.image} 
                   alt={item.title}
@@ -273,7 +269,7 @@ const BrandIdentityDesign = () => {
             {/* Essential Package */}
             <div className="pixel-card bg-white p-8">
               <h3 className="text-2xl font-pixel text-black mb-2">Essential</h3>
-              <div className="text-4xl font-pixel text-mango-500 mb-6">$899</div>
+              {/* Price hidden */}
               <ul className="space-y-3 mb-8">
                 {packageFeatures.essential.map((feature, index) => (
                   <li key={index} className="flex items-start space-x-3">
@@ -282,7 +278,7 @@ const BrandIdentityDesign = () => {
                   </li>
                 ))}
               </ul>
-              <Button className="w-full pixel-button font-pixel">GET STARTED</Button>
+              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
 
             {/* Professional Package */}
@@ -291,7 +287,7 @@ const BrandIdentityDesign = () => {
                 MOST POPULAR
               </div>
               <h3 className="text-2xl font-pixel text-black mb-2">Professional</h3>
-              <div className="text-4xl font-pixel text-mango-500 mb-6">$1,899</div>
+              {/* <div className="text-4xl font-pixel text-mango-500 mb-6">$1,899</div> */}
               <ul className="space-y-3 mb-8">
                 {packageFeatures.professional.map((feature, index) => (
                   <li key={index} className="flex items-start space-x-3">
@@ -300,13 +296,13 @@ const BrandIdentityDesign = () => {
                   </li>
                 ))}
               </ul>
-              <Button className="w-full pixel-button font-pixel">GET STARTED</Button>
+              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
 
             {/* Premium Package */}
             <div className="pixel-card bg-white p-8">
               <h3 className="text-2xl font-pixel text-black mb-2">Premium</h3>
-              <div className="text-4xl font-pixel text-mango-500 mb-6">$3,499</div>
+              {/* <div className="text-4xl font-pixel text-mango-500 mb-6">$3,499</div> */}
               <ul className="space-y-3 mb-8">
                 {packageFeatures.premium.map((feature, index) => (
                   <li key={index} className="flex items-start space-x-3">
@@ -315,7 +311,7 @@ const BrandIdentityDesign = () => {
                   </li>
                 ))}
               </ul>
-              <Button className="w-full pixel-button font-pixel">GET STARTED</Button>
+              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
           </div>
         </div>
@@ -366,9 +362,9 @@ const BrandIdentityDesign = () => {
             <Link to="/contact" className="pixel-button bg-black text-mango-500 border-black px-8 py-4 font-pixel text-lg hover:bg-white hover:text-black">
               START YOUR PROJECT
             </Link>
-            <Button variant="outline" className="px-8 py-4 font-pixel border-2 border-black bg-transparent text-black hover:bg-black hover:text-mango-500">
+            {/* <Button variant="outline" className="px-8 py-4 font-pixel border-2 border-black bg-transparent text-black hover:bg-black hover:text-mango-500">
               SCHEDULE A CALL
-            </Button>
+            </Button> */}
           </div>
         </div>
       </section>

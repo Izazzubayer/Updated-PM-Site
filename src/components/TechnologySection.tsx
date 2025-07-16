@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Cpu, Cloud, Zap, Shield, Code2, Brain } from 'lucide-react';
 
@@ -60,27 +59,21 @@ const TechnologySection = () => {
           {technologies.map((tech, index) => (
             <div 
               key={index}
-              className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 hover:shadow-2xl hover:shadow-blue-100/50 hover:border-blue-200 transition-all duration-500 hover:-translate-y-3 micro-bounce relative overflow-hidden"
+              className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 relative overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-              
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                  <tech.icon className="w-8 h-8 text-blue-600 group-hover:text-purple-600 transition-colors duration-300" />
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center mb-6">
+                  <tech.icon className="w-8 h-8 text-blue-600" />
                 </div>
                 
-                <h3 className="text-xl font-semibold text-gray-900 mb-4 font-product group-hover:text-blue-600 transition-colors duration-300">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4 font-product">
                   {tech.title}
                 </h3>
                 
                 <p className="text-gray-600 leading-relaxed font-product">
                   {tech.description}
                 </p>
-                
-                {/* Animated border bottom */}
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full transition-all duration-700 rounded-full"></div>
               </div>
             </div>
           ))}

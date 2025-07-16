@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -9,7 +8,7 @@ const ToolsIntegrationSection = () => {
   const partners = [
     {
       name: "Google",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+      logo: "https://crystalpng.com/wp-content/uploads/2025/05/google-logo.png",
       description: "Analytics & Ads"
     },
     {
@@ -19,7 +18,7 @@ const ToolsIntegrationSection = () => {
     },
     {
       name: "WooCommerce",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/f/fd/WooCommerce_logo.svg",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/WooCommerce_logo.svg/2560px-WooCommerce_logo.svg.png",
       description: "E-commerce"
     },
     {
@@ -34,9 +33,24 @@ const ToolsIntegrationSection = () => {
     },
     {
       name: "Shopify",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfAG1sZJEG7XK4uH6271f8HKn458g1T4nZxQ&s",
       description: "E-commerce Platform"
-    }
+    },
+  {
+    name: "Cursor",
+    logo: "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/light/cursor.png",
+    description: "AI Code Editor"
+  },
+  {
+    name: "MCP",
+    logo: "https://cdn.prod.website-files.com/64ba53d096c21b6f0d1ffd9f/67ffc7eb0fabb1e3c98bc5e4_dfe.png",
+    description: "Model Context Protocol"
+  },
+  {
+    name: "Notion",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Notion-logo.svg/1200px-Notion-logo.svg.png",
+    description: "Collaboration Platform"
+  },
   ];
 
   return (
@@ -58,8 +72,8 @@ const ToolsIntegrationSection = () => {
           {partners.map((partner, index) => (
             <div 
               key={index}
-              className={`pixel-card p-6 text-center bg-white hover:animate-pixel-glow transition-all duration-300 ${
-                hoveredIndex === index ? 'transform -translate-y-2' : ''
+              className={`pixel-card p-6 text-center bg-white ${
+                hoveredIndex === index ? '' : ''
               }`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -68,25 +82,27 @@ const ToolsIntegrationSection = () => {
                 <img 
                   src={partner.logo} 
                   alt={partner.name} 
-                  className="max-w-full max-h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  className="max-w-full max-h-full object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                  }}
                 />
+                <div className="hidden w-20 h-20 flex items-center justify-center text-center">
+                  <div className="text-xs font-bold">
+                    {partner.name === "Google" && <span className="text-blue-500">G</span>}
+                    {partner.name === "WordPress" && <span className="text-blue-600">W</span>}
+                    {partner.name === "WooCommerce" && <span className="text-purple-600">WC</span>}
+                    {partner.name === "Adobe" && <span className="text-red-500">A</span>}
+                    {partner.name === "Figma" && <span className="text-purple-500">F</span>}
+                    {partner.name === "Shopify" && <span className="text-green-600">S</span>}
+                  </div>
+                </div>
               </div>
-              <h3 className="font-pixel text-black text-sm mb-1">{partner.name}</h3>
+              <h3 className="font-pixel text-black text-m mb-1">{partner.name}</h3>
               <p className="text-xs text-gray-600 font-mono">{partner.description}</p>
-              
-              {/* Pixel hover effect */}
-              {hoveredIndex === index && (
-                <div className="absolute inset-0 border-2 border-mango-500 animate-pixel-glow pointer-events-none"></div>
-              )}
             </div>
           ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <button className="pixel-button px-8 py-4 font-pixel">
-            View All Integrations
-          </button>
         </div>
       </div>
     </section>

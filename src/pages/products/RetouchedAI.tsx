@@ -139,12 +139,12 @@ const RetouchedAI = () => {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animate-delay-400">
-                  <button className="bg-green-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-600 transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center space-x-2">
+                  <button className="bg-green-500 text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center space-x-2">
                     <span>Try Retouched.Ai</span>
                     <Play className="w-5 h-5" />
                   </button>
                   
-                  <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-green-500 hover:text-green-500 transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2">
+                  <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold flex items-center justify-center space-x-2">
                     <span>Explore API</span>
                     <ArrowRight className="w-5 h-5" />
                   </button>
@@ -152,7 +152,7 @@ const RetouchedAI = () => {
               </div>
 
               <div className="relative animate-slide-in-right">
-                <div className="bg-white rounded-3xl shadow-2xl p-8 hover-lift glass-effect">
+                <div className="bg-white rounded-3xl shadow-2xl p-8 glass-effect">
                   <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden flex items-center justify-center relative">
                     <div className="text-center">
                       <Layers className="w-20 h-20 text-green-500 mx-auto mb-4 animate-scale-in" />
@@ -161,9 +161,6 @@ const RetouchedAI = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-slide-in-right opacity-50"></div>
                   </div>
                 </div>
-                {/* Floating elements */}
-                <div className="absolute -top-4 -right-4 w-20 h-20 bg-purple-500/10 rounded-full animate-pulse"></div>
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-green-500/10 rounded-full animate-pulse animate-delay-200"></div>
               </div>
             </div>
           </div>
@@ -277,7 +274,7 @@ const RetouchedAI = () => {
 
             <div className="grid md:grid-cols-3 gap-8">
               {pricingPlans.map((plan, index) => (
-                <div key={index} className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover-lift animate-fade-in-up ${plan.featured ? 'border-2 border-green-500 scale-105' : 'border border-gray-200'}`} style={{ animationDelay: `${index * 0.1}s` }}>
+                <div key={index} className={`bg-white rounded-2xl p-8 shadow-lg animate-fade-in-up ${plan.featured ? 'border-2 border-green-500 scale-105' : 'border border-gray-200'}`} style={{ animationDelay: `${index * 0.1}s` }}>
                   {plan.featured && (
                     <div className="bg-gradient-to-r from-purple-500 to-green-500 text-white px-4 py-1 rounded-full text-sm font-medium mb-4 inline-block">
                       Most Popular
@@ -294,7 +291,7 @@ const RetouchedAI = () => {
                       </li>
                     ))}
                   </ul>
-                  <button className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 ${plan.featured ? 'bg-gradient-to-r from-purple-500 to-green-500 text-white hover:shadow-lg' : 'border-2 border-gray-300 text-gray-700 hover:border-green-500 hover:text-green-500'}`}>
+                  <button className={`w-full py-3 rounded-lg font-semibold ${plan.featured ? 'bg-gradient-to-r from-purple-500 to-green-500 text-white' : 'border-2 border-gray-300 text-gray-700'}`}>
                     {plan.cta}
                   </button>
                 </div>
@@ -313,7 +310,7 @@ const RetouchedAI = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[1, 2, 3].map((item) => (
-                <div key={item} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover-lift animate-fade-in-up" style={{ animationDelay: `${item * 0.1}s` }}>
+                <div key={item} className="bg-white rounded-2xl shadow-lg overflow-hidden animate-fade-in-up" style={{ animationDelay: `${item * 0.1}s` }}>
                   <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative">
                     <Layers className="w-16 h-16 text-gray-400" />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-50"></div>

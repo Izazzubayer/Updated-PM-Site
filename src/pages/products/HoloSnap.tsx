@@ -139,12 +139,12 @@ const HoloSnap = () => {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animate-delay-400">
-                  <button className="bg-green-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-600 transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center space-x-2">
+                  <button className="bg-green-500 text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center space-x-2">
                     <span>Try HoloSnap</span>
                     <Play className="w-5 h-5" />
                   </button>
                   
-                  <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-green-500 hover:text-green-500 transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2">
+                  <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold flex items-center justify-center space-x-2">
                     <span>Book Demo</span>
                     <ArrowRight className="w-5 h-5" />
                   </button>
@@ -152,7 +152,7 @@ const HoloSnap = () => {
               </div>
 
               <div className="relative animate-slide-in-right">
-                <div className="bg-white rounded-3xl shadow-2xl p-8 hover-lift glass-effect">
+                <div className="bg-white rounded-3xl shadow-2xl p-8 glass-effect">
                   <div className="aspect-[4/3] bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl overflow-hidden flex items-center justify-center relative">
                     <Box className="w-24 h-24 text-green-500 animate-scale-in" />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-slide-in-right opacity-50"></div>
@@ -176,8 +176,8 @@ const HoloSnap = () => {
 
             <div className="grid md:grid-cols-3 gap-8">
               {steps.map((step, index) => (
-                <div key={index} className="text-center animate-fade-in-up hover-lift" style={{ animationDelay: `${index * 0.2}s` }}>
-                  <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 hover:scale-110 transition-transform duration-300">
+                <div key={index} className="text-center animate-fade-in-up" style={{ animationDelay: `${index * 0.2}s` }}>
+                  <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
                     <step.icon className="w-10 h-10 text-white" />
                   </div>
                   <h3 className="text-2xl font-semibold text-gray-900 mb-3">{step.title}</h3>
@@ -198,7 +198,7 @@ const HoloSnap = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {useCases.map((useCase, index) => (
-                <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover-lift animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div key={index} className="bg-white rounded-2xl p-8 shadow-lg animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center mb-6">
                     <useCase.icon className="w-8 h-8 text-green-500" />
                   </div>
@@ -220,7 +220,7 @@ const HoloSnap = () => {
 
             <div className="grid md:grid-cols-2 gap-8">
               {features.map((feature, index) => (
-                <div key={index} className="flex items-start space-x-6 p-8 bg-white border border-gray-200 rounded-2xl hover:shadow-xl transition-all duration-300 hover-lift animate-fade-in-up" style={{ animationDelay: `${index * 0.15}s` }}>
+                <div key={index} className="flex items-start space-x-6 p-8 bg-white border border-gray-200 rounded-2xl animate-fade-in-up" style={{ animationDelay: `${index * 0.15}s` }}>
                   <div className="w-14 h-14 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
                     <feature.icon className="w-7 h-7 text-green-500" />
                   </div>
@@ -264,9 +264,9 @@ const HoloSnap = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="animate-fade-in-up">
               <h2 className="text-4xl font-bold text-gray-900 mb-8">See HoloSnap in Action</h2>
-              <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-4xl mx-auto hover-lift">
+              <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-4xl mx-auto">
                 <div className="aspect-video bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl flex items-center justify-center relative overflow-hidden">
-                  <button className="w-20 h-20 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform duration-300 z-10">
+                  <button className="w-20 h-20 bg-white rounded-full shadow-lg flex items-center justify-center z-10">
                     <Play className="w-8 h-8 text-green-500 ml-1" />
                   </button>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-slide-in-right"></div>
@@ -286,7 +286,7 @@ const HoloSnap = () => {
 
             <div className="grid md:grid-cols-3 gap-8">
               {pricingPlans.map((plan, index) => (
-                <div key={index} className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover-lift animate-fade-in-up ${plan.featured ? 'border-2 border-green-500 scale-105' : 'border border-gray-200'}`} style={{ animationDelay: `${index * 0.1}s` }}>
+                <div key={index} className={`bg-white rounded-2xl p-8 shadow-lg animate-fade-in-up ${plan.featured ? 'border-2 border-green-500 scale-105' : 'border border-gray-200'}`} style={{ animationDelay: `${index * 0.1}s` }}>
                   {plan.featured && (
                     <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium mb-4 inline-block">
                       Most Popular
@@ -303,7 +303,7 @@ const HoloSnap = () => {
                       </li>
                     ))}
                   </ul>
-                  <button className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 ${plan.featured ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white hover:shadow-lg' : 'border-2 border-gray-300 text-gray-700 hover:border-green-500 hover:text-green-500'}`}>
+                  <button className={`w-full py-3 rounded-lg font-semibold ${plan.featured ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white' : 'border-2 border-gray-300 text-gray-700'}`}>
                     {plan.cta}
                   </button>
                 </div>
@@ -319,7 +319,7 @@ const HoloSnap = () => {
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Join thousands of creators using HoloSnap to bring their 2D images to life in 3D.
             </p>
-            <button className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:scale-105 transition-all duration-300 hover:shadow-lg">
+            <button className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-8 py-4 rounded-lg text-lg font-semibold">
               Get Started with HoloSnap
             </button>
           </div>

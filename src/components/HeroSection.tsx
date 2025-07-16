@@ -34,7 +34,7 @@ const HeroSection = () => {
     setIsVisible(true);
     
     setTimeout(() => {
-      animateCounter(500, setProjectCount, 2500);
+      animateCounter(2, setProjectCount, 2500);
       animateCounter(99, setSatisfactionRate, 2000);
     }, 500);
     
@@ -59,6 +59,13 @@ const HeroSection = () => {
     />
   ));
 
+  const handleScrollToIntake = () => {
+    const el = document.getElementById('quick-intake-form');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <section className="relative pt-24 pb-16 bg-white overflow-hidden pixel-grid-overlay">
       {/* Animated Pixel Background */}
@@ -78,20 +85,20 @@ const HeroSection = () => {
               <div className="text-sm font-pixel text-mango-500 mb-2 animate-pixel-shift">
                 CRAFTING PIXEL-PERFECT DESIGNS
               </div>
-              <div className="text-2xl font-mono text-gray-700 mb-4 leading-relaxed">
-                Affordable creative services tailored for local businesses
-              </div>
-              <div className="text-4xl lg:text-5xl font-pixel text-black leading-tight mb-4">
-                Turning Pixels into Powerful Brands
+              {/* <div className="text-2xl font-mono text-gray-700 mb-4 leading-relaxed">
+              Premium creative services, designed for small and growing businesses
+              </div> */}
+              <div className="text-4xl lg:text-6xl font-pixel text-black-500 leading-tight mb-2">
+                Anyone Can Build A Brand.
               </div>
             </h1>
             
-            <p className="text-xl text-gray-700 leading-relaxed mb-8 max-w-lg font-mono">
+            <p className="text-xl text-black-700 leading-relaxed mb-8 max-w-md font-mono">
               Premium branding, websites, and creative services for clothing brands, cafés, and more - without the premium agency price tag.
             </p>
 
             {/* Feature highlights with pixel styling */}
-            <div className="mb-8 pixel-card p-4">
+            {/* <div className="mb-8 pixel-card p-4">
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 bg-mango-500 border-2 border-black flex items-center justify-center">
                   {React.createElement(features[currentFeature].icon, { 
@@ -104,32 +111,32 @@ const HeroSection = () => {
                 </div>
               </div>
             </div>
-            
+             */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <button className="pixel-button px-8 py-4 font-pixel">
+              <button className="pixel-button px-8 py-4 font-pixel" onClick={handleScrollToIntake}>
                 Get Started
                 <ArrowRight className="w-5 h-5 inline ml-2" />
               </button>
               
-              <button className="border-3 border-black text-black px-8 py-4 font-pixel hover:bg-black hover:text-mango-500 transition-all duration-300">
+              {/* <button className="border-3 border-black text-black px-8 py-4 font-pixel hover:bg-black hover:text-mango-500 transition-all duration-300">
                 <Play className="w-5 h-5 inline mr-2" />
                 View Portfolio
-              </button>
+              </button> */}
             </div>
 
             {/* Pixel Stats */}
             <div className="grid grid-cols-2 gap-8">
               <div className="text-center pixel-card p-4">
                 <div className="text-3xl font-pixel text-black mb-1">
-                  {projectCount}+
+                  4+
                 </div>
-                <div className="text-sm text-gray-600 font-mono">Projects</div>
+                <div className="text-sm text-gray-600 font-mono">Projects Completed</div>
               </div>
               <div className="text-center pixel-card p-4">
                 <div className="text-3xl font-pixel text-black mb-1">
                   {satisfactionRate}%
                 </div>
-                <div className="text-sm text-gray-600 font-mono">Satisfaction</div>
+                <div className="text-sm text-gray-600 font-mono">Customer Satisfaction</div>
               </div>
             </div>
           </div>
@@ -163,7 +170,7 @@ const HeroSection = () => {
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-mono text-gray-600">Brand Identity</span>
-                        <span className="text-xs font-pixel text-mango-500">95%</span>
+                        <span className="text-xs font-pixel text-grey-500"> We achieved 95% client satisfaction</span>
                       </div>
                       <div className="w-full bg-gray-200 h-3 border border-black">
                         <div className="bg-mango-500 h-full border-r border-black" style={{ width: '95%' }}></div>
@@ -172,8 +179,8 @@ const HeroSection = () => {
                     
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-mono text-gray-600">Web Design</span>
-                        <span className="text-xs font-pixel text-mango-500">88%</span>
+                        <span className="text-xs font-mono text-gray-600">Web Design & Development</span>
+                        <span className="text-xs font-pixel text-grey-500">88% of our websites are fast and responsive</span>
                       </div>
                       <div className="w-full bg-gray-200 h-3 border border-black">
                         <div className="bg-mango-500 h-full border-r border-black" style={{ width: '88%' }}></div>
@@ -182,8 +189,8 @@ const HeroSection = () => {
                     
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-mono text-gray-600">Social Media</span>
-                        <span className="text-xs font-pixel text-mango-500">92%</span>
+                        <span className="text-xs font-mono text-gray-600">Integrating Psychology</span>
+                        <span className="text-xs font-pixel text-grey-500">92% of our projects are designed to be user-friendly and engaging</span>
                       </div>
                       <div className="w-full bg-gray-200 h-3 border border-black">
                         <div className="bg-mango-500 h-full border-r border-black" style={{ width: '92%' }}></div>

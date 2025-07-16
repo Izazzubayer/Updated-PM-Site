@@ -1,7 +1,11 @@
-
 import React from 'react';
 import { Star, Clock, DollarSign, Users, Shield, Zap } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from './ui/carousel';
 
 const WhyChooseUsSection = () => {
   const { t } = useTranslation();
@@ -15,12 +19,12 @@ const WhyChooseUsSection = () => {
     {
       icon: Clock,
       title: "Fast Turnaround",
-      description: "Most projects completed within 5-7 business days. Rush options available."
+      description: "Most projects completed within 30 business days (based on the services taken)"
     },
     {
       icon: Users,
       title: "Personal Attention",
-      description: "Direct communication with designers. No account managers or middlemen."
+      description: "Direct communication with the founders. No hassle or middlemen."
     },
     {
       icon: Shield,
@@ -30,44 +34,44 @@ const WhyChooseUsSection = () => {
     {
       icon: Zap,
       title: "Premium Quality",
-      description: "Agency-level design quality at freelancer-friendly prices."
+      description: "Agency-level design quality at studio-level pricing."
     },
     {
       icon: Star,
       title: "Ongoing Support",
-      description: "We don't disappear after delivery. Continued support for your brand's growth."
+      description: "We don't ghost after delivery. We provide continued support for your brand's growth."
     }
   ];
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      business: "Bloom Coffee Roasters",
+      name: "Fameta Baraka",
+      business: "Founder @ Aizaan",
       rating: 5,
-      text: "Pixel Mango transformed our coffee shop's entire identity. The branding is perfect - it captures exactly what we wanted to convey to our customers.",
-      avatar: "SJ"
+      text: "Pixel Mango transformed my Hijab/Abaya shop's entire identity. The branding is perfect - it captures exactly what I wanted to convey to my customers.",
+      avatar: "FB"
     },
+    // {
+    //   name: "Mike Chen",
+    //   business: "Urban Threads Clothing",
+    //   rating: 5,
+    //   text: "Working with this team was incredible. They understood our vision immediately and delivered designs that exceeded our expectations. Highly recommend!",
+    //   avatar: "MC"
+    // },
     {
-      name: "Mike Chen",
-      business: "Urban Threads Clothing",
+      name: "Takiyona Muteshi",
+      business: "Santoku Knife Shop",
       rating: 5,
-      text: "Working with this team was incredible. They understood our vision immediately and delivered designs that exceeded our expectations. Highly recommend!",
-      avatar: "MC"
+      text: "The work Izaz has done for Santoku is splendid. He provided me details as to how to make my brand work better and he knows his craft",
+      avatar: "TM"
     },
-    {
-      name: "Elena Rodriguez",
-      business: "Fit & Flow Studio",
-      rating: 5,
-      text: "Professional, fast, and affordable. The website they built for our fitness studio has increased our online bookings by 300%. Amazing work!",
-      avatar: "ER"
-    },
-    {
-      name: "David Kim",
-      business: "TechStart Solutions",
-      rating: 5,
-      text: "The UI/UX design they created for our app was spot-on. Clean, modern, and user-friendly. Our customers love the new interface.",
-      avatar: "DK"
-    }
+    // {
+    //   name: "David Kim",
+    //   business: "TechStart Solutions",
+    //   rating: 5,
+    //   text: "The UI/UX design they created for our app was spot-on. Clean, modern, and user-friendly. Our customers love the new interface.",
+    //   avatar: "DK"
+    // }
   ];
 
   return (
@@ -82,12 +86,16 @@ const WhyChooseUsSection = () => {
           <div className="w-24 h-1 bg-mango-500 mx-auto mt-6"></div>
         </div>
 
-        {/* Benefits Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        {/* Mobile: Carousel */}
+        <div className="block md:hidden mb-20">
+          <BenefitsCarousel benefits={benefits} />
+        </div>
+        {/* Desktop/Tablet: Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {benefits.map((benefit, index) => (
             <div 
               key={index}
-              className="pixel-card p-6 bg-white hover:animate-pixel-glow transition-all duration-300"
+              className="pixel-card p-6 bg-white"
             >
               <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center mb-4">
                 <benefit.icon className="w-8 h-8 text-black" />
@@ -134,7 +142,7 @@ const WhyChooseUsSection = () => {
         <div className="pixel-card p-8 bg-mango-50">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-pixel text-black mb-2">500+</div>
+              <div className="text-3xl font-pixel text-black mb-2">4+</div>
               <div className="text-sm text-gray-600 font-mono">Happy Clients</div>
             </div>
             <div>
@@ -157,3 +165,55 @@ const WhyChooseUsSection = () => {
 };
 
 export default WhyChooseUsSection;
+
+// Carousel implementation for benefits
+function BenefitsCarousel({ benefits }) {
+  const [emblaApi, setEmblaApi] = React.useState(null);
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const slidesToShow = 1;
+
+  React.useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+    emblaApi.on('select', onSelect);
+    onSelect();
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
+  }, [emblaApi]);
+
+  const dotCount = Math.ceil(benefits.length / slidesToShow);
+
+  return (
+    <div className="relative">
+      <Carousel opts={{ align: 'start', slidesToScroll: slidesToShow }} setApi={setEmblaApi}>
+        <CarouselContent>
+          {benefits.map((benefit, index) => (
+            <CarouselItem key={index} className="px-2">
+              <div className="pixel-card p-6 bg-white h-full flex flex-col">
+                <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center mb-4">
+                  <benefit.icon className="w-8 h-8 text-black" />
+                </div>
+                <h3 className="text-lg font-pixel text-black mb-3">{benefit.title}</h3>
+                <p className="text-sm text-gray-600 font-mono leading-relaxed">{benefit.description}</p>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+      {/* Pagination Dots */}
+      <div className="flex justify-center mt-6 space-x-2">
+        {Array.from({ length: dotCount }).map((_, i) => (
+          <button
+            key={i}
+            className={`w-3 h-3 rounded-full border-2 border-mango-500 transition-all duration-200 ${selectedIndex === i ? 'bg-mango-500' : 'bg-white'}`}
+            onClick={() => emblaApi && emblaApi.scrollTo(i)}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}

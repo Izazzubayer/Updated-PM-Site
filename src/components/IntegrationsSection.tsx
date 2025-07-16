@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ScrollAnimateWrapper from './ScrollAnimateWrapper';
 
@@ -66,30 +65,23 @@ const IntegrationsSection = () => {
             {integrations.map((integration, index) => (
               <div 
                 key={index}
-                className={`group flex flex-col items-center space-y-4 p-6 rounded-2xl transition-all duration-500 hover:bg-white hover:shadow-xl hover:shadow-green-100/50 micro-bounce ${integration.color}`}
+                className={`group flex flex-col items-center space-y-4 p-6 rounded-2xl ${integration.color}`}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 style={{ 
-                  animationDelay: `${index * 0.1}s`,
-                  transform: hoveredIndex === index ? 'translateY(-10px)' : 'translateY(0px)'
+                  animationDelay: `${index * 0.1}s`
                 }}
               >
                 <div className="w-20 h-20 flex items-center justify-center relative">
                   <img 
                     src={integration.logo} 
                     alt={integration.name} 
-                    className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                    className="w-full h-full object-contain filter grayscale"
                   />
-                  {hoveredIndex === index && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-full animate-ping"></div>
-                  )}
                 </div>
-                <span className="text-gray-700 font-medium font-product text-center group-hover:text-green-600 transition-colors duration-300">
+                <span className="text-gray-700 font-medium font-product text-center">
                   {integration.name}
                 </span>
-                
-                {/* Hover effect line */}
-                <div className="w-0 h-0.5 bg-gradient-to-r from-green-400 to-emerald-500 group-hover:w-full transition-all duration-500 rounded-full"></div>
               </div>
             ))}
           </div>
@@ -98,7 +90,7 @@ const IntegrationsSection = () => {
         {/* Bottom CTA */}
         <ScrollAnimateWrapper animation="fade-up" delay={600}>
           <div className="text-center mt-16">
-            <button className="btn-premium px-8 py-4 text-white font-semibold rounded-xl hover:scale-105 transition-all duration-300 micro-bounce font-product shadow-lg hover:shadow-2xl">
+            <button className="btn-premium px-8 py-4 text-white font-semibold rounded-xl font-product shadow-lg">
               View All Integrations
             </button>
           </div>

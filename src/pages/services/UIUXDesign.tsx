@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Star, Monitor, Smartphone, Tablet, Users, Eye, Brain, Zap, Clock, Shield, Layers, Palette, MousePointer } from 'lucide-react';
@@ -181,9 +180,6 @@ const UIUXDesign = () => {
                 <Link to="/contact" className="pixel-button px-8 py-4 font-pixel text-lg hover:animate-pixel-shift">
                   START YOUR PROJECT
                 </Link>
-                <Button variant="outline" className="px-8 py-4 font-pixel border-2 border-black">
-                  VIEW PORTFOLIO
-                </Button>
               </div>
             </div>
             <div className="relative">
@@ -211,7 +207,7 @@ const UIUXDesign = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {deviceTypes.map((device, index) => (
-              <div key={index} className="pixel-card p-8 bg-white hover:animate-pixel-glow transition-all duration-300 text-center">
+              <div key={index} className="pixel-card p-6 bg-white">
                 <div className="w-20 h-20 bg-mango-500 border-2 border-black flex items-center justify-center mb-6 mx-auto">
                   <device.icon className={`w-10 h-10 ${device.color}`} />
                 </div>
@@ -237,7 +233,7 @@ const UIUXDesign = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {designServices.map((service, index) => (
-              <div key={index} className="pixel-card p-6 bg-white hover:animate-pixel-glow transition-all duration-300">
+              <div key={index} className="pixel-card p-6 bg-white">
                 <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center mb-4">
                   <service.icon className="w-8 h-8 text-black" />
                 </div>
@@ -261,7 +257,7 @@ const UIUXDesign = () => {
 
           <div className="space-y-8">
             {processSteps.map((step, index) => (
-              <div key={index} className="pixel-card bg-white p-8 hover:animate-pixel-glow transition-all duration-300">
+              <div key={index} className="pixel-card bg-white p-8">
                 <div className="grid lg:grid-cols-4 gap-6 items-center">
                   <div className="lg:col-span-1">
                     <div className="flex items-center space-x-4">
@@ -300,7 +296,7 @@ const UIUXDesign = () => {
 
           <div className="grid lg:grid-cols-3 gap-8">
             {portfolioItems.map((item, index) => (
-              <div key={index} className="pixel-card bg-white hover:animate-pixel-glow transition-all duration-300">
+              <div key={index} className="pixel-card bg-white">
                 <img 
                   src={item.image} 
                   alt={item.title}
@@ -344,7 +340,6 @@ const UIUXDesign = () => {
             {/* Starter Package */}
             <div className="pixel-card bg-white p-8">
               <h3 className="text-2xl font-pixel text-black mb-2">Starter</h3>
-              <div className="text-4xl font-pixel text-mango-500 mb-6">$2,499</div>
               <ul className="space-y-3 mb-8">
                 {packageFeatures.starter.map((feature, index) => (
                   <li key={index} className="flex items-start space-x-3">
@@ -353,7 +348,7 @@ const UIUXDesign = () => {
                   </li>
                 ))}
               </ul>
-              <Button className="w-full pixel-button font-pixel">GET STARTED</Button>
+              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
 
             {/* Professional Package */}
@@ -362,7 +357,6 @@ const UIUXDesign = () => {
                 MOST POPULAR
               </div>
               <h3 className="text-2xl font-pixel text-black mb-2">Professional</h3>
-              <div className="text-4xl font-pixel text-mango-500 mb-6">$4,999</div>
               <ul className="space-y-3 mb-8">
                 {packageFeatures.professional.map((feature, index) => (
                   <li key={index} className="flex items-start space-x-3">
@@ -371,13 +365,12 @@ const UIUXDesign = () => {
                   </li>
                 ))}
               </ul>
-              <Button className="w-full pixel-button font-pixel">GET STARTED</Button>
+              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
 
             {/* Enterprise Package */}
             <div className="pixel-card bg-white p-8">
               <h3 className="text-2xl font-pixel text-black mb-2">Enterprise</h3>
-              <div className="text-4xl font-pixel text-mango-500 mb-6">$9,999</div>
               <ul className="space-y-3 mb-8">
                 {packageFeatures.enterprise.map((feature, index) => (
                   <li key={index} className="flex items-start space-x-3">
@@ -386,7 +379,7 @@ const UIUXDesign = () => {
                   </li>
                 ))}
               </ul>
-              <Button className="w-full pixel-button font-pixel">GET STARTED</Button>
+              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
           </div>
         </div>
@@ -404,7 +397,7 @@ const UIUXDesign = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="pixel-speech bg-white p-6 hover:animate-pixel-glow transition-all duration-300">
+              <div key={index} className="pixel-speech bg-white p-6">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-mango-500 border-2 border-black flex items-center justify-center mr-4">
                     <span className="font-pixel text-black text-sm">{testimonial.avatar}</span>

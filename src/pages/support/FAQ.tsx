@@ -7,9 +7,9 @@ const FAQ = () => (
   <div className="min-h-screen bg-white flex flex-col">
     <Header />
     <main className="flex-1 pt-16 pb-16 px-4 flex flex-col items-center justify-center">
-      <h1 className="text-5xl font-pixel text-mango-500 mt-8 mb-4">Frequently Asked Questions</h1>
-      <div className="max-w-2xl w-full my-8 bg-white/80 rounded-xl shadow-lg p-8 border-4 border-black pixel-border animate-pixel-glow">
-        <ol className="space-y-6 text-lg text-black">
+      <h1 className="text-2xl font-pixel text-mango-500 mt-8 mb-4">Frequently Asked Questions</h1>
+      <div className="max-w-2xl w-full my-8 shadow-lg p-8 border-4">
+        <ol className="space-y-6 text-md text-black">
           <li>
             <strong>Q:</strong> What is Pixel Mango?<br/>
             <strong>A:</strong> Pixel Mango is your creative technology partner, blending strategic design with state-of-the-art digital solutions.

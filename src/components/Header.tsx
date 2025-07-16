@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ChevronDown, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -8,6 +8,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
 
   const currentLanguage = i18n.language;
@@ -46,7 +47,7 @@ const Header = () => {
         { 
           name: 'Aizaan Ecommerce & Rebranding', 
           href: '/portfolio/aizaan-ecommerce-rebranding', 
-          icon: '🛒',
+          icon: '🧕🏻',
         },
         { 
           name: 'Santoku Knife Store UX Study', 
@@ -91,7 +92,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 hover:animate-pixel-shift transition-all">
+          <Link to="/" className="flex items-center space-x-3">
             <img 
               src="/lovable-uploads/59e78e85-cc0a-4c41-8037-5153fb6fd80c.png" 
               alt="Pixel Mango Logo" 
@@ -109,16 +110,45 @@ const Header = () => {
                 onMouseEnter={() => item.dropdown && handleDropdownEnter(item.name)}
                 onMouseLeave={handleDropdownLeave}
               >
-                <Link
-                  to={item.href}
-                  className={`flex items-center space-x-1 font-pixel text-sm transition-colors duration-200 hover:text-mango-500 ${
-                    location.pathname === item.href ? 'text-mango-500' : 'text-black'
-                  }`}
-                >
-                  <span>{item.name}</span>
-                  {item.dropdown && <ChevronDown className="w-4 h-4" />}
-                </Link>
-
+                {item.dropdown ? (
+                  <button
+                    type="button"
+                    className={`group flex items-center space-x-1 font-pixel text-sm transition-all duration-200 bg-transparent border-none outline-none cursor-pointer
+                      ${activeDropdown === item.name ? 'text-[#FFA500] font-bold' : 'text-black font-normal'}
+                      hover:text-[#FFA500] hover:font-bold
+                    `}
+                    style={{ position: 'relative' }}
+                    onClick={e => e.preventDefault()}
+                  >
+                    <span className="relative group-hover:scale-105 transition-transform duration-200">
+                      {item.name}
+                      <span
+                        className={`block h-0.5 transition-all duration-200 origin-left
+                          ${activeDropdown === item.name ? 'bg-[#FFA500] w-full scale-x-100' : 'bg-[#FFA500] w-0 group-hover:w-full group-hover:scale-x-100'}`}
+                        style={{ marginTop: '2px' }}
+                      ></span>
+                    </span>
+                    <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+                  </button>
+                ) : (
+                  <Link
+                    to={item.href}
+                    className={`group flex items-center space-x-1 font-pixel text-sm transition-all duration-200
+                      ${location.pathname === item.href ? 'text-[#FFA500] font-bold' : 'text-black font-normal'}
+                      hover:text-[#FFA500] hover:font-bold
+                    `}
+                    style={{ position: 'relative' }}
+                  >
+                    <span className="relative group-hover:scale-105 transition-transform duration-200">
+                      {item.name}
+                      <span
+                        className={`block h-0.5 transition-all duration-200 origin-left
+                          ${location.pathname === item.href ? 'bg-[#FFA500] w-full scale-x-100' : 'bg-[#FFA500] w-0 group-hover:w-full group-hover:scale-x-100'}`}
+                        style={{ marginTop: '2px' }}
+                      ></span>
+                    </span>
+                  </Link>
+                )}
                 {/* Dropdown Menu */}
                 {item.dropdown && activeDropdown === item.name && (
                   <div 
@@ -132,9 +162,9 @@ const Header = () => {
                           <Link
                             key={dropdownItem.name}
                             to={dropdownItem.href}
-                            className="flex items-center space-x-3 px-4 py-3 text-sm text-black hover:bg-mango-50 hover:text-mango-500 transition-all duration-100 font-mono group"
+                            className="flex items-center space-x-3 px-4 py-3 text-sm text-black font-mono group transition-colors duration-200 hover:bg-[#FFA500] hover:text-white"
                           >
-                            <span className="text-lg group-hover:animate-pulse transition-all duration-100">{dropdownItem.icon}</span>
+                            <span className="text-lg">{dropdownItem.icon}</span>
                             <span>{dropdownItem.name}</span>
                           </Link>
                         ))}
@@ -177,6 +207,19 @@ const Header = () => {
                     </button>
                     <button
                       onClick={() => {
+                        changeLanguage('fr');
+                        setActiveDropdown(null);
+                      }}
+                      className={`block w-full text-left px-4 py-2 text-sm font-mono transition-colors ${
+                        currentLanguage === 'fr' 
+                          ? 'bg-mango-500 text-black' 
+                          : 'text-black hover:bg-mango-50 hover:text-mango-500'
+                      }`}
+                    >
+                      Français
+                    </button>
+                    <button
+                      onClick={() => {
                         changeLanguage('es');
                         setActiveDropdown(null);
                       }}
@@ -188,14 +231,84 @@ const Header = () => {
                     >
                       Español
                     </button>
+                    <button
+                      onClick={() => {
+                        changeLanguage('bn');
+                        setActiveDropdown(null);
+                      }}
+                      className={`block w-full text-left px-4 py-2 text-sm font-mono transition-colors ${
+                        currentLanguage === 'bn' 
+                          ? 'bg-mango-500 text-black' 
+                          : 'text-black hover:bg-mango-50 hover:text-mango-500'
+                      }`}
+                    >
+                      বাংলা
+                    </button>
+                    <button
+                      onClick={() => {
+                        changeLanguage('hi');
+                        setActiveDropdown(null);
+                      }}
+                      className={`block w-full text-left px-4 py-2 text-sm font-mono transition-colors ${
+                        currentLanguage === 'hi' 
+                          ? 'bg-mango-500 text-black' 
+                          : 'text-black hover:bg-mango-50 hover:text-mango-500'
+                      }`}
+                    >
+                      हिन्दी
+                    </button>
+                    <button
+                      onClick={() => {
+                        changeLanguage('ko');
+                        setActiveDropdown(null);
+                      }}
+                      className={`block w-full text-left px-4 py-2 text-sm font-mono transition-colors ${
+                        currentLanguage === 'ko' 
+                          ? 'bg-mango-500 text-black' 
+                          : 'text-black hover:bg-mango-50 hover:text-mango-500'
+                      }`}
+                    >
+                      한국어
+                    </button>
+                    <button
+                      onClick={() => {
+                        changeLanguage('ja');
+                        setActiveDropdown(null);
+                      }}
+                      className={`block w-full text-left px-4 py-2 text-sm font-mono transition-colors ${
+                        currentLanguage === 'ja' 
+                          ? 'bg-mango-500 text-black' 
+                          : 'text-black hover:bg-mango-50 hover:text-mango-500'
+                      }`}
+                    >
+                      日本語
+                    </button>
                   </div>
                 </div>
               )}
             </div>
 
-            <Link to="/contact" className="pixel-button px-6 py-2 font-pixel text-sm hover:animate-pixel-shift">
-              GET STARTED
-            </Link>
+            <button
+              className="pixel-button px-6 py-2 font-pixel text-sm hover:animate-pixel-shift"
+              onClick={() => {
+                if (location.pathname === '/') {
+                  const el = document.getElementById('quick-intake-form');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                } else {
+                  navigate('/', { replace: false });
+                  setTimeout(() => {
+                    const el = document.getElementById('quick-intake-form');
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }, 500);
+                }
+              }}
+            >
+              {t('getStarted')}
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -210,34 +323,64 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden border-t-2 border-black mt-2 pt-4 pb-4 bg-white border-2 border-black shadow-lg">
-            <nav className="space-y-2">
+            <nav className="space-y-2 pl-6">
               {navigation.map((item) => (
                 <div key={item.name}>
-                  <Link
-                    to={item.href}
-                    className={`block py-2 px-4 font-pixel text-sm transition-colors ${
-                      location.pathname === item.href 
-                        ? 'text-mango-500 bg-mango-50' 
-                        : 'text-black hover:text-mango-500 hover:bg-mango-50'
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                  {item.dropdown && (
-                    <div className="ml-4 mt-2 space-y-1">
-                      {item.dropdown.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.name}
-                          to={dropdownItem.href}
-                          className="flex items-center space-x-2 py-1 px-4 text-sm text-gray-600 hover:text-mango-500 transition-colors font-mono"
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          <span>{dropdownItem.icon}</span>
-                          <span>{dropdownItem.name}</span>
-                        </Link>
-                      ))}
+                  {item.dropdown ? (
+                    <div className="group">
+                      <button
+                        type="button"
+                        className={`group flex items-center space-x-1 font-pixel text-sm transition-all duration-200 bg-transparent border-none outline-none cursor-pointer
+                          ${activeDropdown === item.name ? 'text-[#FFA500] font-bold' : 'text-black font-normal'}
+                          hover:text-[#FFA500] hover:font-bold
+                        `}
+                        onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
+                      >
+                        <span className="relative group-hover:scale-105 transition-transform duration-200">
+                          {item.name}
+                          <span
+                            className={`block h-0.5 transition-all duration-200 origin-left
+                              ${activeDropdown === item.name ? 'bg-[#FFA500] w-full scale-x-100' : 'bg-[#FFA500] w-0 group-hover:w-full group-hover:scale-x-100'}`}
+                            style={{ marginTop: '2px' }}
+                          ></span>
+                        </span>
+                        <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+                      </button>
+                      {activeDropdown === item.name && (
+                        <div className="ml-8 pl-2 mt-2 space-y-1">
+                          {item.dropdown.map((dropdownItem) => (
+                            <Link
+                              key={dropdownItem.name}
+                              to={dropdownItem.href}
+                              className="flex items-center space-x-2 py-1 px-4 text-sm text-gray-600 hover:text-mango-500 transition-colors font-mono"
+                              onClick={() => setIsMenuOpen(false)}
+                            >
+                              <span>{dropdownItem.icon}</span>
+                              <span>{dropdownItem.name}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
                     </div>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      className={`group flex items-center space-x-1 font-pixel text-sm transition-all duration-200
+                        ${location.pathname === item.href ? 'text-[#FFA500] font-bold' : 'text-black font-normal'}
+                        hover:text-[#FFA500] hover:font-bold
+                      `}
+                      style={{ position: 'relative' }}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <span className="relative group-hover:scale-105 transition-transform duration-200">
+                        {item.name}
+                        <span
+                          className={`block h-0.5 transition-all duration-200 origin-left
+                            ${location.pathname === item.href ? 'bg-[#FFA500] w-full scale-x-100' : 'bg-[#FFA500] w-0 group-hover:w-full group-hover:scale-x-100'}`}
+                          style={{ marginTop: '2px' }}
+                        ></span>
+                      </span>
+                    </Link>
                   )}
                 </div>
               ))}
@@ -245,7 +388,7 @@ const Header = () => {
               {/* Mobile Language Switcher */}
               <div className="py-2 px-4 border-t border-gray-200 mt-4">
                 <div className="font-pixel text-sm text-black mb-2">LANGUAGE</div>
-                <div className="flex space-x-4">
+                <div className="flex flex-wrap gap-2">
                   <button
                     onClick={() => {
                       changeLanguage('en');
@@ -259,6 +402,17 @@ const Header = () => {
                   </button>
                   <button
                     onClick={() => {
+                      changeLanguage('fr');
+                      setIsMenuOpen(false);
+                    }}
+                    className={`text-sm font-mono ${
+                      currentLanguage === 'fr' ? 'text-mango-500' : 'text-gray-600'
+                    }`}
+                  >
+                    FR
+                  </button>
+                  <button
+                    onClick={() => {
                       changeLanguage('es');
                       setIsMenuOpen(false);
                     }}
@@ -267,6 +421,50 @@ const Header = () => {
                     }`}
                   >
                     ES
+                  </button>
+                  <button
+                    onClick={() => {
+                      changeLanguage('bn');
+                      setIsMenuOpen(false);
+                    }}
+                    className={`text-sm font-mono ${
+                      currentLanguage === 'bn' ? 'text-mango-500' : 'text-gray-600'
+                    }`}
+                  >
+                    BN
+                  </button>
+                  <button
+                    onClick={() => {
+                      changeLanguage('hi');
+                      setIsMenuOpen(false);
+                    }}
+                    className={`text-sm font-mono ${
+                      currentLanguage === 'hi' ? 'text-mango-500' : 'text-gray-600'
+                    }`}
+                  >
+                    HI
+                  </button>
+                  <button
+                    onClick={() => {
+                      changeLanguage('ko');
+                      setIsMenuOpen(false);
+                    }}
+                    className={`text-sm font-mono ${
+                      currentLanguage === 'ko' ? 'text-mango-500' : 'text-gray-600'
+                    }`}
+                  >
+                    KO
+                  </button>
+                  <button
+                    onClick={() => {
+                      changeLanguage('ja');
+                      setIsMenuOpen(false);
+                    }}
+                    className={`text-sm font-mono ${
+                      currentLanguage === 'ja' ? 'text-mango-500' : 'text-gray-600'
+                    }`}
+                  >
+                    JA
                   </button>
                 </div>
               </div>

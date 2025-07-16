@@ -1,4 +1,3 @@
-
 import React from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -42,7 +41,7 @@ const personas = [
 
 const BlockCard = ({ title, children, className = "" }: { title: string, children: React.ReactNode, className?: string }) => (
   <section className={`pixel-card bg-white p-8 mb-12 rounded-lg border-mango-500 shadow-lg ${className}`}>
-    <h2 className="font-pixel text-3xl text-mango-500 mb-6">{title}</h2>
+    <h2 className="font-pixel text-2xl text-mango-500 mb-6">{title}</h2>
     <div className="[&>p]:mb-3 [&_ul]:pl-6">{children}</div>
   </section>
 );
@@ -89,16 +88,32 @@ const Aizaan = () => (
 
     <main className="flex-1 pt-28 pb-20 px-2 sm:px-6 flex flex-col items-center pixel-grid relative">
       <div className="max-w-4xl w-full">
+        {/* Aizaan Logo */}
+        {/* <div className="flex justify-center mb-10">
+          <img 
+            src="/public/lovable-uploads/aizaan-logo.png" 
+            alt="Aizaan Logo" 
+            className="w-40 h-auto md:w-56" 
+            style={{ maxWidth: '100%', height: 'auto' }}
+          />
+        </div> */}
         {/* Hero Section */}
         <section className="mb-14">
           <div className="pixel-card bg-white p-10 md:p-16 rounded-lg flex flex-col items-center border-mango-500 shadow-lg text-center">
+            {/* Aizaan Logo inside hero card */}
+            <img 
+              src="/lovable-uploads/aizaan-logo.png" 
+              alt="Aizaan Logo" 
+              className="w-32 h-auto md:w-44 mb-6" 
+              style={{ maxWidth: '100%', height: 'auto' }}
+            />
             <span className="inline-block bg-mango-500 text-black font-pixel px-4 py-2 text-base mb-6">
               PORTFOLIO CASE STUDY
             </span>
-            <h1 className="text-4xl md:text-5xl font-pixel text-mango-500 mb-3 animate-pixel-glow drop-shadow">
+            <h1 className="text-4xl md:text-2xl font-pixel text-mango-500 mb-3">
               Aizaan Ecommerce &amp; Rebranding
             </h1>
-            <p className="text-lg text-gray-700 font-mono mb-0">A Pixel Mango Creative Agency Case Study</p>
+            <p className="text-sm text-gray-700 font-mono mb-0">A Pixel Mango Creative Agency Case Study</p>
           </div>
         </section>
 
@@ -110,35 +125,35 @@ const Aizaan = () => (
             </p>
           </SubSection>
           <SubSection title="Goal">
-            <ul className="list-disc text-gray-800 text-[15px]">
+            <ul className="list-disc ">
               <li>Create a cohesive, elegant brand identity</li>
               <li>Deliver a seamless online shopping experience</li>
               <li>Increase visibility, drive sales, and empower independent management</li>
             </ul>
-            <p className="mt-3 text-gray-700 text-[15px]">
+            <p className="mt-3">
               The primary goal was a cohesive, elegant brand identity and seamless shopping that would increase Aizaan's visibility, drive sales, and empower the team to manage the platform independently.
             </p>
           </SubSection>
           <SubSection title="Problems">
-            <ul className="list-disc text-gray-800 text-[15px]">
+            <ul className="list-disc ">
               <li>Outdated branding lacked cohesion, failing to resonate with modern consumers.</li>
               <li>Website was not user-friendly, with poor navigation and no mobile optimization.</li>
               <li>Limited social media presence hindered customer engagement and brand awareness.</li>
             </ul>
           </SubSection>
           <SubSection title="Challenges">
-            <ul className="list-disc text-gray-800 text-[15px]">
+            <ul className="list-disc ">
               <li>Tight timeline for exhibitions required rapid iteration and delivery.</li>
               <li>Balancing aesthetic elegance with functional simplicity.</li>
               <li>Ensuring the team could manage the site with minimal training.</li>
             </ul>
           </SubSection>
           <SubSection title="Responsibilities">
-            <ul className="list-disc text-gray-800 text-[15px]">
+            <ul className="list-disc ">
               <li>Conducted stakeholder interviews to define requirements.</li>
               <li>Designed new logo, brand guidelines, and social media assets.</li>
               <li>Created wireframes, prototypes, and high-fidelity mockups.</li>
-              <li>Developed the site on WordPress (Elementor), integrated payments.</li>
+              <li>Developed the site on WordPress (WooCommerce), integrated payments, delivery and sales tracking.</li>
             </ul>
           </SubSection>
           <SubSection title="Results">
@@ -183,7 +198,7 @@ const Aizaan = () => (
               </div>
             </div>
           </div>
-          <div className="mt-2 px-4 py-3 bg-white border border-mango-500 rounded font-mono text-[15px]">
+          <div className="mt-2 px-4 py-3 bg-white border border-mango-500 rounded font-mono ">
             <span className="font-bold">Goal Statement:</span>{" "}
             Design a cohesive brand identity and a mobile-friendly site for Aizaan that enables young women to shop for stylish hijabs and abayas effortlessly, increases online sales by 30%, and allows the team to manage operations with minimal training.
           </div>
@@ -192,7 +207,7 @@ const Aizaan = () => (
         {/* Ideate & Prototype */}
         <BlockCard title="Ideate &amp; Prototype">
           <SubSection title="Design Process">
-            <ul className="list-disc pl-6 text-gray-800 text-[15px]">
+            <ul className="list-disc pl-6 text-gray-800 ">
               <li>
                 <span className="font-bold">Wireframes:</span> Created low-fidelity wireframes to map the site's structure (5 pages: Home, Shop, About, Contact, Cart).
               </li>
@@ -210,7 +225,7 @@ const Aizaan = () => (
             </ul>
           </SubSection>
           <SubSection title="Design System">
-            <ul className="list-disc pl-6 text-gray-800 text-[15px]">
+            <ul className="list-disc pl-6 text-gray-800 ">
               <li>
                 <span className="font-bold">Typography:</span> Sketsa Ramadhan and Product Sans
               </li>
@@ -229,7 +244,7 @@ const Aizaan = () => (
 
         {/* Testing, Deploy & Monitoring */}
         <BlockCard title="Testing, Deploy &amp; Continuous Monitoring" className="bg-mango-50/60">
-          <ul className="list-none text-gray-700 text-[15px] space-y-2">
+          <ul className="list-none text-gray-700  space-y-2">
             <li>
               <span className="font-bold">Testing:</span>{" "}
               <span className="italic text-gray-500">To be posted soon.</span>

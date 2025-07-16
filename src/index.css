@@ -152,7 +152,6 @@
   background: #fff;
   border: 3px solid #000;
   position: relative;
-  transition: all 0.3s ease;
 }
 
 .pixel-card::before {
@@ -164,16 +163,15 @@
   bottom: -6px;
   background: #666;
   z-index: -1;
-  transition: all 0.3s ease;
 }
 
 .pixel-card:hover {
-  transform: translate(-3px, -3px);
-  animation: pixelGlow 1s ease-in-out;
+  transform: none;
+  animation: none;
 }
 
 .pixel-card:hover::before {
-  background: #FFA500;
+  background: #666;
 }
 
 .pixel-text {
@@ -304,46 +302,23 @@ a, .footer-link, .hover\:text-mango-500 {
   transition: color 0.2s;
 }
 
-/* Fix: pixel-mango hover color and improved text readability */
+/* Remove hover effects */
 a:hover, .footer-link:hover, .hover\:text-mango-500:hover {
-  color: #FFA500 !important;
-  background-color: transparent !important;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.20);
-  filter: none !important;
-  /* Remove strong blend-multiply/overlapping highlights from hover */
+  /* REMOVE this block to restore hover color, background, text-shadow, filter */
 }
 
-/* Remove green global hover - enforce mango-500 for hover */
-a:hover, .hover\:text-mango-500:hover {
-  color: #FFA500 !important;
-}
-
-.footer-link:hover {
-  color: #FFA500 !important;
-  background: none !important;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  filter: none !important;
-}
-
-/* Ensure button hovers don't blend colors with text */
+/* Remove button hover effects */
 button:hover, .pixel-button:hover, .btn-premium:hover {
-  color: #FFA500 !important;
-  background: #000 !important;
-  border-color: #FFA500 !important;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  /* REMOVE this block to restore hover color, background, border-color, text-shadow */
 }
 
-.btn-premium:hover {
-  color: #FFA500 !important;
-}
-
-/* Ensure inputs/select don't get affected by above */
+/* Remove hover effects from inputs/select */
 input:focus, select:focus, textarea:focus {
-  box-shadow: 0 0 0 2px #FFA50033;
-  border-color: #FFA500;
+  box-shadow: none;
+  border-color: inherit;
 }
 
-/* Prevent text overlap with background when hover (for readability) */
+/* Remove text shadow on hover */
 a:hover, .footer-link:hover {
-  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  /* REMOVE this block to restore text-shadow on hover */
 }

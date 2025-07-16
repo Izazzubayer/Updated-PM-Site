@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Star, Users, Target, TrendingUp, Lightbulb, BarChart3, PieChart, Calendar, Clock, MessageSquare, FileText, Zap, Shield, Search, Brain, Compass, Award } from 'lucide-react';
@@ -190,11 +189,8 @@ const ConsultationStrategy = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/contact" className="pixel-button px-8 py-4 font-pixel text-lg hover:animate-pixel-shift">
-                  BOOK CONSULTATION
+                  START YOUR PROJECT
                 </Link>
-                <Button variant="outline" className="px-8 py-4 font-pixel border-2 border-black">
-                  VIEW CASE STUDIES
-                </Button>
               </div>
             </div>
             <div className="relative">
@@ -222,7 +218,7 @@ const ConsultationStrategy = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {consultationTypes.map((type, index) => (
-              <div key={index} className="pixel-card p-8 bg-white hover:animate-pixel-glow transition-all duration-300 text-center">
+              <div key={index} className="pixel-card p-6 bg-white">
                 <div className="w-20 h-20 bg-mango-500 border-2 border-black flex items-center justify-center mb-6 mx-auto">
                   <type.icon className={`w-10 h-10 ${type.color}`} />
                 </div>
@@ -248,7 +244,7 @@ const ConsultationStrategy = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {serviceAreas.map((area, index) => (
-              <div key={index} className="pixel-card p-6 bg-white hover:animate-pixel-glow transition-all duration-300 text-center">
+              <div key={index} className="pixel-card p-6 bg-white">
                 <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center mb-4 mx-auto">
                   <area.icon className={`w-8 h-8 ${area.color}`} />
                 </div>
@@ -271,7 +267,7 @@ const ConsultationStrategy = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {strategyServices.map((service, index) => (
-              <div key={index} className="pixel-card p-6 bg-white hover:animate-pixel-glow transition-all duration-300">
+              <div key={index} className="pixel-card p-6 bg-white">
                 <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center mb-4">
                   <service.icon className="w-8 h-8 text-black" />
                 </div>
@@ -295,7 +291,7 @@ const ConsultationStrategy = () => {
 
           <div className="space-y-8">
             {processSteps.map((step, index) => (
-              <div key={index} className="pixel-card bg-white p-8 hover:animate-pixel-glow transition-all duration-300">
+              <div key={index} className="pixel-card bg-white p-8">
                 <div className="grid lg:grid-cols-4 gap-6 items-center">
                   <div className="lg:col-span-1">
                     <div className="flex items-center space-x-4">
@@ -334,7 +330,7 @@ const ConsultationStrategy = () => {
 
           <div className="grid lg:grid-cols-3 gap-8">
             {portfolioItems.map((item, index) => (
-              <div key={index} className="pixel-card bg-white hover:animate-pixel-glow transition-all duration-300">
+              <div key={index} className="pixel-card bg-white">
                 <img 
                   src={item.image} 
                   alt={item.title}
@@ -378,7 +374,6 @@ const ConsultationStrategy = () => {
             {/* Essential Package */}
             <div className="pixel-card bg-white p-8">
               <h3 className="text-2xl font-pixel text-black mb-2">Essential</h3>
-              <div className="text-4xl font-pixel text-mango-500 mb-6">$4,999</div>
               <ul className="space-y-3 mb-8">
                 {packageFeatures.essential.map((feature, index) => (
                   <li key={index} className="flex items-start space-x-3">
@@ -387,7 +382,7 @@ const ConsultationStrategy = () => {
                   </li>
                 ))}
               </ul>
-              <Button className="w-full pixel-button font-pixel">GET STARTED</Button>
+              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
 
             {/* Professional Package */}
@@ -396,7 +391,6 @@ const ConsultationStrategy = () => {
                 MOST POPULAR
               </div>
               <h3 className="text-2xl font-pixel text-black mb-2">Professional</h3>
-              <div className="text-4xl font-pixel text-mango-500 mb-6">$12,999</div>
               <ul className="space-y-3 mb-8">
                 {packageFeatures.professional.map((feature, index) => (
                   <li key={index} className="flex items-start space-x-3">
@@ -405,13 +399,12 @@ const ConsultationStrategy = () => {
                   </li>
                 ))}
               </ul>
-              <Button className="w-full pixel-button font-pixel">GET STARTED</Button>
+              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
 
             {/* Enterprise Package */}
             <div className="pixel-card bg-white p-8">
               <h3 className="text-2xl font-pixel text-black mb-2">Enterprise</h3>
-              <div className="text-4xl font-pixel text-mango-500 mb-6">$24,999</div>
               <ul className="space-y-3 mb-8">
                 {packageFeatures.enterprise.map((feature, index) => (
                   <li key={index} className="flex items-start space-x-3">
@@ -420,7 +413,7 @@ const ConsultationStrategy = () => {
                   </li>
                 ))}
               </ul>
-              <Button className="w-full pixel-button font-pixel">GET STARTED</Button>
+              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
           </div>
         </div>
@@ -438,7 +431,7 @@ const ConsultationStrategy = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="pixel-speech bg-white p-6 hover:animate-pixel-glow transition-all duration-300">
+              <div key={index} className="pixel-speech bg-white p-6">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-mango-500 border-2 border-black flex items-center justify-center mr-4">
                     <span className="font-pixel text-black text-sm">{testimonial.avatar}</span>

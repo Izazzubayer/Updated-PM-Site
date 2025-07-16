@@ -1,34 +1,21 @@
-
 import React from 'react';
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="relative bg-gray-900 text-white overflow-hidden border-t-4 border-mango-500 mt-20">
+    <footer className="relative bg-black text-white overflow-hidden border-t-4 border-mango-500 mt-20">
       {/* Pixel Grid Overlay */}
       <div className="absolute inset-0 z-0 pixel-grid pointer-events-none opacity-30" />
-      {/* Pixel Bottom Edge */}
-      <div className="absolute bottom-0 left-0 w-full flex z-10">
-        {Array.from({ length: 30 }).map((_, i) => (
-          <div
-            key={i}
-            className="h-2 w-4"
-            style={{
-              background: i % 2 === 0 ? '#FFA500' : '#000',
-            }}
-          />
-        ))}
-      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo + Socials */}
           <div className="lg:col-span-1 flex flex-col items-start space-y-6">
             <Link to="/" className="flex items-center space-x-2 mb-3">
               <img
-                src="/lovable-uploads/59e78e85-cc0a-4c41-8037-5153fb6fd80c.png"
+                src="https://i.postimg.cc/3xfyrcV6/Frame-4467.png"
                 alt="Pixel Mango Logo"
-                className="w-12 h-12 rounded-full shadow-lg border-2 border-mango-500 animate-pixel-glow"
+                className="w-12 h-12"
               />
               <span className="text-2xl font-pixel text-mango-500 pixel-text drop-shadow">Pixel Mango</span>
             </Link>
@@ -94,10 +81,10 @@ const Footer = () => {
                 <Link to="/support/FAQ" className="footer-link">FAQ</Link>
               </li>
               <li>
-                <Link to="/support/AboutUs" className="footer-link">About Us</Link>
+                <Link to="/support/about-us" className="footer-link">About Us</Link>
               </li>
               <li>
-                <Link to="/support/ContactUs" className="footer-link">Contact Us</Link>
+                <Link to="/support/contact-us" className="footer-link">Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -123,7 +110,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 dark:border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Pixel Mango. All rights reserved. Izaz Zubayer
+            &copy; {new Date().getFullYear()} Pixel Mango. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy-policy" className="footer-link text-sm">Privacy Policy</Link>
