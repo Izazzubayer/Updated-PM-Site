@@ -137,7 +137,22 @@ const WhoWeCaterToSection = () => {
 
         {/* Mobile: Carousel */}
         <div className="block md:hidden">
-          <BusinessCarousel businesses={businesses} />
+          <BusinessCarousel 
+            businesses={businesses}
+            open={open}
+            setOpen={setOpen}
+            form={form}
+            setForm={setForm}
+            error={error}
+            setError={setError}
+            submitted={submitted}
+            setSubmitted={setSubmitted}
+            loading={loading}
+            setLoading={setLoading}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            industryOptions={industryOptions}
+          />
         </div>
         {/* Desktop/Tablet: Grid */}
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -161,11 +176,8 @@ const WhoWeCaterToSection = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="pixel-card p-8 bg-white">
+          {/* Desktop: Show the CTA card at the end of the grid */}
+          <div className="pixel-card p-8 bg-white col-span-full">
             <h3 className="text-2xl font-pixel text-black mb-4">Don't See Your Industry?</h3>
             <p className="text-gray-600 mb-6 font-mono">
               We work with businesses of all types! Every brand has unique needs, and we're here to help.
@@ -288,7 +300,7 @@ const WhoWeCaterToSection = () => {
 export default WhoWeCaterToSection;
 
 // Carousel implementation for businesses
-function BusinessCarousel({ businesses }) {
+function BusinessCarousel({ businesses, open, setOpen, form, setForm, error, setError, submitted, setSubmitted, loading, setLoading, handleChange, handleSubmit, industryOptions }) {
   const [emblaApi, setEmblaApi] = React.useState(null);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const slidesToShow = 1;
@@ -305,7 +317,7 @@ function BusinessCarousel({ businesses }) {
     };
   }, [emblaApi]);
 
-  const dotCount = Math.ceil(businesses.length / slidesToShow);
+  const dotCount = businesses.length + 1; // Add one for the CTA card
 
   return (
     <div className="relative">
@@ -331,12 +343,129 @@ function BusinessCarousel({ businesses }) {
                 </div>
               </CarouselItem>
             ))}
+            {/* Add the CTA card as the last slide */}
+            <CarouselItem key="cta" className="px-2">
+              <div className="pixel-card p-8 bg-white h-full flex flex-col items-center justify-center">
+                <h3 className="text-2xl font-pixel text-black mb-4 text-center">Don't See Your Industry?</h3>
+                <p className="text-gray-600 mb-6 font-mono text-center">
+                  We work with businesses of all types! Every brand has unique needs, and we're here to help.
+                </p>
+                <Dialog open={open} onOpenChange={setOpen}>
+                  <DialogTrigger asChild>
+                    <button className="pixel-button px-8 py-4 font-pixel" onClick={() => setOpen(true)}>
+                      Tell Us About Your Business
+                    </button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-md w-full border-2 border-black !rounded-none">
+                    {!submitted ? (
+                      <form 
+                        className="space-y-6"
+                        onSubmit={handleSubmit}
+                      >
+                        <input type="hidden" name="_captcha" value="false" />
+                        <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html" />
+                        <div>
+                          <label className="block text-sm font-pixel text-black mb-1" htmlFor="name">Name</label>
+                          <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            className="w-full border-2 border-black !rounded-none px-4 py-2 font-mono focus:outline-none focus:ring-2 focus:ring-mango-500"
+                            value={form.name}
+                            onChange={handleChange}
+                            required
+                            autoComplete="name"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-pixel text-black mb-1" htmlFor="email">Email</label>
+                          <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            className="w-full border-2 border-black !rounded-none px-4 py-2 font-mono focus:outline-none focus:ring-2 focus:ring-mango-500"
+                            value={form.email}
+                            onChange={handleChange}
+                            required
+                            autoComplete="email"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-pixel text-black mb-1" htmlFor="industry">Industry</label>
+                          <select
+                            id="industry"
+                            name="industry"
+                            className="w-full border-2 border-black !rounded-none px-4 py-2 font-mono focus:outline-none focus:ring-2 focus:ring-mango-500"
+                            value={form.industry}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="">Select an industry</option>
+                            {industryOptions.map((option) => (
+                              <option key={option} value={option}>{option}</option>
+                            ))}
+                          </select>
+                        </div>
+                        {form.industry === 'Other' && (
+                          <div>
+                            <label className="block text-sm font-pixel text-black mb-1" htmlFor="otherIndustry">Please specify your industry</label>
+                            <input
+                              id="otherIndustry"
+                              name="otherIndustry"
+                              type="text"
+                              className="w-full border-2 border-black !rounded-none px-4 py-2 font-mono focus:outline-none focus:ring-2 focus:ring-mango-500"
+                              value={form.otherIndustry}
+                              onChange={handleChange}
+                              required
+                              placeholder="Your industry"
+                            />
+                          </div>
+                        )}
+                        <div>
+                          <label className="block text-sm font-pixel text-black mb-1" htmlFor="message">Your Message or Query</label>
+                          <textarea
+                            id="message"
+                            name="message"
+                            className="w-full border-2 border-black !rounded-none px-4 py-2 font-mono focus:outline-none focus:ring-2 focus:ring-mango-500 min-h-[100px] resize-y"
+                            value={form.message}
+                            onChange={handleChange}
+                            required
+                            placeholder="Let us know what you need, your questions, or any details about your business."
+                          />
+                        </div>
+                        <button
+                          type="submit"
+                          className="pixel-button w-full py-3 font-pixel text-lg flex items-center justify-center"
+                          disabled={loading}
+                        >
+                          {loading ? 'Sending...' : 'Submit'}
+                        </button>
+                        {error && (
+                          <p className="text-red-500 text-center font-mono mt-2">{error}</p>
+                        )}
+                      </form>
+                    ) : (
+                      <div className="flex flex-col items-center justify-center py-8 animate-fade-in">
+                        <span className="text-2xl font-pixel text-mango-500 mb-4">Thank you!</span>
+                        <p className="text-gray-700 font-mono text-center mb-4">
+                          We received your message and will get back to you shortly.<br />
+                          In the meantime, take a moment to learn a little about us — we've put a lot of effort into creating this experience for you.
+                        </p>
+                        <DialogClose asChild>
+                          <button className="pixel-button px-6 py-2 font-pixel mt-2">Close</button>
+                        </DialogClose>
+                      </div>
+                    )}
+                  </DialogContent>
+                </Dialog>
+              </div>
+            </CarouselItem>
           </CarouselContent>
         </div>
       </Carousel>
       {/* Pagination Dots */}
       <div className="flex justify-center mt-6 space-x-2">
-        {Array.from({ length: dotCount }).map((_, i) => (
+        {Array.from({ length: businesses.length + 1 }).map((_, i) => (
           <button
             key={i}
             className={`w-3 h-3 rounded-full border-2 border-mango-500 transition-all duration-200 ${selectedIndex === i ? 'bg-mango-500' : 'bg-white'}`}
