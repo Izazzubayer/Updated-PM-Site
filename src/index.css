@@ -51,6 +51,12 @@
   }
 }
 
+body, p {
+  font-family: "Slabo 27px", serif !important;
+  font-weight: 400;
+  font-style: normal;
+}
+
 /* Pixel Art Animations */
 @keyframes pixelGlow {
   0%, 100% { 

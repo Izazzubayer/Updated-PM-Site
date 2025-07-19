@@ -76,145 +76,39 @@ const HeroSection = () => {
         <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-mango-500 animate-pixel-glow"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            
-            <h1 className="mb-8">
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+        <div className="flex flex-col items-center justify-center text-center gap-6 w-full">
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} w-full max-w-lg mx-auto`}> 
+            <h1 className="mb-4">
               <div className="text-sm font-pixel text-mango-500 mb-2 animate-pixel-shift">
                 CRAFTING PIXEL-PERFECT DESIGNS
               </div>
-              {/* <div className="text-2xl font-mono text-gray-700 mb-4 leading-relaxed">
-              Premium creative services, designed for small and growing businesses
-              </div> */}
               <div className="text-4xl lg:text-6xl font-pixel text-black-500 leading-tight mb-2">
                 Anyone Can Build A Brand.
               </div>
             </h1>
-            
-            <p className="text-xl text-black-700 leading-relaxed mb-8 max-w-md font-mono">
+            <p className="text-xl text-black-700 leading-relaxed mb-6 max-w-xl mx-auto font-mono">
               Premium branding, websites, and creative services for clothing brands, cafés, and more - without the premium agency price tag.
             </p>
-
-            {/* Feature highlights with pixel styling */}
-            {/* <div className="mb-8 pixel-card p-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-mango-500 border-2 border-black flex items-center justify-center">
-                  {React.createElement(features[currentFeature].icon, { 
-                    className: "w-6 h-6 text-black" 
-                  })}
-                </div>
-                <div>
-                  <h3 className="font-pixel text-black">{features[currentFeature].title}</h3>
-                  <p className="text-sm text-gray-600 font-mono">{features[currentFeature].description}</p>
-                </div>
-              </div>
-            </div>
-             */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <button className="pixel-button px-8 py-4 font-pixel" onClick={handleScrollToIntake}>
+            <div className="flex flex-col items-center gap-6 w-full">
+              <button className="pixel-button px-8 py-4 font-pixel mb-2 w-full max-w-xs" onClick={handleScrollToIntake}>
                 Get Started
                 <ArrowRight className="w-5 h-5 inline ml-2" />
               </button>
-              
-              {/* <button className="border-3 border-black text-black px-8 py-4 font-pixel hover:bg-black hover:text-mango-500 transition-all duration-300">
-                <Play className="w-5 h-5 inline mr-2" />
-                View Portfolio
-              </button> */}
-            </div>
-
-            {/* Pixel Stats */}
-            <div className="grid grid-cols-2 gap-8">
-              <div className="text-center pixel-card p-4">
-                <div className="text-3xl font-pixel text-black mb-1">
-                  4+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                <div className="text-center pixel-card p-4">
+                  <div className="text-3xl font-pixel text-black mb-1">
+                    4+
+                  </div>
+                  <div className="text-sm text-gray-600 font-mono">Projects Completed</div>
                 </div>
-                <div className="text-sm text-gray-600 font-mono">Projects Completed</div>
-              </div>
-              <div className="text-center pixel-card p-4">
-                <div className="text-3xl font-pixel text-black mb-1">
-                  {satisfactionRate}%
-                </div>
-                <div className="text-sm text-gray-600 font-mono">Customer Satisfaction</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Content - Pixel Dashboard */}
-          <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            <div className="relative">
-              {/* Main Pixel Dashboard */}
-              <div className="pixel-card p-8 bg-white">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="font-pixel text-black">PIXEL DASHBOARD</h3>
-                  <div className="flex space-x-2">
-                    <div className="w-4 h-4 bg-mango-500 animate-pixel-glow"></div>
-                    <div className="w-4 h-4 bg-green-500"></div>
-                    <div className="w-4 h-4 bg-red-500"></div>
+                <div className="text-center pixel-card p-4">
+                  <div className="text-3xl font-pixel text-black mb-1">
+                    {satisfactionRate}%
                   </div>
-                </div>
-                
-                <div className="space-y-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-mango-500 border-2 border-black flex items-center justify-center">
-                      <Palette className="w-6 h-6 text-black" />
-                    </div>
-                    <div>
-                      <h4 className="font-pixel text-black text-sm">Creative Solutions</h4>
-                      <p className="text-xs text-gray-600 font-mono">Pixel-perfect designs</p>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-mono text-gray-600">Brand Identity</span>
-                        <span className="text-xs font-pixel text-grey-500"> We achieved 95% client satisfaction</span>
-                      </div>
-                      <div className="w-full bg-gray-200 h-3 border border-black">
-                        <div className="bg-mango-500 h-full border-r border-black" style={{ width: '95%' }}></div>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-mono text-gray-600">Web Design & Development</span>
-                        <span className="text-xs font-pixel text-grey-500">88% of our websites are fast and responsive</span>
-                      </div>
-                      <div className="w-full bg-gray-200 h-3 border border-black">
-                        <div className="bg-mango-500 h-full border-r border-black" style={{ width: '88%' }}></div>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-mono text-gray-600">Integrating Psychology</span>
-                        <span className="text-xs font-pixel text-grey-500">92% of our projects are designed to be user-friendly and engaging</span>
-                      </div>
-                      <div className="w-full bg-gray-200 h-3 border border-black">
-                        <div className="bg-mango-500 h-full border-r border-black" style={{ width: '92%' }}></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="pixel-border p-4 bg-mango-50">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs font-pixel text-black">ACTIVE PROJECTS</span>
-                      <Code className="w-4 h-4 text-mango-500" />
-                    </div>
-                    <div className="text-2xl font-pixel text-black">
-                      {projectCount > 0 ? projectCount : '---'}
-                    </div>
-                  </div>
+                  <div className="text-sm text-gray-600 font-mono">Customer Satisfaction</div>
                 </div>
               </div>
-
-              {/* Floating Pixel Elements */}
-              <div className="absolute -top-4 -left-4 w-8 h-8 bg-mango-500 animate-pixel-float"></div>
-              <div className="absolute -bottom-4 -right-4 w-6 h-6 bg-black animate-pixel-shift"></div>
-              <div className="absolute top-1/2 -left-8 w-4 h-4 bg-mango-500 animate-pixel-glow"></div>
-              <div className="absolute top-1/4 -right-6 w-3 h-3 bg-black"></div>
             </div>
           </div>
         </div>
