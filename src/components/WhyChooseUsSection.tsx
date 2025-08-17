@@ -187,17 +187,17 @@ function BenefitsCarousel({ benefits }) {
   const dotCount = Math.ceil(benefits.length / slidesToShow);
 
   return (
-    <div className="relative">
+    <div className="relative px-4">
       <Carousel opts={{ align: 'start', slidesToScroll: slidesToShow }} setApi={setEmblaApi}>
-        <CarouselContent>
+        <CarouselContent className="-ml-2 md:-ml-4">
           {benefits.map((benefit, index) => (
-            <CarouselItem key={index} className="px-2">
-              <div className="pixel-card p-6 bg-white h-full flex flex-col">
-                <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center mb-4">
-                  <benefit.icon className="w-8 h-8 text-black" />
+            <CarouselItem key={index} className="pl-2 md:pl-4 basis-full">
+              <div className="pixel-card p-4 md:p-6 bg-white h-full flex flex-col mx-2">
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-mango-500 border-2 border-black flex items-center justify-center mb-3 md:mb-4">
+                  <benefit.icon className="w-6 h-6 md:w-8 md:h-8 text-black" />
                 </div>
-                <h3 className="text-lg font-pixel text-black mb-3">{benefit.title}</h3>
-                <p className="text-sm text-gray-600 font-mono leading-relaxed">{benefit.description}</p>
+                <h3 className="text-base md:text-lg font-pixel text-black mb-2 md:mb-3">{benefit.title}</h3>
+                <p className="text-xs md:text-sm text-gray-600 font-mono leading-relaxed">{benefit.description}</p>
               </div>
             </CarouselItem>
           ))}

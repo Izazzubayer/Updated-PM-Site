@@ -114,18 +114,18 @@ const ConsultationStrategy = () => {
 
   const testimonials = [
     {
-      name: "Sarah Chen",
-      business: "TechFlow Solutions",
+      name: "Fameta Baraka",
+      business: "Founder @ Aizaan",
       rating: 5,
-      text: "The strategic guidance we received was transformative. Our revenue increased by 300% within the first year of implementing their recommendations.",
-      avatar: "SC"
+      text: "Pixel Mango transformed my Hijab/Abaya shop's entire identity. The branding is perfect - it captures exactly what I wanted to convey to my customers.",
+      avatar: "FB"
     },
     {
-      name: "Michael Rodriguez", 
-      business: "GreenTech Industries",
+      name: "Takiyona Muteshi",
+      business: "Santoku Knife Shop",
       rating: 5,
-      text: "Their market analysis was incredibly thorough and helped us avoid costly mistakes while entering new markets. The ROI has been exceptional.",
-      avatar: "MR"
+      text: "The work Izaz has done for Santoku is splendid. He provided me details as to how to make my brand work better and he knows his craft",
+      avatar: "TM"
     }
   ];
 

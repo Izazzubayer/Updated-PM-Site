@@ -15,6 +15,21 @@ const GettingStartedSection = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  
+  // Captcha state
+  const [captcha, setCaptcha] = useState({ num1: 0, num2: 0, answer: 0 });
+  const [captchaInput, setCaptchaInput] = useState('');
+  const [captchaError, setCaptchaError] = useState('');
+
+  // Generate random captcha
+  React.useEffect(() => {
+    const generateCaptcha = () => {
+      const num1 = Math.floor(Math.random() * 10) + 1;
+      const num2 = Math.floor(Math.random() * 10) + 1;
+      setCaptcha({ num1, num2, answer: num1 + num2 });
+    };
+    generateCaptcha();
+  }, []);
 
   const services = [
     "Brand Identity & Logo Design",
@@ -27,8 +42,21 @@ const GettingStartedSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
     setError('');
+    setCaptchaError('');
+    
+    // Validate captcha first
+    if (parseInt(captchaInput) !== captcha.answer) {
+      setCaptchaError('Incorrect answer. Please try again.');
+      // Generate new captcha
+      const num1 = Math.floor(Math.random() * 10) + 1;
+      const num2 = Math.floor(Math.random() * 10) + 1;
+      setCaptcha({ num1, num2, answer: num1 + num2 });
+      setCaptchaInput('');
+      return;
+    }
+    
+    setLoading(true);
     emailjs.send(
       'service_pyjaeva', // Service ID
       'template_4wo4hzb', // Template ID
@@ -185,6 +213,32 @@ const GettingStartedSection = () => {
                     placeholder="Tell us about your project, timeline, and any specific requirements..."
                   />
                 </div>
+                
+                {/* Captcha Field */}
+                <div>
+                  <label className="block text-sm font-pixel text-black mb-2">
+                    <span className="inline-flex items-center">
+                      🛡️ SECURITY CHECK
+                    </span>
+                  </label>
+                  <div className="flex items-center space-x-3">
+                    <div className="flex items-center space-x-2 bg-gray-100 px-4 py-3 border-2 border-black font-mono">
+                      <span className="text-lg font-bold">{captcha.num1} + {captcha.num2} = ?</span>
+                    </div>
+                    <input
+                      type="number"
+                      value={captchaInput}
+                      onChange={(e) => setCaptchaInput(e.target.value)}
+                      className="w-20 px-3 py-3 border-2 border-black font-mono focus:border-mango-500 focus:outline-none transition-all duration-300 text-center"
+                      placeholder="?"
+                      required
+                    />
+                  </div>
+                  {captchaError && (
+                    <p className="text-red-500 text-xs font-mono mt-1">{captchaError}</p>
+                  )}
+                </div>
+                
                 <button
                   type="submit"
                   className="w-full pixel-button py-4 px-6 font-pixel flex items-center justify-center space-x-2"

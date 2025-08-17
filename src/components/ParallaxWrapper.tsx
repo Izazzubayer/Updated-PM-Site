@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
+import { useIsMobile } from '../hooks/use-mobile';
 
 interface ParallaxWrapperProps {
   children: React.ReactNode;
@@ -13,10 +14,11 @@ const ParallaxWrapper: React.FC<ParallaxWrapperProps> = ({
   className = '' 
 }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const element = ref.current;
-    if (!element) return;
+    if (!element || isMobile) return; // Don't apply parallax on mobile
 
     const handleScroll = () => {
       const scrolled = window.pageYOffset;
@@ -37,13 +39,13 @@ const ParallaxWrapper: React.FC<ParallaxWrapperProps> = ({
     window.addEventListener('scroll', handleScroll, { passive: true });
     
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [depth]);
+  }, [depth, isMobile]);
 
   return (
     <div 
       ref={ref}
-      className={`relative will-change-transform ${className}`}
-      style={{ 
+      className={`relative ${isMobile ? '' : 'will-change-transform'} ${className}`}
+      style={isMobile ? {} : { 
         transform: 'translate3d(0, 0, 0)',
         backfaceVisibility: 'hidden',
         perspective: '1000px'

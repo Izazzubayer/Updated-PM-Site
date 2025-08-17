@@ -114,18 +114,18 @@ const WebsiteDevelopment = () => {
 
   const testimonials = [
     {
-      name: "Jennifer Walsh",
-      business: "Walsh Marketing Group",
+      name: "Fameta Baraka",
+      business: "Founder @ Aizaan",
       rating: 5,
-      text: "Our new website has completely transformed our business. The design is stunning and the functionality is exactly what we needed. Traffic has increased by 200%!",
-      avatar: "JW"
+      text: "Pixel Mango transformed my Hijab/Abaya shop's entire identity. The branding is perfect - it captures exactly what I wanted to convey to my customers.",
+      avatar: "FB"
     },
     {
-      name: "Robert Kim", 
-      business: "TechInnovate Solutions",
+      name: "Takiyona Muteshi",
+      business: "Santoku Knife Shop",
       rating: 5,
-      text: "The development team delivered beyond our expectations. The site is fast, secure, and perfectly optimized. Our conversion rates have never been better.",
-      avatar: "RK"
+      text: "The work Izaz has done for Santoku is splendid. He provided me details as to how to make my brand work better and he knows his craft",
+      avatar: "TM"
     }
   ];
 

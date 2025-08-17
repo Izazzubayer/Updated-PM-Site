@@ -50,9 +50,10 @@ const MissionSection = () => {
             "Turning Small Business Dreams into Big Brand Reality"
           </h3>
           <p className="text-lg text-gray-700 font-mono max-w-4xl mx-auto leading-relaxed">
-            We bridge the gap between expensive agencies and cheap solutions by providing 
-            personalized, professional creative services that help local businesses compete 
-            with larger brands through exceptional design and strategic thinking. - Izaz Zubayer
+          "We offer personalized, high-quality creative services that empower businesses to stand out and 
+          compete with major brands—striking the perfect balance between costly agencies and budget 
+          solutions through smart design and strategic thinking."
+          — Izaz Zubayer
           </p>
         </div>
 

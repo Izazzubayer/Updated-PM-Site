@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
+import { useIsMobile } from '../hooks/use-mobile';
 
 interface ScrollAnimateWrapperProps {
   children: React.ReactNode;
@@ -16,8 +17,15 @@ const ScrollAnimateWrapper: React.FC<ScrollAnimateWrapperProps> = ({
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
+    // On mobile, make element immediately visible without animation
+    if (isMobile) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -41,7 +49,7 @@ const ScrollAnimateWrapper: React.FC<ScrollAnimateWrapperProps> = ({
         observer.unobserve(ref.current);
       }
     };
-  }, [delay]);
+  }, [delay, isMobile]);
 
   const getAnimationClass = () => {
     switch (animation) {
@@ -63,8 +71,8 @@ const ScrollAnimateWrapper: React.FC<ScrollAnimateWrapperProps> = ({
   return (
     <div
       ref={ref}
-      className={`transition-all duration-800 ${
-        isVisible ? `opacity-100 ${getAnimationClass()}` : 'opacity-0 translate-y-8'
+      className={`${isMobile ? '' : 'transition-all duration-800'} ${
+        isVisible ? `opacity-100 ${isMobile ? '' : getAnimationClass()}` : `${isMobile ? 'opacity-100' : 'opacity-0 translate-y-8'}`
       } ${className}`}
     >
       {children}

@@ -146,38 +146,38 @@ function ServicesCarousel({ services }) {
   const dotCount = Math.ceil(services.length / slidesToShow);
 
   return (
-    <div className="relative">
+    <div className="relative px-4">
       <Carousel opts={{ align: 'start', slidesToScroll: slidesToShow }} setApi={setEmblaApi}>
-        <CarouselContent>
+        <CarouselContent className="-ml-2 md:-ml-4">
           {services.map((service, index) => (
-            <CarouselItem key={index} className="px-2">
-              <div className="pixel-card p-8 bg-white h-full flex flex-col">
-                <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center mb-6">
-                  <service.icon className="w-8 h-8 text-black" />
+            <CarouselItem key={index} className="pl-2 md:pl-4 basis-full">
+              <div className="pixel-card p-4 md:p-8 bg-white h-full flex flex-col mx-2">
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-mango-500 border-2 border-black flex items-center justify-center mb-4 md:mb-6">
+                  <service.icon className="w-6 h-6 md:w-8 md:h-8 text-black" />
                 </div>
-                <h3 className="text-xl font-pixel text-black mb-4">{service.title}</h3>
-                <p className="text-gray-600 font-mono mb-6 leading-relaxed">{service.description}</p>
-                <div className="space-y-3 mb-6">
+                <h3 className="text-lg md:text-xl font-pixel text-black mb-3 md:mb-4">{service.title}</h3>
+                <p className="text-gray-600 font-mono mb-4 md:mb-6 leading-relaxed text-sm md:text-base">{service.description}</p>
+                <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
                   {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center space-x-3">
+                    <div key={featureIndex} className="flex items-center space-x-2 md:space-x-3">
                       <div className="w-2 h-2 bg-mango-500"></div>
-                      <span className="text-sm text-gray-600 font-mono">{feature}</span>
+                      <span className="text-xs md:text-sm text-gray-600 font-mono">{feature}</span>
                     </div>
                   ))}
                 </div>
                 <Link 
                   to={service.link} 
-                  className="inline-flex items-center space-x-2 text-mango-500 font-pixel text-sm mt-auto"
+                  className="inline-flex items-center space-x-2 text-mango-500 font-pixel text-xs md:text-sm mt-auto"
                 >
                   <span>Learn More</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
                 </Link>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="left-0 !hidden md:!block" />
+        <CarouselNext className="right-0 !hidden md:!block" />
       </Carousel>
       {/* Pagination Dots */}
       <div className="flex justify-center mt-6 space-x-2">

@@ -97,18 +97,18 @@ const BrandIdentityDesign = () => {
 
   const testimonials = [
     {
-      name: "Sarah Chen",
-      business: "TechFlow Startup",
+      name: "Fameta Baraka",
+      business: "Founder @ Aizaan",
       rating: 5,
-      text: "Pixel Mango completely transformed our brand identity. The new logo and visual system perfectly captures our innovative spirit and has helped us stand out in a crowded market.",
-      avatar: "SC"
+      text: "Pixel Mango transformed my Hijab/Abaya shop's entire identity. The branding is perfect - it captures exactly what I wanted to convey to my customers.",
+      avatar: "FB"
     },
     {
-      name: "Marcus Johnson", 
-      business: "Green Leaf Cafe",
+      name: "Takiyona Muteshi",
+      business: "Santoku Knife Shop",
       rating: 5,
-      text: "The team understood our vision for an organic, community-focused cafe immediately. The branding they created feels authentic and has really resonated with our customers.",
-      avatar: "MJ"
+      text: "The work Izaz has done for Santoku is splendid. He provided me details as to how to make my brand work better and he knows his craft",
+      avatar: "TM"
     }
   ];
 

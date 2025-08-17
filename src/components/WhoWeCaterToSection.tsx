@@ -320,19 +320,19 @@ function BusinessCarousel({ businesses, open, setOpen, form, setForm, error, set
   const dotCount = businesses.length + 1; // Add one for the CTA card
 
   return (
-    <div className="relative">
+    <div className="relative px-4">
       <Carousel opts={{ align: 'start', slidesToScroll: slidesToShow }} setApi={setEmblaApi}>
         <div>
-          <CarouselContent>
+          <CarouselContent className="-ml-2 md:-ml-4">
             {businesses.map((business, index) => (
-              <CarouselItem key={index} className="px-2">
-                <div className="pixel-card p-6 bg-white h-full flex flex-col">
-                  <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center mb-4">
-                    <business.icon className="w-8 h-8 text-black" />
+              <CarouselItem key={index} className="pl-2 md:pl-4 basis-full">
+                <div className="pixel-card p-4 md:p-6 bg-white h-full flex flex-col mx-2">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-mango-500 border-2 border-black flex items-center justify-center mb-3 md:mb-4">
+                    <business.icon className="w-6 h-6 md:w-8 md:h-8 text-black" />
                   </div>
-                  <h3 className="text-lg font-pixel text-black mb-3">{business.title}</h3>
-                  <p className="text-sm text-gray-600 mb-4 font-mono leading-relaxed">{business.description}</p>
-                  <div className="space-y-2 mb-2">
+                  <h3 className="text-base md:text-lg font-pixel text-black mb-2 md:mb-3">{business.title}</h3>
+                  <p className="text-xs md:text-sm text-gray-600 mb-3 md:mb-4 font-mono leading-relaxed">{business.description}</p>
+                  <div className="space-y-1 md:space-y-2 mb-2">
                     {business.examples.map((example, exampleIndex) => (
                       <div key={exampleIndex} className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-mango-500"></div>
@@ -344,10 +344,10 @@ function BusinessCarousel({ businesses, open, setOpen, form, setForm, error, set
               </CarouselItem>
             ))}
             {/* Add the CTA card as the last slide */}
-            <CarouselItem key="cta" className="px-2">
-              <div className="pixel-card p-8 bg-white h-full flex flex-col items-center justify-center">
-                <h3 className="text-2xl font-pixel text-black mb-4 text-center">Don't See Your Industry?</h3>
-                <p className="text-gray-600 mb-6 font-mono text-center">
+            <CarouselItem key="cta" className="pl-2 md:pl-4 basis-full">
+              <div className="pixel-card p-4 md:p-8 bg-white h-full flex flex-col items-center justify-center mx-2">
+                <h3 className="text-lg md:text-2xl font-pixel text-black mb-3 md:mb-4 text-center">Don't See Your Industry?</h3>
+                <p className="text-gray-600 mb-4 md:mb-6 font-mono text-center text-sm md:text-base">
                   We work with businesses of all types! Every brand has unique needs, and we're here to help.
                 </p>
                 <Dialog open={open} onOpenChange={setOpen}>

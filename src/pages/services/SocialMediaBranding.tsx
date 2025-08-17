@@ -102,18 +102,18 @@ const SocialMediaBranding = () => {
 
   const testimonials = [
     {
-      name: "Jessica Martinez",
-      business: "FitLife Wellness",
+      name: "Fameta Baraka",
+      business: "Founder @ Aizaan",
       rating: 5,
-      text: "Pixel Mango transformed our social media presence completely. Our Instagram engagement has never been higher, and the branded templates make content creation so much easier.",
-      avatar: "JM"
+      text: "Pixel Mango transformed my Hijab/Abaya shop's entire identity. The branding is perfect - it captures exactly what I wanted to convey to my customers.",
+      avatar: "FB"
     },
     {
-      name: "David Kim", 
-      business: "Artisan Coffee Co.",
+      name: "Takiyona Muteshi",
+      business: "Santoku Knife Shop",
       rating: 5,
-      text: "The social media branding package was exactly what we needed. Our coffee posts now have a consistent, professional look that our customers love and recognize instantly.",
-      avatar: "DK"
+      text: "The work Izaz has done for Santoku is splendid. He provided me details as to how to make my brand work better and he knows his craft",
+      avatar: "TM"
     }
   ];
 

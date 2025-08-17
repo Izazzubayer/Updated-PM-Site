@@ -103,18 +103,18 @@ const UIUXDesign = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      business: "TechStart Solutions",
+      name: "Fameta Baraka",
+      business: "Founder @ Aizaan",
       rating: 5,
-      text: "Pixel Mango completely transformed our app's user experience. The new design is intuitive and our user retention has increased by 60%. Exceptional work!",
-      avatar: "SJ"
+      text: "Pixel Mango transformed my Hijab/Abaya shop's entire identity. The branding is perfect - it captures exactly what I wanted to convey to my customers.",
+      avatar: "FB"
     },
     {
-      name: "Michael Chen", 
-      business: "E-Commerce Plus",
+      name: "Takiyona Muteshi",
+      business: "Santoku Knife Shop",
       rating: 5,
-      text: "The UI/UX redesign exceeded our expectations. Our conversion rates improved dramatically, and customers love the new interface. Highly recommended!",
-      avatar: "MC"
+      text: "The work Izaz has done for Santoku is splendid. He provided me details as to how to make my brand work better and he knows his craft",
+      avatar: "TM"
     }
   ];
 

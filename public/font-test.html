@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tartuffo Font Test</title>
+    <style>
+        @font-face {
+            font-family: 'Tartuffo';
+            src: url('/custom-font/tartuffo bold italics.otf') format('opentype');
+            font-weight: bold;
+            font-style: italic;
+            font-display: swap;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f5f5;
+        }
+        
+        .tartuffo-test {
+            font-family: 'Tartuffo', 'Orbitron', monospace;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 48px;
+            color: #333;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .fallback-test {
+            font-family: 'Orbitron', monospace;
+            font-weight: bold;
+            font-size: 48px;
+            color: #666;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .comparison {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+        }
+        
+        .font-box {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .font-box h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .sample-text {
+            font-size: 24px;
+            line-height: 1.4;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: #FFA500;">Tartuffo Font Test</h1>
+    
+    <div class="tartuffo-test">
+        This is Tartuffo Bold Italics
+    </div>
+    
+    <div class="fallback-test">
+        This is Orbitron (Fallback)
+    </div>
+    
+    <div class="comparison">
+        <div class="font-box">
+            <h2>Tartuffo Bold Italics</h2>
+            <div class="sample-text" style="font-family: 'Tartuffo', 'Orbitron', monospace; font-weight: bold; font-style: italic;">
+                <div>PIXEL MANGO</div>
+                <div>Anyone Can Build A Brand</div>
+                <div>Brand Identity Design</div>
+                <div>UI/UX Design</div>
+            </div>
+        </div>
+        
+        <div class="font-box">
+            <h2>Orbitron (Fallback)</h2>
+            <div class="sample-text" style="font-family: 'Orbitron', monospace; font-weight: bold;">
+                <div>PIXEL MANGO</div>
+                <div>Anyone Can Build A Brand</div>
+                <div>Brand Identity Design</div>
+                <div>UI/UX Design</div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px;">
+        <p>If you see the same font in both columns, the Tartuffo font may not be loading correctly.</p>
+        <p>If you see different fonts, Tartuffo is working!</p>
+    </div>
+</body>
+</html> 
