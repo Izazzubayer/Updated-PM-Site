@@ -1,73 +1,102 @@
-# Welcome to your Lovable project
+# Pixel Mango - Creative Services Platform
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/6e9b2d2d-7b63-49aa-94ef-3f3655e95671
+Pixel Mango is a modern creative services platform providing premium branding, web design, and digital solutions for small to medium-sized businesses.
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/6e9b2d2d-7b63-49aa-94ef-3f3655e95671) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
+## Technologies Used
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Vite** - Fast build tool and development server
+- **TypeScript** - Type-safe development
+- **React** - Modern UI library
+- **shadcn-ui** - High-quality component library
+- **Tailwind CSS** - Utility-first CSS framework
 
-## How can I deploy this project?
+## Getting Started
 
-Simply open [Lovable](https://lovable.dev/projects/6e9b2d2d-7b63-49aa-94ef-3f3655e95671) and click on Share -> Publish.
+### Prerequisites
 
-## Can I connect a custom domain to my Lovable project?
+Make sure you have Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Yes, you can!
+### Installation
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```sh
+# Clone the repository
+git clone <YOUR_GIT_URL>
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+# Navigate to the project directory
+cd Updated-PM-Site
+
+# Install the necessary dependencies
+npm install
+
+# Start the development server with auto-reloading and an instant preview
+npm run dev
+```
+
+The development server will start at `http://localhost:8080`
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run build:dev` - Build with development mode
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build
+
+## Project Structure
+
+```
+Updated-PM-Site/
+├── public/           # Static assets
+│   ├── assets/       # Images and media files
+│   ├── custom-font/  # Gilroy font files
+│   └── favicon.ico   # Site favicon
+├── src/
+│   ├── components/   # React components
+│   ├── pages/        # Page components
+│   ├── hooks/        # Custom React hooks
+│   ├── i18n/         # Internationalization
+│   ├── lib/          # Utility functions
+│   └── providers/    # Context providers
+└── ...
+```
+
+## Features
+
+- **Multi-language Support** - i18next integration with multiple languages
+- **Responsive Design** - Mobile-first approach with adaptive layouts
+- **Theme Support** - Dark/light theme switching
+- **Modern UI** - Pixel-art aesthetic with custom animations
+- **Type Safety** - Full TypeScript implementation
+- **Form Management** - React Hook Form with Zod validation
+- **Routing** - React Router DOM for seamless navigation
+
+## Contact Integration
+
+The site includes floating chat buttons for:
+- WhatsApp integration
+- Facebook Messenger support
+
+## Development
+
+### Code Style
+
+This project uses:
+- ESLint for code linting
+- TypeScript for type checking
+- Tailwind CSS for styling
+
+### Building for Production
+
+```sh
+npm run build
+```
+
+The build artifacts will be stored in the `dist/` directory.
+
+## License
+
+Copyright © 2025 Pixel Mango. All rights reserved.

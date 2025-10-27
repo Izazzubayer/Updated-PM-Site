@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { ArrowRight, Play, Zap, Target, Globe, Award, Code, Palette, ExternalLink } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { useParallaxFade } from '../hooks/useScrollFade';
+import { useNavigate } from 'react-router-dom';
+import TextType from './TextType';
 
 // Tilted Card Component
 
@@ -59,14 +60,12 @@ const TiltedCard = ({ children, className = "", style = {} }) => {
 
 const HeroSection = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [projectCount, setProjectCount] = useState(0);
   const [satisfactionRate, setSatisfactionRate] = useState(0);
   const [currentFeature, setCurrentFeature] = useState(0);
   const heroRef = useRef<HTMLElement>(null);
-
-  // Parallax effect for background elements
-  const { transform: parallaxTransform, opacity: parallaxOpacity } = useParallaxFade(heroRef, 0.3);
 
   const features = [
     { icon: Zap, title: "Lightning Fast", description: "Ultra-fast delivery" },
@@ -77,7 +76,7 @@ const HeroSection = () => {
 
   const cardData = [
     {
-      logo: "/lovable-uploads/aizaan-logo.png",
+      logo: "/assets/aizaan-logo.png",
       title: "Aizaan",
       type: "Web & Rebranding",
       description: "Modern e-commerce platform for modest fashion with elegant brand identity",
@@ -145,38 +144,12 @@ const HeroSection = () => {
     />
   ));
 
-  const handleScrollToIntake = () => {
-    const el = document.getElementById('quick-intake-form');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  const handleGetStarted = () => {
+    navigate('/support/contact-us');
   };
 
   return (
-    <section ref={heroRef} className="relative pt-24 pb-16 bg-white overflow-hidden pixel-grid-overlay">
-      {/* Animated Pixel Background */}
-      <div 
-        className="absolute inset-0 overflow-hidden opacity-20"
-        style={{
-          transform: parallaxTransform,
-          opacity: parallaxOpacity * 0.2
-        }}
-      >
-        {pixelElements}
-        <div 
-          className="absolute top-32 right-20 w-8 h-8 bg-mango-500 animate-pixel-float"
-          style={{ transform: `${parallaxTransform} scale(1.1)` }}
-        ></div>
-        <div 
-          className="absolute bottom-32 left-20 w-6 h-6 bg-black animate-pixel-shift"
-          style={{ transform: `${parallaxTransform} scale(0.9)` }}
-        ></div>
-        <div 
-          className="absolute top-1/2 left-1/4 w-4 h-4 bg-mango-500 animate-pixel-glow"
-          style={{ transform: `${parallaxTransform} scale(1.2)` }}
-        ></div>
-      </div>
-
+    <section ref={heroRef} className="relative pt-24 pb-16 overflow-hidden">
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="flex flex-col items-center justify-center text-center gap-12 w-full">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} w-full max-w-lg mx-auto`}> 
@@ -185,14 +158,26 @@ const HeroSection = () => {
                 CRAFTING PIXEL-PERFECT DESIGNS
               </div>
               <div className="text-4xl lg:text-6xl font-pixel text-black-500 leading-tight mb-2" style={{ lineHeight: '120%' }}>
-                Anyone Can Build A Brand.
+                <TextType 
+                  text={["Anyone Can Build A Brand.", "We Make It Stand Out.", "Let's Create Together."]}
+                  typingSpeed={75}
+                  pauseDuration={1500}
+                  showCursor={true}
+                  cursorCharacter="|"
+                  loop={true}
+                  className="font-pixel"
+                />
               </div>
             </h1>
             <p className="text-xl text-black-700 leading-relaxed mb-6 max-w-xl mx-auto font-mono">
               Premium branding, websites, and creative services for clothing brands, cafés, and more - without the premium agency price tag.
             </p>
             <div className="flex flex-col items-center gap-6 w-full">
-              <button className="pixel-button px-8 py-4 font-pixel mb-2 w-full max-w-xs" onClick={handleScrollToIntake}>
+              <button 
+                type="button"
+                className="pixel-button px-8 py-4 font-pixel mb-2 w-full max-w-xs" 
+                onClick={handleGetStarted}
+              >
                 Get Started
                 <ArrowRight className="w-5 h-5 inline ml-2" />
               </button>
@@ -206,7 +191,7 @@ const HeroSection = () => {
               <h2 className="text-3xl lg:text-4xl font-pixel text-black-500 mb-2">
                 Our Recent Works
               </h2>
-              <p className="text-gray-600 font-mono text-sm max-w-2xl mx-auto">
+              <p className="text-lg max-w-2xl mx-auto">
                 Explore our latest projects and see how we've helped brands stand out
               </p>
             </div>

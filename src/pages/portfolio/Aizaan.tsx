@@ -151,13 +151,13 @@ const Aizaan = () => {
   const galleryImages = [
     // Logo & Brand Identity
     {
-      src: "/lovable-uploads/aizaan-logo.png",
+      src: "/assets/aizaan-logo.png",
       alt: "Aizaan Final Logo Design",
       title: "Final Logo Design",
       category: "Logo Design"
     },
     {
-      src: "/lovable-uploads/Logo Variations during ideation.png",
+      src: "/assets/Logo Variations during ideation.png",
       alt: "Aizaan Logo Variations and Development Process",
       title: "Logo Development Process",
       category: "Logo Design"
@@ -165,19 +165,19 @@ const Aizaan = () => {
     
     // Brand Guidelines & Assets
     {
-      src: "/lovable-uploads/Primary Branding Colors.png",
+      src: "/assets/Primary Branding Colors.png",
       alt: "Aizaan Brand Color Palette System",
       title: "Brand Color Palette",
       category: "Brand Guidelines"
     },
     {
-      src: "/lovable-uploads/Font.png",
+      src: "/assets/Font.png",
       alt: "Aizaan Typography System and Font Guidelines",
       title: "Typography System",
       category: "Brand Guidelines"
     },
     {
-      src: "/lovable-uploads/Patterns.png",
+      src: "/assets/Patterns.png",
       alt: "Aizaan Brand Pattern and Design Elements",
       title: "Brand Pattern System",
       category: "Brand Guidelines"
@@ -185,31 +185,31 @@ const Aizaan = () => {
     
     // Print Design & Collateral
     {
-      src: "/lovable-uploads/Two business cards mockup with natural colors for minimal branding design concept (1).png",
+      src: "/assets/Two business cards mockup with natural colors for minimal branding design concept (1).png",
       alt: "Aizaan Business Cards in Natural Setting",
       title: "Business Cards - Natural Mockup",
       category: "Print Design"
     },
     {
-      src: "/lovable-uploads/Business card variation.png",
+      src: "/assets/Business card variation.png",
       alt: "Aizaan Business Card Design Variations",
       title: "Business Card Variations",
       category: "Print Design"
     },
     {
-      src: "/lovable-uploads/Pair of fashion label tag mockups 1.png",
+      src: "/assets/Pair of fashion label tag mockups 1.png",
       alt: "Aizaan Fashion Label Tags Design",
       title: "Product Label Tags",
       category: "Print Design"
     },
     // {
-    //   src: "/lovable-uploads/Pair of fashion label tag mockups 1 copy.png",
+    //   src: "/assets/Pair of fashion label tag mockups 1 copy.png",
     //   alt: "Aizaan Alternative Label Tag Design",
     //   title: "Alternative Label Tags",
     //   category: "Print Design"
     // },
     {
-      src: "/lovable-uploads/Label on clothing fabric 1.png",
+      src: "/assets/Label on clothing fabric 1.png",
       alt: "Aizaan Clothing Fabric Label Application",
       title: "Fabric Label Application",
       category: "Print Design"
@@ -217,25 +217,25 @@ const Aizaan = () => {
     
     // Packaging Design
     {
-      src: "/lovable-uploads/Shopping Bag Mockup.png",
+      src: "/assets/Shopping Bag Mockup.png",
       alt: "Aizaan Branded Shopping Bags",
       title: "Branded Shopping Bags",
       category: "Packaging"
     },
     {
-      src: "/lovable-uploads/Poly Mailer.png",
+      src: "/assets/Poly Mailer.png",
       alt: "Aizaan Shipping Poly Mailer Design",
       title: "Shipping Poly Mailers",
       category: "Packaging"
     },
     {
-      src: "/lovable-uploads/Branded Delivery Box Design.png",
+      src: "/assets/Branded Delivery Box Design.png",
       alt: "Aizaan Branded Delivery Box Design",
       title: "Branded Shipping Box",
       category: "Packaging"
     },
     {
-      src: "/lovable-uploads/Tote Bag.png",
+      src: "/assets/Tote Bag.png",
       alt: "Aizaan Branded Tote Bag Design",
       title: "Branded Tote Bag",
       category: "Merchandise"
@@ -243,13 +243,13 @@ const Aizaan = () => {
     
     // Digital & Social Media
     {
-      src: "/lovable-uploads/Instagram Board.png",
+      src: "/assets/Instagram Board.png",
       alt: "Aizaan Instagram Social Media Templates",
       title: "Instagram Templates",
       category: "Social Media"
     },
     {
-      src: "/lovable-uploads/Facebook Board.png",
+      src: "/assets/Facebook Board.png",
       alt: "Aizaan Facebook Social Media Templates",
       title: "Facebook Templates", 
       category: "Social Media"
@@ -257,7 +257,7 @@ const Aizaan = () => {
     
     // Web Design
     {
-      src: "/lovable-uploads/website mockup.png",
+      src: "/assets/website mockup.png",
       alt: "Aizaan E-commerce Website Design Mockup",
       title: "E-commerce Website Design",
       category: "Web Design"
@@ -265,7 +265,7 @@ const Aizaan = () => {
     
     // Brand Strategy & Mood
     {
-      src: "/lovable-uploads/Moodboard.png",
+      src: "/assets/Moodboard.png",
       alt: "Aizaan Brand Mood Board and Visual Identity",
       title: "Brand Mood Board",
       category: "Brand Strategy"
@@ -290,7 +290,7 @@ const Aizaan = () => {
         <section className="mb-14">
           <div className="pixel-card bg-white p-10 md:p-16 rounded-lg flex flex-col items-center border-mango-500 shadow-lg text-center">
             <img 
-              src="/lovable-uploads/aizaan-logo.png" 
+              src="/assets/aizaan-logo.png" 
               alt="Aizaan Logo" 
               className="w-32 h-auto md:w-44 mb-6" 
               style={{ maxWidth: '100%', height: 'auto' }}

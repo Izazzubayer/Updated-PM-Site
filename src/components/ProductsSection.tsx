@@ -8,7 +8,7 @@ const ProductsSection = () => {
       title: "HoloSnap",
       subtitle: "Transform 2D Images Into Stunning 3D Models",
       description: "Bring your flat world into our responsive 3D reality. That makes every image an immersive experience. Perfect for e-commerce, marketing, and creative projects.",
-      image: "/lovable-uploads/19e006a2-4b3a-425b-8304-8bc9e9240e55.png",
+      image: "/assets/19e006a2-4b3a-425b-8304-8bc9e9240e55.png",
       demoLink: "Try For Free",
       documentationLink: "API Documentation",
       featured: true
@@ -17,7 +17,7 @@ const ProductsSection = () => {
       title: "Background AI",
       subtitle: "Not Just A Background Removal Tool",
       description: "Beyond basic removal our AI understands context to provide suggestions for alternative backgrounds and creative compositions for your images.",
-      image: "/lovable-uploads/19e006a2-4b3a-425b-8304-8bc9e9240e55.png",
+      image: "/assets/19e006a2-4b3a-425b-8304-8bc9e9240e55.png",
       demoLink: "Try Background AI",
       documentationLink: "See Documentation",
       featured: false

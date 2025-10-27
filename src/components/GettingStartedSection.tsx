@@ -269,6 +269,12 @@ const GettingStartedSection = () => {
             <p className="text-xs text-gray-500 text-center mt-4 font-mono">
               We respect your privacy. Your information will never be shared.
             </p>
+            <p className="text-sm text-gray-600 text-center mt-4 font-mono">
+              You can also email us directly at{' '}
+              <a href="mailto:contact@pixelmango.studio" className="text-mango-500 hover:underline">
+                contact@pixelmango.studio
+              </a>
+            </p>
           </div>
         </div>
       </div>

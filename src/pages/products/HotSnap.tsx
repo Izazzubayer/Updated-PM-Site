@@ -86,7 +86,7 @@ const HotSnap = () => {
                 <div className="bg-white rounded-3xl shadow-2xl p-8">
                   <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl overflow-hidden">
                     <img 
-                      src="/lovable-uploads/19e006a2-4b3a-425b-8304-8bc9e9240e55.png" 
+                      src="/assets/19e006a2-4b3a-425b-8304-8bc9e9240e55.png" 
                       alt="HotSnap 3D Conversion"
                       className="w-full h-full object-cover"
                     />

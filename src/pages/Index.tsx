@@ -9,60 +9,48 @@ import HowWeWorkSection from '../components/HowWeWorkSection';
 import ToolsIntegrationSection from '../components/ToolsIntegrationSection';
 import GettingStartedSection from '../components/GettingStartedSection';
 import Footer from '../components/Footer';
-import ScrollFadeWrapper from '../components/ScrollFadeWrapper';
+import Squares from '../components/Squares';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
-      <Header />
-      <main className="relative">
-        {/* Hero Section - No fade wrapper as it's the initial view */}
-        <HeroSection />
+    <div className="min-h-screen bg-white overflow-x-hidden relative">
+      {/* Continuous Animated Squares Background for entire page */}
+      <div className="fixed inset-0 z-0">
+        <Squares 
+          speed={0.3}
+          squareSize={40}
+          direction="diagonal"
+          borderColor="rgba(0, 0, 0, 0.08)"
+          hoverFillColor="rgba(255, 149, 0, 0.1)"
+        />
+      </div>
+
+      {/* All content on top of the background */}
+      <div className="relative z-10">
+        <Header />
+        <main className="relative">
+          <HeroSection />
+          <MissionSection />
+          <ServicesSection />
+          <WhoWeCaterToSection />
+          <WhyChooseUsSection />
+          <HowWeWorkSection />
+          
+          {/* Mobile: GettingStartedSection above ToolsIntegrationSection */}
+          <div className="block md:hidden">
+            <GettingStartedSection />
+            <ToolsIntegrationSection />
+          </div>
+          
+          {/* Desktop/Tablet: Original order */}
+          <div className="hidden md:block">
+            <ToolsIntegrationSection />
+            <GettingStartedSection />
+          </div>
+        </main>
         
-        <ScrollFadeWrapper direction="up" delay={0.1}>
-        <MissionSection />
-        </ScrollFadeWrapper>
-        
-        <ScrollFadeWrapper direction="up" delay={0.2}>
-        <ServicesSection />
-        </ScrollFadeWrapper>
-        
-        <ScrollFadeWrapper direction="left" delay={0.1}>
-        <WhoWeCaterToSection />
-        </ScrollFadeWrapper>
-        
-        <ScrollFadeWrapper direction="right" delay={0.1}>
-        <WhyChooseUsSection />
-        </ScrollFadeWrapper>
-        
-        <ScrollFadeWrapper direction="up" delay={0.2}>
-        <HowWeWorkSection />
-        </ScrollFadeWrapper>
-        
-        {/* Mobile: GettingStartedSection above ToolsIntegrationSection */}
-        <div className="block md:hidden">
-          <ScrollFadeWrapper direction="up" delay={0.1}>
-          <GettingStartedSection />
-          </ScrollFadeWrapper>
-          <ScrollFadeWrapper direction="up" delay={0.2}>
-          <ToolsIntegrationSection />
-          </ScrollFadeWrapper>
-        </div>
-        
-        {/* Desktop/Tablet: Original order */}
-        <div className="hidden md:block">
-          <ScrollFadeWrapper direction="up" delay={0.1}>
-          <ToolsIntegrationSection />
-          </ScrollFadeWrapper>
-          <ScrollFadeWrapper direction="up" delay={0.2}>
-          <GettingStartedSection />
-          </ScrollFadeWrapper>
-        </div>
-      </main>
-      
-      <ScrollFadeWrapper direction="up" delay={0.1}>
-      <Footer />
-      </ScrollFadeWrapper>
+        <Footer />
+      </div>
     </div>
   );
 };

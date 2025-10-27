@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, ChevronDown, Globe } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,9 +8,6 @@ const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
-  const { t, i18n } = useTranslation();
-
-  const currentLanguage = i18n.language;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,10 +17,6 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-  };
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -94,7 +86,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <img 
-              src="/lovable-uploads/59e78e85-cc0a-4c41-8037-5153fb6fd80c.png" 
+              src="/assets/59e78e85-cc0a-4c41-8037-5153fb6fd80c.png" 
               alt="Pixel Mango Logo" 
               className="h-10 w-10"
             />
@@ -176,138 +168,14 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Right Side - Language & CTA */}
+          {/* Right Side - CTA */}
           <div className="hidden lg:flex items-center space-x-4">
-            {/* Language Switcher */}
-            <div className="relative">
-              <button 
-                className="flex items-center space-x-2 text-black hover:text-mango-500 transition-colors font-mono"
-                onClick={() => setActiveDropdown(activeDropdown === 'language' ? null : 'language')}
-              >
-                <Globe className="w-4 h-4" />
-                <span className="text-sm">{currentLanguage.toUpperCase()}</span>
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              
-              {activeDropdown === 'language' && (
-                <div className="absolute top-full right-0 mt-2 bg-white border-2 border-black shadow-lg z-[70]">
-                  <div className="py-2">
-                    <button
-                      onClick={() => {
-                        changeLanguage('en');
-                        setActiveDropdown(null);
-                      }}
-                      className={`block w-full text-left px-4 py-2 text-sm font-mono transition-colors ${
-                        currentLanguage === 'en' 
-                          ? 'bg-mango-500 text-black' 
-                          : 'text-black hover:bg-mango-50 hover:text-mango-500'
-                      }`}
-                    >
-                      English
-                    </button>
-                    <button
-                      onClick={() => {
-                        changeLanguage('fr');
-                        setActiveDropdown(null);
-                      }}
-                      className={`block w-full text-left px-4 py-2 text-sm font-mono transition-colors ${
-                        currentLanguage === 'fr' 
-                          ? 'bg-mango-500 text-black' 
-                          : 'text-black hover:bg-mango-50 hover:text-mango-500'
-                      }`}
-                    >
-                      Français
-                    </button>
-                    <button
-                      onClick={() => {
-                        changeLanguage('es');
-                        setActiveDropdown(null);
-                      }}
-                      className={`block w-full text-left px-4 py-2 text-sm font-mono transition-colors ${
-                        currentLanguage === 'es' 
-                          ? 'bg-mango-500 text-black' 
-                          : 'text-black hover:bg-mango-50 hover:text-mango-500'
-                      }`}
-                    >
-                      Español
-                    </button>
-                    <button
-                      onClick={() => {
-                        changeLanguage('bn');
-                        setActiveDropdown(null);
-                      }}
-                      className={`block w-full text-left px-4 py-2 text-sm font-mono transition-colors ${
-                        currentLanguage === 'bn' 
-                          ? 'bg-mango-500 text-black' 
-                          : 'text-black hover:bg-mango-50 hover:text-mango-500'
-                      }`}
-                    >
-                      বাংলা
-                    </button>
-                    <button
-                      onClick={() => {
-                        changeLanguage('hi');
-                        setActiveDropdown(null);
-                      }}
-                      className={`block w-full text-left px-4 py-2 text-sm font-mono transition-colors ${
-                        currentLanguage === 'hi' 
-                          ? 'bg-mango-500 text-black' 
-                          : 'text-black hover:bg-mango-50 hover:text-mango-500'
-                      }`}
-                    >
-                      हिन्दी
-                    </button>
-                    <button
-                      onClick={() => {
-                        changeLanguage('ko');
-                        setActiveDropdown(null);
-                      }}
-                      className={`block w-full text-left px-4 py-2 text-sm font-mono transition-colors ${
-                        currentLanguage === 'ko' 
-                          ? 'bg-mango-500 text-black' 
-                          : 'text-black hover:bg-mango-50 hover:text-mango-500'
-                      }`}
-                    >
-                      한국어
-                    </button>
-                    <button
-                      onClick={() => {
-                        changeLanguage('ja');
-                        setActiveDropdown(null);
-                      }}
-                      className={`block w-full text-left px-4 py-2 text-sm font-mono transition-colors ${
-                        currentLanguage === 'ja' 
-                          ? 'bg-mango-500 text-black' 
-                          : 'text-black hover:bg-mango-50 hover:text-mango-500'
-                      }`}
-                    >
-                      日本語
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-
             <button
+              type="button"
               className="pixel-button px-6 py-2 font-pixel text-sm hover:animate-pixel-shift"
-              onClick={() => {
-                if (location.pathname === '/') {
-                  const el = document.getElementById('quick-intake-form');
-                  if (el) {
-                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
-                } else {
-                  navigate('/', { replace: false });
-                  setTimeout(() => {
-                    const el = document.getElementById('quick-intake-form');
-                    if (el) {
-                      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }, 500);
-                }
-              }}
+              onClick={() => navigate('/support/contact-us')}
             >
-              {t('getStarted')}
+              GET STARTED
             </button>
           </div>
 
@@ -384,90 +252,6 @@ const Header = () => {
                   )}
                 </div>
               ))}
-              
-              {/* Mobile Language Switcher */}
-              <div className="py-2 px-4 border-t border-gray-200 mt-4">
-                <div className="font-pixel text-sm text-black mb-2">LANGUAGE</div>
-                <div className="flex flex-wrap gap-2">
-                  <button
-                    onClick={() => {
-                      changeLanguage('en');
-                      setIsMenuOpen(false);
-                    }}
-                    className={`text-sm font-mono ${
-                      currentLanguage === 'en' ? 'text-mango-500' : 'text-gray-600'
-                    }`}
-                  >
-                    EN
-                  </button>
-                  <button
-                    onClick={() => {
-                      changeLanguage('fr');
-                      setIsMenuOpen(false);
-                    }}
-                    className={`text-sm font-mono ${
-                      currentLanguage === 'fr' ? 'text-mango-500' : 'text-gray-600'
-                    }`}
-                  >
-                    FR
-                  </button>
-                  <button
-                    onClick={() => {
-                      changeLanguage('es');
-                      setIsMenuOpen(false);
-                    }}
-                    className={`text-sm font-mono ${
-                      currentLanguage === 'es' ? 'text-mango-500' : 'text-gray-600'
-                    }`}
-                  >
-                    ES
-                  </button>
-                  <button
-                    onClick={() => {
-                      changeLanguage('bn');
-                      setIsMenuOpen(false);
-                    }}
-                    className={`text-sm font-mono ${
-                      currentLanguage === 'bn' ? 'text-mango-500' : 'text-gray-600'
-                    }`}
-                  >
-                    BN
-                  </button>
-                  <button
-                    onClick={() => {
-                      changeLanguage('hi');
-                      setIsMenuOpen(false);
-                    }}
-                    className={`text-sm font-mono ${
-                      currentLanguage === 'hi' ? 'text-mango-500' : 'text-gray-600'
-                    }`}
-                  >
-                    HI
-                  </button>
-                  <button
-                    onClick={() => {
-                      changeLanguage('ko');
-                      setIsMenuOpen(false);
-                    }}
-                    className={`text-sm font-mono ${
-                      currentLanguage === 'ko' ? 'text-mango-500' : 'text-gray-600'
-                    }`}
-                  >
-                    KO
-                  </button>
-                  <button
-                    onClick={() => {
-                      changeLanguage('ja');
-                      setIsMenuOpen(false);
-                    }}
-                    className={`text-sm font-mono ${
-                      currentLanguage === 'ja' ? 'text-mango-500' : 'text-gray-600'
-                    }`}
-                  >
-                    JA
-                  </button>
-                </div>
-              </div>
               
               <Link 
                 to="/contact" 

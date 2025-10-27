@@ -75,7 +75,7 @@ const WhyChooseUsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-white pixel-grid-overlay">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
@@ -101,7 +101,7 @@ const WhyChooseUsSection = () => {
                 <benefit.icon className="w-8 h-8 text-black" />
               </div>
               <h3 className="text-lg font-pixel text-black mb-3">{benefit.title}</h3>
-              <p className="text-sm text-gray-600 font-mono leading-relaxed">{benefit.description}</p>
+              <p className="text-base text-gray-600 font-mono leading-relaxed">{benefit.description}</p>
             </div>
           ))}
         </div>
@@ -132,7 +132,7 @@ const WhyChooseUsSection = () => {
                     ))}
                   </div>
                 </div>
-                <p className="text-gray-700 font-mono text-sm leading-relaxed">"{testimonial.text}"</p>
+                <p className="text-gray-700 font-mono text-base leading-relaxed">"{testimonial.text}"</p>
               </div>
             ))}
           </div>
@@ -197,7 +197,7 @@ function BenefitsCarousel({ benefits }) {
                   <benefit.icon className="w-6 h-6 md:w-8 md:h-8 text-black" />
                 </div>
                 <h3 className="text-base md:text-lg font-pixel text-black mb-2 md:mb-3">{benefit.title}</h3>
-                <p className="text-xs md:text-sm text-gray-600 font-mono leading-relaxed">{benefit.description}</p>
+                <p className="text-sm md:text-base text-gray-600 font-mono leading-relaxed">{benefit.description}</p>
               </div>
             </CarouselItem>
           ))}
