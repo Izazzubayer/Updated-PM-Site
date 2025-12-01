@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import ScrollToTop from "./components/ScrollToTop";
 import "./i18n";
+import { Analytics } from "@vercel/analytics/react";
 import Index from "./pages/Index";
 import RetouchedAI from "./pages/products/RetouchedAI";
 import HotSnap from "./pages/products/HotSnap";
@@ -95,6 +96,7 @@ const App = () => (
             </svg>
           </a>
         </BrowserRouter>
+        <Analytics />
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>
