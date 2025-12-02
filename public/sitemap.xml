@@ -90,28 +90,6 @@
     <priority>0.8</priority>
   </url>
   
-  <!-- Products Section -->
-  <url>
-    <loc>https://pixelmango.studio/products/retouched-ai</loc>
-    <lastmod>2024-12-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://pixelmango.studio/products/hotsnap</loc>
-    <lastmod>2024-12-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://pixelmango.studio/products/holosnap</loc>
-    <lastmod>2024-12-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
   <!-- Support Section - Medium Priority -->
   <url>
     <loc>https://pixelmango.studio/support/about-us</loc>

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { SEO } from '../components/SEO';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ScrollToTop from '../components/ScrollToTop';
@@ -7,6 +8,16 @@ import ScrollToTop from '../components/ScrollToTop';
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-white font-product">
+      <SEO
+        title="Privacy Policy - How We Protect Your Data"
+        description="Learn about Pixel Mango's privacy practices. We value your trust and only collect data when necessary. Read our straightforward privacy policy."
+        keywords="privacy policy, data protection, Pixel Mango privacy, user data, GDPR compliance"
+        url="/privacy-policy"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Privacy Policy', url: '/privacy-policy' }
+        ]}
+      />
       <Header />
       <ScrollToTop />
       

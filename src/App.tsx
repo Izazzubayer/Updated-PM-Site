@@ -5,12 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import ScrollToTop from "./components/ScrollToTop";
-import "./i18n";
 import { Analytics } from "@vercel/analytics/react";
+import "./i18n";
 import Index from "./pages/Index";
-import RetouchedAI from "./pages/products/RetouchedAI";
-import HotSnap from "./pages/products/HotSnap";
-import HoloSnap from "./pages/products/HoloSnap";
 import Career from "./pages/Career";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -45,9 +42,6 @@ const App = () => (
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/products/retouched-ai" element={<RetouchedAI />} />
-            <Route path="/products/hotsnap" element={<HotSnap />} />
-            <Route path="/products/holosnap" element={<HoloSnap />} />
             <Route path="/career" element={<Career />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />

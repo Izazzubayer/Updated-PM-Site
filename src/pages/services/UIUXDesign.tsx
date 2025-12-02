@@ -1,4 +1,5 @@
 import React from 'react';
+import { SEO } from '../../components/SEO';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Star, Monitor, Smartphone, Tablet, Users, Eye, Brain, Zap, Clock, Shield, Layers, Palette, MousePointer } from 'lucide-react';
 import Header from '../../components/Header';
@@ -15,7 +16,7 @@ const UIUXDesign = () => {
       duration: "5-7 days"
     },
     {
-      step: "02", 
+      step: "02",
       title: "User Experience Strategy",
       description: "Develop user personas, journey maps, and information architecture to optimize the user experience.",
       icon: Users,
@@ -40,7 +41,7 @@ const UIUXDesign = () => {
   const portfolioItems = [
     {
       title: "FinTech Mobile App",
-      category: "Financial Technology", 
+      category: "Financial Technology",
       description: "Complete mobile banking app redesign with focus on user experience",
       image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop",
       results: "40% increase in user engagement",
@@ -159,8 +160,37 @@ const UIUXDesign = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="UI/UX Design Services - User Experience & Interface Design"
+        description="Create intuitive, engaging user interfaces and experiences that drive conversions and delight users. Expert UI/UX design for web apps, mobile apps, and digital products."
+        keywords="UI/UX design services, user experience design, user interface design, mobile app design, web app design, wireframing, prototyping, Figma design, user research"
+        url="/services/ui-ux-design"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services' },
+          { name: 'UI/UX Design', url: '/services/ui-ux-design' }
+        ]}
+        service={{
+          name: "UI/UX Design",
+          description: "User-centered design solutions including user research, wireframing, prototyping, visual design, and usability testing for web and mobile applications."
+        }}
+        faqs={[
+          {
+            question: "What's the difference between UI and UX design?",
+            answer: "UX (User Experience) design focuses on the overall feel and usability of a product, while UI (User Interface) design focuses on the visual elements and aesthetics. We provide both for a complete solution."
+          },
+          {
+            question: "What design tools do you use?",
+            answer: "We primarily use Figma for design and prototyping, but also work with Sketch, Adobe XD, and other tools based on client preferences."
+          },
+          {
+            question: "Do you conduct user testing?",
+            answer: "Yes, our Professional and Enterprise packages include usability testing to validate designs and ensure optimal user experience."
+          }
+        ]}
+      />
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-20 bg-gradient-to-br from-mango-50 to-white pixel-grid-overlay">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -184,8 +214,8 @@ const UIUXDesign = () => {
             </div>
             <div className="relative">
               <div className="pixel-card bg-white p-8 animate-pixel-float">
-                <img 
-                  src="https://images.unsplash.com/photo-1559028006-448665bd7c7f?w=500&h=400&fit=crop" 
+                <img
+                  src="https://images.unsplash.com/photo-1559028006-448665bd7c7f?w=500&h=400&fit=crop"
                   alt="UI/UX Design Examples"
                   className="w-full h-80 object-cover"
                 />
@@ -297,8 +327,8 @@ const UIUXDesign = () => {
           <div className="grid lg:grid-cols-3 gap-8">
             {portfolioItems.map((item, index) => (
               <div key={index} className="pixel-card bg-white">
-                <img 
-                  src={item.image} 
+                <img
+                  src={item.image}
                   alt={item.title}
                   className="w-full h-48 object-cover"
                 />

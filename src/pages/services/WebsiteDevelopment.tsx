@@ -1,4 +1,5 @@
 import React from 'react';
+import { SEO } from '../../components/SEO';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Star, Code, Globe, Smartphone, Zap, Shield, Search, Database, Clock, Users, Layers, Palette, Cpu, MonitorSpeaker } from 'lucide-react';
 import Header from '../../components/Header';
@@ -24,7 +25,7 @@ const WebsiteDevelopment = () => {
       duration: "3-5 days"
     },
     {
-      step: "02", 
+      step: "02",
       title: "Design & Prototyping",
       description: "Create wireframes, mockups, and interactive prototypes that align with your brand identity.",
       icon: Palette,
@@ -49,7 +50,7 @@ const WebsiteDevelopment = () => {
   const portfolioItems = [
     {
       title: "E-commerce Platform",
-      category: "Online Store", 
+      category: "Online Store",
       description: "Full-featured e-commerce website with payment integration and inventory management",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
       results: "300% increase in online sales",
@@ -77,7 +78,7 @@ const WebsiteDevelopment = () => {
     starter: [
       "Up to 5 pages",
       "Responsive design",
-      "Basic SEO optimization", 
+      "Basic SEO optimization",
       "Contact form integration",
       "Google Analytics setup",
       "1 month free support",
@@ -170,8 +171,41 @@ const WebsiteDevelopment = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Website Development Services - Custom Web & E-commerce Solutions"
+        description="Professional website development combining stunning design with robust functionality. Custom websites, e-commerce platforms, and web applications built with React, Next.js, and modern technologies."
+        keywords="website development, web development services, e-commerce development, custom website design, React development, Next.js developer, WordPress development, responsive web design"
+        url="/services/website-development"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services' },
+          { name: 'Website Development', url: '/services/website-development' }
+        ]}
+        service={{
+          name: "Website Development",
+          description: "Custom website development services including business websites, e-commerce platforms, landing pages, and web applications with SEO optimization and responsive design."
+        }}
+        faqs={[
+          {
+            question: "What technologies do you use for web development?",
+            answer: "We use modern technologies including React, Next.js, TypeScript, Node.js, and WordPress/WooCommerce depending on project requirements."
+          },
+          {
+            question: "Do you provide website hosting?",
+            answer: "We can recommend and help set up hosting solutions, though hosting costs are separate from development fees."
+          },
+          {
+            question: "Is SEO included in website development?",
+            answer: "Yes, all our websites are built with SEO best practices including proper meta tags, structured data, fast loading times, and mobile responsiveness."
+          },
+          {
+            question: "How long does website development take?",
+            answer: "Timeline varies by complexity: simple business sites take 3-4 weeks, while complex e-commerce or custom web applications take 6-12 weeks."
+          }
+        ]}
+      />
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-20 bg-gradient-to-br from-mango-50 to-white pixel-grid-overlay">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -195,8 +229,8 @@ const WebsiteDevelopment = () => {
             </div>
             <div className="relative">
               <div className="pixel-card bg-white p-8 animate-pixel-float">
-                <img 
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=400&fit=crop" 
+                <img
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=400&fit=crop"
                   alt="Website Development"
                   className="w-full h-80 object-cover"
                 />
@@ -331,8 +365,8 @@ const WebsiteDevelopment = () => {
           <div className="grid lg:grid-cols-3 gap-8">
             {portfolioItems.map((item, index) => (
               <div key={index} className="pixel-card bg-white">
-                <img 
-                  src={item.image} 
+                <img
+                  src={item.image}
                   alt={item.title}
                   className="w-full h-48 object-cover"
                 />

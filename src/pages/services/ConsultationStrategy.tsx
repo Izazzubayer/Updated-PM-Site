@@ -1,4 +1,5 @@
 import React from 'react';
+import { SEO } from '../../components/SEO';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Star, Users, Target, TrendingUp, Lightbulb, BarChart3, PieChart, Calendar, Clock, MessageSquare, FileText, Zap, Shield, Search, Brain, Compass, Award } from 'lucide-react';
 import Header from '../../components/Header';
@@ -24,7 +25,7 @@ const ConsultationStrategy = () => {
       duration: "5-7 days"
     },
     {
-      step: "02", 
+      step: "02",
       title: "Strategic Planning",
       description: "Develop customized strategies based on market research, competitive analysis, and your business objectives.",
       icon: Brain,
@@ -49,7 +50,7 @@ const ConsultationStrategy = () => {
   const portfolioItems = [
     {
       title: "Tech Startup Growth",
-      category: "Digital Strategy", 
+      category: "Digital Strategy",
       description: "Comprehensive growth strategy for a SaaS startup, including market positioning and scaling plan",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop",
       results: "400% revenue growth in 18 months",
@@ -170,8 +171,37 @@ const ConsultationStrategy = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Brand Strategy & Creative Consultation Services"
+        description="Expert strategic consulting to help your business navigate challenges, identify opportunities, and achieve sustainable growth. Brand positioning, market analysis, and digital transformation guidance."
+        keywords="brand strategy consulting, creative consultation, business strategy, digital transformation, market analysis, growth planning, brand positioning, strategic consulting services"
+        url="/services/consultation-strategy"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services' },
+          { name: 'Consultation & Strategy', url: '/services/consultation-strategy' }
+        ]}
+        service={{
+          name: "Brand Strategy & Consultation",
+          description: "Strategic consulting services including brand positioning, market analysis, competitive intelligence, and digital transformation guidance for business growth."
+        }}
+        faqs={[
+          {
+            question: "What does a strategy consultation include?",
+            answer: "Our consultations include business analysis, market research, competitive analysis, strategic recommendations, and actionable implementation roadmaps."
+          },
+          {
+            question: "How are consultation sessions conducted?",
+            answer: "Sessions can be conducted via video call (Zoom/Google Meet) or in-person for local clients. We provide detailed reports and action plans after each session."
+          },
+          {
+            question: "Is ongoing support available after the consultation?",
+            answer: "Yes, our Professional and Enterprise packages include ongoing support with email access, priority support, and regular strategy review calls."
+          }
+        ]}
+      />
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-20 bg-gradient-to-br from-mango-50 to-white pixel-grid-overlay">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -195,8 +225,8 @@ const ConsultationStrategy = () => {
             </div>
             <div className="relative">
               <div className="pixel-card bg-white p-8 animate-pixel-float">
-                <img 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=400&fit=crop" 
+                <img
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=400&fit=crop"
                   alt="Strategic Consultation"
                   className="w-full h-80 object-cover"
                 />
@@ -331,8 +361,8 @@ const ConsultationStrategy = () => {
           <div className="grid lg:grid-cols-3 gap-8">
             {portfolioItems.map((item, index) => (
               <div key={index} className="pixel-card bg-white">
-                <img 
-                  src={item.image} 
+                <img
+                  src={item.image}
                   alt={item.title}
                   className="w-full h-48 object-cover"
                 />

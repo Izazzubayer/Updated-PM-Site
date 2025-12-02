@@ -1,4 +1,5 @@
 import React from 'react';
+import { SEO } from '../../components/SEO';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Star, Palette, Target, Users, Zap, Clock, Shield } from 'lucide-react';
 import Header from '../../components/Header';
@@ -15,7 +16,7 @@ const BrandIdentityDesign = () => {
       duration: "2-3 days"
     },
     {
-      step: "02", 
+      step: "02",
       title: "Brand Strategy",
       description: "Define your brand personality, values, and messaging that will resonate with your target audience.",
       icon: Users,
@@ -114,8 +115,51 @@ const BrandIdentityDesign = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Brand Identity Design Services - Logo & Visual Identity"
+        description="Transform your business with a powerful brand identity. From logo design to complete visual systems, Pixel Mango creates memorable brands that stand out from the competition and drive growth."
+        keywords="brand identity design, logo design services, visual identity system, brand guidelines, corporate identity design, brand strategy, logo designer Dhaka, branding agency Bangladesh"
+        url="/services/brand-identity"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services' },
+          { name: 'Brand Identity Design', url: '/services/brand-identity' }
+        ]}
+        service={{
+          name: "Brand Identity Design",
+          description: "Complete brand identity systems including logo design, color palettes, typography selection, and comprehensive brand guidelines."
+        }}
+        faqs={[
+          {
+            question: "What is included in a brand identity package?",
+            answer: "Our brand identity packages include logo design with multiple concepts, color palette development, typography selection, business card design, and comprehensive brand guidelines documentation."
+          },
+          {
+            question: "How long does brand identity design take?",
+            answer: "A complete brand identity project typically takes 2-4 weeks, including discovery, strategy, design iterations, and final delivery."
+          },
+          {
+            question: "Do you provide source files?",
+            answer: "Yes, all packages include final deliverables in multiple formats including AI, EPS, PNG, JPG, PDF, and SVG files."
+          }
+        ]}
+        reviews={[
+          {
+            author: "Fameta Baraka",
+            rating: 5,
+            reviewBody: "Pixel Mango transformed my Hijab/Abaya shop's entire identity. The branding is perfect - it captures exactly what I wanted to convey to my customers.",
+            datePublished: "2024-08-15"
+          },
+          {
+            author: "Takiyona Muteshi",
+            rating: 5,
+            reviewBody: "The work Izaz has done for Santoku is splendid. He provided me details as to how to make my brand work better and he knows his craft.",
+            datePublished: "2024-09-20"
+          }
+        ]}
+      />
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-20 bg-gradient-to-br from-mango-50 to-white pixel-grid-overlay">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -139,8 +183,8 @@ const BrandIdentityDesign = () => {
             </div>
             <div className="relative">
               <div className="pixel-card animate-pixel-float">
-                <img 
-                  src="/src/custom-assets/BID1.png" 
+                <img
+                  src="/src/custom-assets/BID1.png"
                   alt="Brand Identity Design Examples"
                   className="w-full h-80 object-cover"
                 />
@@ -233,8 +277,8 @@ const BrandIdentityDesign = () => {
           <div className="grid lg:grid-cols-3 gap-8">
             {portfolioItems.map((item, index) => (
               <div key={index} className="pixel-card bg-white">
-                <img 
-                  src={item.image} 
+                <img
+                  src={item.image}
                   alt={item.title}
                   className="w-full h-48 object-cover"
                 />

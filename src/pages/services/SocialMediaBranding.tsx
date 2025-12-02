@@ -1,4 +1,5 @@
 import React from 'react';
+import { SEO } from '../../components/SEO';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Star, Smartphone, Target, Users, Zap, Clock, Shield, Instagram, Facebook, Twitter, Youtube, Linkedin } from 'lucide-react';
 import Header from '../../components/Header';
@@ -15,7 +16,7 @@ const SocialMediaBranding = () => {
       duration: "3-5 days"
     },
     {
-      step: "02", 
+      step: "02",
       title: "Visual Identity System",
       description: "Create cohesive visual templates, color schemes, and brand elements for all social platforms.",
       icon: Smartphone,
@@ -40,27 +41,27 @@ const SocialMediaBranding = () => {
   const portfolioItems = [
     {
       title: "FitLife Wellness",
-      category: "Health & Fitness", 
+      category: "Health & Fitness",
       description: "Complete social media rebrand for fitness studio",
       image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
-      results: "400% increase in engagement",
-      platforms: ["Instagram", "Facebook", "TikTok"]
+      platforms: ["Instagram", "Facebook", "TikTok"],
+      results: "400% increase in engagement"
     },
     {
       title: "Artisan Coffee Co.",
       category: "Food & Beverage",
       description: "Instagram-focused branding for local coffee roaster",
       image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=300&fit=crop",
-      results: "250% follower growth",
-      platforms: ["Instagram", "Facebook"]
+      platforms: ["Instagram", "Facebook"],
+      results: "250% follower growth"
     },
     {
       title: "TechStart Hub",
       category: "Technology",
       description: "Professional LinkedIn and Twitter presence",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
-      results: "300% lead generation",
-      platforms: ["LinkedIn", "Twitter", "YouTube"]
+      platforms: ["LinkedIn", "Twitter", "YouTube"],
+      results: "300% lead generation"
     }
   ];
 
@@ -127,8 +128,37 @@ const SocialMediaBranding = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Social Media Branding Services - Instagram, Facebook & More"
+        description="Create consistent, engaging social media branding that builds trust, increases followers, and drives real business results across Instagram, Facebook, LinkedIn, and all major platforms."
+        keywords="social media branding, Instagram branding, Facebook marketing, social media templates, content creation, social media strategy, brand consistency, social media design services"
+        url="/services/social-media"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services' },
+          { name: 'Social Media Branding', url: '/services/social-media' }
+        ]}
+        service={{
+          name: "Social Media Branding",
+          description: "Complete social media branding services including profile design, post templates, story templates, and comprehensive brand guidelines for all platforms."
+        }}
+        faqs={[
+          {
+            question: "Which social media platforms do you design for?",
+            answer: "We design for all major platforms including Instagram, Facebook, Twitter, LinkedIn, YouTube, TikTok, and Pinterest."
+          },
+          {
+            question: "What's included in social media branding?",
+            answer: "Our packages include profile optimization, cover designs, post templates, story templates, highlight covers, and a content calendar template."
+          },
+          {
+            question: "Can I edit the templates myself?",
+            answer: "Yes, all templates are delivered in editable formats like Canva, Figma, or Adobe files so you can easily create new content."
+          }
+        ]}
+      />
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-20 bg-gradient-to-br from-mango-50 to-white pixel-grid-overlay">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -152,8 +182,8 @@ const SocialMediaBranding = () => {
             </div>
             <div className="relative">
               <div className="pixel-card bg-white p-8 animate-pixel-float">
-                <img 
-                  src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=500&h=400&fit=crop" 
+                <img
+                  src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=500&h=400&fit=crop"
                   alt="Social Media Branding Examples"
                   className="w-full h-80 object-cover"
                 />
@@ -269,8 +299,8 @@ const SocialMediaBranding = () => {
           <div className="grid lg:grid-cols-3 gap-8">
             {portfolioItems.map((item, index) => (
               <div key={index} className="pixel-card bg-white">
-                <img 
-                  src={item.image} 
+                <img
+                  src={item.image}
                   alt={item.title}
                   className="w-full h-48 object-cover"
                 />

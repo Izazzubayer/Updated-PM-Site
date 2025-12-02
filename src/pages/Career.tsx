@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { SEO } from '../components/SEO';
 import { MapPin, Clock, Users, ArrowRight } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -38,8 +39,18 @@ const Career = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Careers - Join the Pixel Mango Team"
+        description="Join Pixel Mango and help build the future of creative technology. We're looking for talented designers, developers, and creative professionals. Remote-friendly positions available."
+        keywords="careers at Pixel Mango, design jobs, developer jobs, creative jobs, remote work, design agency careers, tech jobs Bangladesh"
+        url="/career"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Careers', url: '/career' }
+        ]}
+      />
       <Header />
-      
+
       <main className="pt-16">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
@@ -62,7 +73,7 @@ const Career = () => {
                 We're building the future of creative technology in a collaborative, innovative environment.
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -71,7 +82,7 @@ const Career = () => {
                 <h3 className="text-xl font-semibold mb-4">Collaborative Team</h3>
                 <p className="text-gray-600">Work with talented individuals from diverse backgrounds and expertise.</p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <Clock className="w-8 h-8 text-blue-500" />
@@ -79,7 +90,7 @@ const Career = () => {
                 <h3 className="text-xl font-semibold mb-4">Work-Life Balance</h3>
                 <p className="text-gray-600">Flexible schedules and remote work options to help you thrive.</p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <ArrowRight className="w-8 h-8 text-purple-500" />
@@ -98,7 +109,7 @@ const Career = () => {
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Open Positions</h2>
               <p className="text-lg text-gray-600">Find your next opportunity with us.</p>
             </div>
-            
+
             <div className="space-y-6">
               {openPositions.map((position, index) => (
                 <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">

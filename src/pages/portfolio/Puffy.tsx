@@ -1,8 +1,20 @@
 import React from 'react';
+import { SEO } from '../../components/SEO';
 import { Link } from 'react-router-dom';
 
 const Puffy = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-white px-4 py-20">
+    <SEO
+      title="Puffy Homepage Redesign - Conversion-Focused Design Case Study"
+      description="See how we redesigned Puffy's homepage to improve user experience and conversion rates. A case study on modern homepage design principles and user engagement optimization."
+      keywords="Puffy, homepage redesign, conversion optimization, landing page design, UX design case study, Pixel Mango portfolio"
+      url="/portfolio/puffy-homepage-redesign"
+      breadcrumbs={[
+        { name: 'Home', url: '/' },
+        { name: 'Portfolio', url: '/portfolio' },
+        { name: 'Puffy Homepage Redesign', url: '/portfolio/puffy-homepage-redesign' }
+      ]}
+    />
     <h1 className="text-3xl font-pixel text-mango-500 mb-6">Puffy Homepage Redesign</h1>
     <p className="text-lg text-gray-700 font-mono mb-6 text-center max-w-xl">
       We'll post the case study soon.<br />

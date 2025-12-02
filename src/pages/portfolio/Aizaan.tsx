@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { SEO } from '../../components/SEO';
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -26,7 +27,7 @@ const MasonryGallery = ({ images }) => {
   useEffect(() => {
     const handleKeyPress = (event) => {
       if (!selectedImage) return;
-      
+
       if (event.key === 'ArrowLeft') {
         event.preventDefault();
         goToPrevious();
@@ -53,7 +54,7 @@ const MasonryGallery = ({ images }) => {
     <>
       <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
         {images.map((image, index) => (
-          <div 
+          <div
             key={index}
             className="break-inside-avoid cursor-pointer group"
             onClick={() => openModal(image, index)}
@@ -77,7 +78,7 @@ const MasonryGallery = ({ images }) => {
 
       {/* Modal for full-size image */}
       {selectedImage && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
         >
@@ -87,9 +88,9 @@ const MasonryGallery = ({ images }) => {
               alt={selectedImage.alt}
               className="w-full h-auto object-contain rounded-lg"
             />
-            
 
-            
+
+
             {/* Close button */}
             <button
               onClick={() => setSelectedImage(null)}
@@ -97,7 +98,7 @@ const MasonryGallery = ({ images }) => {
             >
               ×
             </button>
-            
+
             {/* Previous arrow */}
             {images.length > 1 && (
               <button
@@ -110,7 +111,7 @@ const MasonryGallery = ({ images }) => {
                 <ChevronLeft size={20} />
               </button>
             )}
-            
+
             {/* Next arrow */}
             {images.length > 1 && (
               <button
@@ -123,7 +124,7 @@ const MasonryGallery = ({ images }) => {
                 <ChevronRight size={20} />
               </button>
             )}
-            
+
 
           </div>
         </div>
@@ -162,7 +163,7 @@ const Aizaan = () => {
       title: "Logo Development Process",
       category: "Logo Design"
     },
-    
+
     // Brand Guidelines & Assets
     {
       src: "/assets/Primary Branding Colors.png",
@@ -182,7 +183,7 @@ const Aizaan = () => {
       title: "Brand Pattern System",
       category: "Brand Guidelines"
     },
-    
+
     // Print Design & Collateral
     {
       src: "/assets/Two business cards mockup with natural colors for minimal branding design concept (1).png",
@@ -214,7 +215,7 @@ const Aizaan = () => {
       title: "Fabric Label Application",
       category: "Print Design"
     },
-    
+
     // Packaging Design
     {
       src: "/assets/Shopping Bag Mockup.png",
@@ -240,7 +241,7 @@ const Aizaan = () => {
       title: "Branded Tote Bag",
       category: "Merchandise"
     },
-    
+
     // Digital & Social Media
     {
       src: "/assets/Instagram Board.png",
@@ -251,10 +252,10 @@ const Aizaan = () => {
     {
       src: "/assets/Facebook Board.png",
       alt: "Aizaan Facebook Social Media Templates",
-      title: "Facebook Templates", 
+      title: "Facebook Templates",
       category: "Social Media"
     },
-    
+
     // Web Design
     {
       src: "/assets/website mockup.png",
@@ -262,7 +263,7 @@ const Aizaan = () => {
       title: "E-commerce Website Design",
       category: "Web Design"
     },
-    
+
     // Brand Strategy & Mood
     {
       src: "/assets/Moodboard.png",
@@ -273,78 +274,90 @@ const Aizaan = () => {
   ];
 
   const [selectedCategory, setSelectedCategory] = useState("All");
-  
+
   const categories = ["All", "Logo Design", "Brand Guidelines", "Print Design", "Packaging", "Merchandise", "Web Design", "Social Media", "Brand Strategy"];
-  
-  const filteredImages = selectedCategory === "All" 
-    ? galleryImages 
+
+  const filteredImages = selectedCategory === "All"
+    ? galleryImages
     : galleryImages.filter(img => img.category === selectedCategory);
 
   return (
-  <div className="min-h-screen bg-mango-50 flex flex-col">
-    <Header />
+    <div className="min-h-screen bg-mango-50 flex flex-col">
+      <SEO
+        title="Aizaan E-commerce Rebranding - Complete Brand Transformation Case Study"
+        description="Explore how Pixel Mango transformed Aizaan, a modest fashion retailer in Dhaka, with complete brand identity design, e-commerce website development, and social media branding."
+        keywords="Aizaan rebranding, e-commerce case study, modest fashion branding, hijab store branding, logo design case study, brand transformation, Pixel Mango portfolio"
+        url="/portfolio/aizaan-ecommerce-rebranding"
+        image="/assets/aizaan-logo.png"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Portfolio', url: '/portfolio' },
+          { name: 'Aizaan E-commerce Rebranding', url: '/portfolio/aizaan-ecommerce-rebranding' }
+        ]}
+      />
+      <Header />
 
-    <main className="flex-1 pt-28 pb-20 px-2 sm:px-6 flex flex-col items-center pixel-grid relative">
+      <main className="flex-1 pt-28 pb-20 px-2 sm:px-6 flex flex-col items-center pixel-grid relative">
         <div className="max-w-6xl w-full">
-        {/* Hero Section */}
-        <section className="mb-14">
-          <div className="pixel-card bg-white p-10 md:p-16 rounded-lg flex flex-col items-center border-mango-500 shadow-lg text-center">
-            <img 
-              src="/assets/aizaan-logo.png" 
-              alt="Aizaan Logo" 
-              className="w-32 h-auto md:w-44 mb-6" 
-              style={{ maxWidth: '100%', height: 'auto' }}
-            />
-            <span className="inline-block bg-mango-500 text-black font-pixel px-4 py-2 text-base mb-6">
+          {/* Hero Section */}
+          <section className="mb-14">
+            <div className="pixel-card bg-white p-10 md:p-16 rounded-lg flex flex-col items-center border-mango-500 shadow-lg text-center">
+              <img
+                src="/assets/aizaan-logo.png"
+                alt="Aizaan Logo"
+                className="w-32 h-auto md:w-44 mb-6"
+                style={{ maxWidth: '100%', height: 'auto' }}
+              />
+              <span className="inline-block bg-mango-500 text-black font-pixel px-4 py-2 text-base mb-6">
                 PORTFOLIO SHOWCASE
-            </span>
+              </span>
               <h1 className="text-4xl md:text-5xl font-pixel text-mango-500 mb-3">
-              Aizaan Ecommerce &amp; Rebranding
-            </h1>
+                Aizaan Ecommerce &amp; Rebranding
+              </h1>
               <p className="text-sm text-gray-700 font-mono mb-0">Complete Brand Transformation Gallery</p>
-          </div>
-        </section>
+            </div>
+          </section>
 
           {/* Project Overview - Kept from original */}
-        <BlockCard title="Project Overview">
-          <SubSection title="Introduction">
-            <p>
-              Aizaan, a retailer of hijabs, abayas, and modest fashion accessories in Dhaka, sought to redefine its brand identity and launch a modern e-commerce platform to capture the growing online market for modest fashion.
-            </p>
-          </SubSection>
-          <SubSection title="Goal">
-            <ul className="list-disc ">
-              <li>Create a cohesive, elegant brand identity</li>
-              <li>Deliver a seamless online shopping experience</li>
-              <li>Increase visibility, drive sales, and empower independent management</li>
-            </ul>
-            <p className="mt-3">
-              The primary goal was a cohesive, elegant brand identity and seamless shopping that would increase Aizaan's visibility, drive sales, and empower the team to manage the platform independently.
-            </p>
-          </SubSection>
-          <SubSection title="Problems">
-            <ul className="list-disc ">
-              <li>Outdated branding lacked cohesion, failing to resonate with modern consumers.</li>
-              <li>Website was not user-friendly, with poor navigation and no mobile optimization.</li>
-              <li>Limited social media presence hindered customer engagement and brand awareness.</li>
-            </ul>
-          </SubSection>
-          <SubSection title="Challenges">
-            <ul className="list-disc ">
-              <li>Tight timeline for exhibitions required rapid iteration and delivery.</li>
-              <li>Balancing aesthetic elegance with functional simplicity.</li>
-              <li>Ensuring the team could manage the site with minimal training.</li>
-            </ul>
-          </SubSection>
-          <SubSection title="Responsibilities">
-            <ul className="list-disc ">
-              <li>Conducted stakeholder interviews to define requirements.</li>
-              <li>Designed new logo, brand guidelines, and social media assets.</li>
-              <li>Created wireframes, prototypes, and high-fidelity mockups.</li>
-              <li>Developed the site on WordPress (WooCommerce), integrated payments, delivery and sales tracking.</li>
-            </ul>
-          </SubSection>
-        </BlockCard>
+          <BlockCard title="Project Overview">
+            <SubSection title="Introduction">
+              <p>
+                Aizaan, a retailer of hijabs, abayas, and modest fashion accessories in Dhaka, sought to redefine its brand identity and launch a modern e-commerce platform to capture the growing online market for modest fashion.
+              </p>
+            </SubSection>
+            <SubSection title="Goal">
+              <ul className="list-disc ">
+                <li>Create a cohesive, elegant brand identity</li>
+                <li>Deliver a seamless online shopping experience</li>
+                <li>Increase visibility, drive sales, and empower independent management</li>
+              </ul>
+              <p className="mt-3">
+                The primary goal was a cohesive, elegant brand identity and seamless shopping that would increase Aizaan's visibility, drive sales, and empower the team to manage the platform independently.
+              </p>
+            </SubSection>
+            <SubSection title="Problems">
+              <ul className="list-disc ">
+                <li>Outdated branding lacked cohesion, failing to resonate with modern consumers.</li>
+                <li>Website was not user-friendly, with poor navigation and no mobile optimization.</li>
+                <li>Limited social media presence hindered customer engagement and brand awareness.</li>
+              </ul>
+            </SubSection>
+            <SubSection title="Challenges">
+              <ul className="list-disc ">
+                <li>Tight timeline for exhibitions required rapid iteration and delivery.</li>
+                <li>Balancing aesthetic elegance with functional simplicity.</li>
+                <li>Ensuring the team could manage the site with minimal training.</li>
+              </ul>
+            </SubSection>
+            <SubSection title="Responsibilities">
+              <ul className="list-disc ">
+                <li>Conducted stakeholder interviews to define requirements.</li>
+                <li>Designed new logo, brand guidelines, and social media assets.</li>
+                <li>Created wireframes, prototypes, and high-fidelity mockups.</li>
+                <li>Developed the site on WordPress (WooCommerce), integrated payments, delivery and sales tracking.</li>
+              </ul>
+            </SubSection>
+          </BlockCard>
 
           {/* Portfolio Stats */}
           <BlockCard title="Project Scope & Deliverables">
@@ -373,7 +386,7 @@ const Aizaan = () => {
             <p className="mb-8 text-gray-600 font-mono">
               Explore the complete transformation of Aizaan's brand identity through our comprehensive design system. Filter by category to view specific aspects of the rebranding project.
             </p>
-            
+
             {/* Category Filter */}
             <div className="mb-8">
               <div className="flex flex-wrap justify-center gap-3">
@@ -381,35 +394,34 @@ const Aizaan = () => {
                   <button
                     key={category}
                     onClick={() => setSelectedCategory(category)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium font-mono transition-all ${
-                      selectedCategory === category
-                        ? "bg-gradient-to-r from-amber-400 to-orange-500 text-white shadow-lg"
-                        : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
-                    }`}
+                    className={`px-4 py-2 rounded-full text-sm font-medium font-mono transition-all ${selectedCategory === category
+                      ? "bg-gradient-to-r from-amber-400 to-orange-500 text-white shadow-lg"
+                      : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+                      }`}
                   >
                     {category}
                   </button>
                 ))}
-                </div>
+              </div>
               <div className="text-center mt-4 text-sm text-gray-500 font-mono">
                 Showing {filteredImages.length} of {galleryImages.length} assets
               </div>
             </div>
-            
-            <MasonryGallery images={filteredImages} />
-        </BlockCard>
 
-        {/* Project Impact */}
-        <BlockCard title="Project Impact" className="bg-white border-mango-500">
+            <MasonryGallery images={filteredImages} />
+          </BlockCard>
+
+          {/* Project Impact */}
+          <BlockCard title="Project Impact" className="bg-white border-mango-500">
             <p className="text-gray-600 font-mono">
               To Be Posted Soon.
             </p>
-        </BlockCard>
-      </div>
-    </main>
-    <Footer />
-  </div>
-);
+          </BlockCard>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
 };
 
 export default Aizaan;

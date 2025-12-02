@@ -1,0 +1,84 @@
+{
+  "name": "Pixel Mango - Creative Branding Agency",
+  "short_name": "Pixel Mango",
+  "description": "Premium branding, web design, and creative services for small to medium-sized businesses. Transform your business with pixel-perfect designs.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FF9500",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["business", "design", "productivity"],
+  "iarc_rating_id": "",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Pixel Mango Homepage"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Brand Identity Design",
+      "short_name": "Branding",
+      "description": "Transform your business with powerful brand identity",
+      "url": "/services/brand-identity",
+      "icons": [{ "src": "/favicon-32x32.png", "sizes": "32x32" }]
+    },
+    {
+      "name": "Contact Us",
+      "short_name": "Contact",
+      "description": "Get in touch with our team",
+      "url": "/support/contact-us",
+      "icons": [{ "src": "/favicon-32x32.png", "sizes": "32x32" }]
+    },
+    {
+      "name": "Portfolio",
+      "short_name": "Work",
+      "description": "View our recent projects",
+      "url": "/portfolio/aizaan-ecommerce-rebranding",
+      "icons": [{ "src": "/favicon-32x32.png", "sizes": "32x32" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
+

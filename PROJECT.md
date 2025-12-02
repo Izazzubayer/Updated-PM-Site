@@ -251,3 +251,33 @@ Potential areas for expansion:
 
 *This documentation reflects the current state of the Pixel Mango platform as a comprehensive creative services website built with modern web technologies and a unique pixel-art design aesthetic.*
 
+## File Architecture
+
+```
+Updated-PM-Site/
+├── public/
+│   ├── assets/
+│   ├── custom-font/
+│   ├── favicon.ico
+│   └── robots.txt
+├── src/
+│   ├── components/
+│   ├── custom-assets/
+│   ├── hooks/
+│   ├── i18n/
+│   ├── lib/
+│   ├── pages/
+│   ├── providers/
+│   ├── App.css
+│   ├── App.tsx
+│   ├── index.css
+│   └── main.tsx
+├── PROJECT.md
+├── README.md
+├── index.html
+├── package.json
+├── tailwind.config.ts
+├── tsconfig.json
+└── vite.config.ts
+```
+

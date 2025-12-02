@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { SEO } from '../components/SEO';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ScrollToTop from '../components/ScrollToTop';
@@ -7,9 +8,19 @@ import ScrollToTop from '../components/ScrollToTop';
 const CookiePolicy = () => {
   return (
     <div className="min-h-screen bg-white font-product">
+      <SEO
+        title="Cookie Policy - How We Use Cookies"
+        description="Understand how Pixel Mango uses cookies to improve your browsing experience. We value transparency - learn about essential, analytics, and preference cookies."
+        keywords="cookie policy, cookies usage, privacy, Pixel Mango cookies, website cookies, analytics cookies"
+        url="/cookie-policy"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Cookie Policy', url: '/cookie-policy' }
+        ]}
+      />
       <Header />
       <ScrollToTop />
-      
+
       <main className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">

@@ -1,14 +1,74 @@
+# Pixel Mango - robots.txt
+# https://pixelmango.studio
+
+# Allow all major search engines full access
 User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
 Allow: /
 
 User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 3
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# Social Media Crawlers
+User-agent: facebookexternalhit
 Allow: /
 
 User-agent: Twitterbot
 Allow: /
 
-User-agent: facebookexternalhit
+User-agent: LinkedInBot
 Allow: /
 
+User-agent: Pinterest
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Default rule for all other bots
 User-agent: *
 Allow: /
+Crawl-delay: 2
+
+# Disallow authentication and utility pages
+Disallow: /signin
+Disallow: /signup
+Disallow: /forgot-password
+Disallow: /account-confirmation
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /admin/
+
+# Allow CSS and JS for rendering
+Allow: /src/*.css
+Allow: /src/*.js
+Allow: /assets/
+
+# Sitemap location
+Sitemap: https://pixelmango.studio/sitemap.xml
+
+# Host directive (canonical domain)
+Host: https://pixelmango.studio

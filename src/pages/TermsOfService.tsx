@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { SEO } from '../components/SEO';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ScrollToTop from '../components/ScrollToTop';
@@ -7,6 +8,16 @@ import ScrollToTop from '../components/ScrollToTop';
 const TermsOfService = () => {
   return (
     <div className="min-h-screen bg-white font-product">
+      <SEO
+        title="Terms of Service - Usage Guidelines & Policies"
+        description="Read Pixel Mango's Terms of Service. Understand our usage guidelines, intellectual property policies, payments, and service availability terms."
+        keywords="terms of service, terms and conditions, usage policy, Pixel Mango terms, legal terms"
+        url="/terms-of-service"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Terms of Service', url: '/terms-of-service' }
+        ]}
+      />
       <Header />
       <ScrollToTop />
       
