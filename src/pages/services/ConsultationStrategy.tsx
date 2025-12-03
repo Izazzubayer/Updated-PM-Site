@@ -21,29 +21,25 @@ const ConsultationStrategy = () => {
       step: "01",
       title: "Discovery & Assessment",
       description: "Deep dive into your business, analyzing current state, challenges, and opportunities through comprehensive audits.",
-      icon: Search,
-      duration: "5-7 days"
+      icon: Search
     },
     {
       step: "02",
       title: "Strategic Planning",
       description: "Develop customized strategies based on market research, competitive analysis, and your business objectives.",
-      icon: Brain,
-      duration: "10-14 days"
+      icon: Brain
     },
     {
       step: "03",
       title: "Roadmap Creation",
       description: "Create detailed implementation roadmaps with timelines, milestones, and resource allocation plans.",
-      icon: FileText,
-      duration: "7-10 days"
+      icon: FileText
     },
     {
       step: "04",
       title: "Implementation Support",
       description: "Provide ongoing guidance and support during strategy execution with regular check-ins and adjustments.",
-      icon: Users,
-      duration: "Ongoing"
+      icon: Users
     }
   ];
 
@@ -322,7 +318,7 @@ const ConsultationStrategy = () => {
           <div className="space-y-8">
             {processSteps.map((step, index) => (
               <div key={index} className="pixel-card bg-white p-8">
-                <div className="grid lg:grid-cols-4 gap-6 items-center">
+                <div className="grid lg:grid-cols-3 gap-6 items-center">
                   <div className="lg:col-span-1">
                     <div className="flex items-center space-x-4">
                       <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center">
@@ -334,12 +330,6 @@ const ConsultationStrategy = () => {
                   <div className="lg:col-span-2">
                     <h3 className="text-2xl font-pixel text-black mb-3">{step.title}</h3>
                     <p className="text-gray-600 font-mono leading-relaxed">{step.description}</p>
-                  </div>
-                  <div className="lg:col-span-1 text-right">
-                    <div className="inline-flex items-center space-x-2 bg-black text-mango-500 px-4 py-2 font-pixel text-sm">
-                      <Clock className="w-4 h-4" />
-                      <span>{step.duration}</span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -412,7 +402,6 @@ const ConsultationStrategy = () => {
                   </li>
                 ))}
               </ul>
-              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
 
             {/* Professional Package */}
@@ -429,7 +418,6 @@ const ConsultationStrategy = () => {
                   </li>
                 ))}
               </ul>
-              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
 
             {/* Enterprise Package */}
@@ -443,7 +431,6 @@ const ConsultationStrategy = () => {
                   </li>
                 ))}
               </ul>
-              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
           </div>
         </div>

@@ -12,29 +12,25 @@ const BrandIdentityDesign = () => {
       step: "01",
       title: "Discovery & Research",
       description: "We dive deep into your business, target audience, and competitive landscape to understand your unique positioning.",
-      icon: Target,
-      duration: "2-3 days"
+      icon: Target
     },
     {
       step: "02",
       title: "Brand Strategy",
       description: "Define your brand personality, values, and messaging that will resonate with your target audience.",
-      icon: Users,
-      duration: "3-5 days"
+      icon: Users
     },
     {
       step: "03",
       title: "Visual Identity Creation",
       description: "Design your logo, color palette, typography, and visual elements that bring your brand to life.",
-      icon: Palette,
-      duration: "7-10 days"
+      icon: Palette
     },
     {
       step: "04",
       title: "Brand Guidelines",
       description: "Create comprehensive brand guidelines to ensure consistent application across all touchpoints.",
-      icon: Shield,
-      duration: "2-3 days"
+      icon: Shield
     }
   ];
 
@@ -238,7 +234,7 @@ const BrandIdentityDesign = () => {
           <div className="space-y-8">
             {processSteps.map((step, index) => (
               <div key={index} className="pixel-card bg-white p-8">
-                <div className="grid lg:grid-cols-4 gap-6 items-center">
+                <div className="grid lg:grid-cols-3 gap-6 items-center">
                   <div className="lg:col-span-1">
                     <div className="flex items-center space-x-4">
                       <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center">
@@ -250,12 +246,6 @@ const BrandIdentityDesign = () => {
                   <div className="lg:col-span-2">
                     <h3 className="text-2xl font-pixel text-black mb-3">{step.title}</h3>
                     <p className="text-gray-600 font-mono leading-relaxed">{step.description}</p>
-                  </div>
-                  <div className="lg:col-span-1 text-right">
-                    <div className="inline-flex items-center space-x-2 bg-black text-mango-500 px-4 py-2 font-pixel text-sm">
-                      <Clock className="w-4 h-4" />
-                      <span>{step.duration}</span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -322,7 +312,6 @@ const BrandIdentityDesign = () => {
                   </li>
                 ))}
               </ul>
-              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
 
             {/* Professional Package */}
@@ -340,7 +329,6 @@ const BrandIdentityDesign = () => {
                   </li>
                 ))}
               </ul>
-              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
 
             {/* Premium Package */}
@@ -355,7 +343,6 @@ const BrandIdentityDesign = () => {
                   </li>
                 ))}
               </ul>
-              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
           </div>
         </div>

@@ -12,29 +12,25 @@ const UIUXDesign = () => {
       step: "01",
       title: "Discovery & Research",
       description: "Deep dive into your business goals, user needs, and market analysis to create a solid foundation for design decisions.",
-      icon: Brain,
-      duration: "5-7 days"
+      icon: Brain
     },
     {
       step: "02",
       title: "User Experience Strategy",
       description: "Develop user personas, journey maps, and information architecture to optimize the user experience.",
-      icon: Users,
-      duration: "7-10 days"
+      icon: Users
     },
     {
       step: "03",
       title: "Wireframing & Prototyping",
       description: "Create low and high-fidelity wireframes and interactive prototypes to validate design concepts.",
-      icon: Layers,
-      duration: "10-14 days"
+      icon: Layers
     },
     {
       step: "04",
       title: "Visual Design & Testing",
       description: "Apply visual design principles, create the final UI, and conduct usability testing for optimization.",
-      icon: Palette,
-      duration: "14-21 days"
+      icon: Palette
     }
   ];
 
@@ -288,7 +284,7 @@ const UIUXDesign = () => {
           <div className="space-y-8">
             {processSteps.map((step, index) => (
               <div key={index} className="pixel-card bg-white p-8">
-                <div className="grid lg:grid-cols-4 gap-6 items-center">
+                <div className="grid lg:grid-cols-3 gap-6 items-center">
                   <div className="lg:col-span-1">
                     <div className="flex items-center space-x-4">
                       <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center">
@@ -300,12 +296,6 @@ const UIUXDesign = () => {
                   <div className="lg:col-span-2">
                     <h3 className="text-2xl font-pixel text-black mb-3">{step.title}</h3>
                     <p className="text-gray-600 font-mono leading-relaxed">{step.description}</p>
-                  </div>
-                  <div className="lg:col-span-1 text-right">
-                    <div className="inline-flex items-center space-x-2 bg-black text-mango-500 px-4 py-2 font-pixel text-sm">
-                      <Clock className="w-4 h-4" />
-                      <span>{step.duration}</span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -378,7 +368,6 @@ const UIUXDesign = () => {
                   </li>
                 ))}
               </ul>
-              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
 
             {/* Professional Package */}
@@ -395,7 +384,6 @@ const UIUXDesign = () => {
                   </li>
                 ))}
               </ul>
-              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
 
             {/* Enterprise Package */}
@@ -409,7 +397,6 @@ const UIUXDesign = () => {
                   </li>
                 ))}
               </ul>
-              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
           </div>
         </div>

@@ -21,29 +21,25 @@ const WebsiteDevelopment = () => {
       step: "01",
       title: "Planning & Strategy",
       description: "Define project requirements, target audience, and technical architecture for optimal performance.",
-      icon: Users,
-      duration: "3-5 days"
+      icon: Users
     },
     {
       step: "02",
       title: "Design & Prototyping",
       description: "Create wireframes, mockups, and interactive prototypes that align with your brand identity.",
-      icon: Palette,
-      duration: "7-10 days"
+      icon: Palette
     },
     {
       step: "03",
       title: "Development & Testing",
       description: "Build responsive, fast-loading websites with clean code and comprehensive testing.",
-      icon: Code,
-      duration: "14-21 days"
+      icon: Code
     },
     {
       step: "04",
       title: "Launch & Optimization",
       description: "Deploy your website, optimize for search engines, and provide ongoing support.",
-      icon: Zap,
-      duration: "3-5 days"
+      icon: Zap
     }
   ];
 
@@ -326,7 +322,7 @@ const WebsiteDevelopment = () => {
           <div className="space-y-8">
             {processSteps.map((step, index) => (
               <div key={index} className="pixel-card bg-white p-8">
-                <div className="grid lg:grid-cols-4 gap-6 items-center">
+                <div className="grid lg:grid-cols-3 gap-6 items-center">
                   <div className="lg:col-span-1">
                     <div className="flex items-center space-x-4">
                       <div className="w-16 h-16 bg-mango-500 border-2 border-black flex items-center justify-center">
@@ -338,12 +334,6 @@ const WebsiteDevelopment = () => {
                   <div className="lg:col-span-2">
                     <h3 className="text-2xl font-pixel text-black mb-3">{step.title}</h3>
                     <p className="text-gray-600 font-mono leading-relaxed">{step.description}</p>
-                  </div>
-                  <div className="lg:col-span-1 text-right">
-                    <div className="inline-flex items-center space-x-2 bg-black text-mango-500 px-4 py-2 font-pixel text-sm">
-                      <Clock className="w-4 h-4" />
-                      <span>{step.duration}</span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -416,7 +406,6 @@ const WebsiteDevelopment = () => {
                   </li>
                 ))}
               </ul>
-              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
 
             {/* Professional Package */}
@@ -433,7 +422,6 @@ const WebsiteDevelopment = () => {
                   </li>
                 ))}
               </ul>
-              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
 
             {/* Enterprise Package */}
@@ -447,7 +435,6 @@ const WebsiteDevelopment = () => {
                   </li>
                 ))}
               </ul>
-              <a href="/" onClick={e => { e.preventDefault(); document.getElementById('quick-intake-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} className="w-full pixel-button font-pixel block text-center cursor-pointer">GET STARTED</a>
             </div>
           </div>
         </div>
